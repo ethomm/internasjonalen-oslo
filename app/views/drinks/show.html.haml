@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @drink.title
+%p
+  %b Description:
+  = @drink.description
+%p
+  %b Slug:
+  = @drink.slug
+%p
+  %b Price:
+  = @drink.price
+%p
+  %b Category:
+  = @drink.category
+
+= link_to 'Edit', edit_drink_path(@drink)
+\|
+= link_to 'Back', drinks_path

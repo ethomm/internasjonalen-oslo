@@ -1,0 +1,19 @@
+= form_for @omoss do |f|
+  - if @omoss.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@omoss.errors.count, "error")} prohibited this omoss from being saved:"
+      %ul
+        - @omoss.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :ingress
+    = f.text_area :ingress
+  .field
+    = f.label :body
+    = f.text_area :body
+  .actions
+    = f.submit 'Save'

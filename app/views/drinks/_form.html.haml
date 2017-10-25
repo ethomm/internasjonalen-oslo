@@ -1,0 +1,29 @@
+= form_for @drink do |f|
+  - if @drink.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@drink.errors.count, "error")} prohibited this drink from being saved:"
+      %ul
+        - @drink.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :slug
+    = f.text_field :slug
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    %label
+      Kategori
+      -if @category.count > 0
+        = f.select(:category_id, @category.collect{|kategori| [kategori.title, kategori.id]}, {include_blank: "Velg Kategori"}, {class: 'custom-select'})
+      -else
+        Du må opprette minst en kategori
+  .actions
+    = f.submit 'Save'

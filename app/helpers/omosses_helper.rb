@@ -1,0 +1,2 @@
+module OmossesHelper
+end

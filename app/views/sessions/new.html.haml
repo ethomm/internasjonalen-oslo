@@ -1,0 +1,21 @@
+%div.container.pt-4
+	.row.pt-3.justify-content-center
+		.col-lg-4.col-md-6.col-10
+			= render 'partials/interlogo.svg'
+	.row.justify-content-center.pt-3
+		%div.col-lg-6.col-md-8.pt-4
+			.col-12
+				=form_for(:session, url: login_path) do |f|
+					.col.pt-2
+						= f.label "E-post"
+						= f.text_field :email , class: 'form-control'
+					.col.pt-2
+						= f.label "Passord"
+						= f.password_field :password, class: 'form-control'
+					.col.pt-2
+						= f.label :remember_me, class: 'checkbox inline' do
+							=f.check_box :remember_me
+							%span
+								Husk meg på denne maskinen
+					.col.pt-2
+						= f.submit 'Logg inn', class: 'btn btn-outline-success form-control'
