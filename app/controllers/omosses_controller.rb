@@ -1,4 +1,5 @@
 class OmossesController < ApplicationController
+  before_action :authenticate_user
   before_action :set_omoss, only: [:edit, :update]
 
   # GET /omosses/1/edit
