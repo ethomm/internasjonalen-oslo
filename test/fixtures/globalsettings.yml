@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mandag: false
+  tirsdag: false
+  onsdag: 
+  torsdag: false
+  fredag: false
+  lørdag: false
+  søndag: false
+  mandaghour: 1
+  mandagminute: 1
+  tirsdaghour: 1
+  tirsdagminute: 1
+  onsdaghour: 1
+  onsdagminute: 1
+  torsdaghour: 1
+  torsdagminute: 1
+  fredaghour: 1
+  fredagminute: 1
+  lørdaghour: 1
+  lørdagminute: 1
+  søndaghour: 1
+  søndagminute: 1
+
+two:
+  mandag: false
+  tirsdag: false
+  onsdag: 
+  torsdag: false
+  fredag: false
+  lørdag: false
+  søndag: false
+  mandaghour: 1
+  mandagminute: 1
+  tirsdaghour: 1
+  tirsdagminute: 1
+  onsdaghour: 1
+  onsdagminute: 1
+  torsdaghour: 1
+  torsdagminute: 1
+  fredaghour: 1
+  fredagminute: 1
+  lørdaghour: 1
+  lørdagminute: 1
+  søndaghour: 1
+  søndagminute: 1

@@ -5,15 +5,25 @@
       %ul
         - @omoss.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :ingress
-    = f.text_area :ingress
-  .field
-    = f.label :body
-    = f.text_area :body
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-12.pt-3
+      %strong
+        = f.label :title
+      = f.text_field :title, :class => 'form-control'
+    .col-12.pt-3
+      %strong
+        = f.label :ingress
+      = f.text_area :ingress, :class => 'form-control'
+    .col-12.pt-3
+      %strong
+        = f.label :body
+      = f.text_area :body, :class => 'form-control'
+  .row
+    .col-6.pt-3
+      = link_to administrator_path do
+        %button.btn.btn-warning.btn-block
+          %i.fa.fa-reply{"aria-hidden" => "true"}
+          Tilbake
+      
+    .col-6.pt-3
+      = f.submit 'Lagre', :class => 'btn btn-success btn-block'

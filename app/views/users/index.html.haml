@@ -1,25 +1,32 @@
-%h1 Listing users
+.row.justify-content-center
+  .col-md-8.col-lg-5.col-12
+    
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Email
-      %th Admin
-      %th
-      %th
-      %th
-
-  %tbody
+.row.justify-content-center.mt-4
+  .col-md-8.col-lg-5.col-12
+    %h2
+      Brukere
     - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.email
-        %td= user.admin
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+      .row.mb-2
+        .col-7.p-3.bg-info.text-white
+          %i.fa.fa-user{"aria-hidden" => "true"}
+          |
+          = user.name
+        =link_to edit_user_path(user) do
+          .col.p-3.bg-warning.text-dark
+            Rediger
+        - unless user.admin or user.id == current_user.id
+          = link_to user, method: :delete, data: { confirm: 'Er du sikker?' } do
+            .col.p-3.bg-danger.text-white
+              Slett
+.row.justify-content-center.no-gutters.m-0.p-0
+  .col-md-8.col-lg-5.col-12.m-0.p-0
+    = link_to administrator_path do
+      %button.btn.btn-outline-warning
+        %i.fa.fa-reply{"aria-hidden" => "true"}
+        Tilbake
+    = link_to new_user_path do
+      %button.btn.btn-outline-success
+        %i.fa.fa-plus{"aria-hidden" => "true"}
+        Ny Bruker
+        

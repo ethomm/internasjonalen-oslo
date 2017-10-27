@@ -7,17 +7,11 @@
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	%body
-		%nav
-			#nav-icon2
-				%span
-				%span
-				%span
-				%span
-				%span
-				%span
-				
-			- if logged_in?
-				= link_to "logg ut", logout_path, method: :delete
-		= yield
+		.container.mt-4
+			.row.justify-content-center
+				.col-10.col-md-5.col-lg-3
+					= render 'partials/interlogo.svg'
+		.container	
+			= yield
 		.container.pt-5
 			= debug(params) if Rails.env.development?

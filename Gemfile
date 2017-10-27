@@ -12,6 +12,9 @@ gem "haml-rails", "~> 1.0"
 # Bootstrap
 gem 'bootstrap', '~> 4.0.0.beta2'
 
+# FontAwesome
+gem 'font-awesome-sass'
+
 # Jquery
 gem 'jquery-rails'
 # Security

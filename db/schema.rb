@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025212745) do
+ActiveRecord::Schema.define(version: 20171026194442) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -29,6 +29,54 @@ ActiveRecord::Schema.define(version: 20171025212745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_drinks_on_category_id"
+  end
+
+  create_table "globalsettings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "mandag"
+    t.boolean "tirsdag"
+    t.boolean "onsdag"
+    t.boolean "torsdag"
+    t.boolean "fredag"
+    t.boolean "lørdag"
+    t.boolean "søndag"
+    t.integer "mandaghour"
+    t.integer "mandagminute"
+    t.integer "tirsdaghour"
+    t.integer "tirsdagminute"
+    t.integer "onsdaghour"
+    t.integer "onsdagminute"
+    t.integer "torsdaghour"
+    t.integer "torsdagminute"
+    t.integer "fredaghour"
+    t.integer "fredagminute"
+    t.integer "lørdaghour"
+    t.integer "lørdagminute"
+    t.integer "søndaghour"
+    t.integer "søndagminute"
+    t.integer "aldersgrense"
+    t.string "adresse"
+    t.string "postnr"
+    t.string "poststed"
+    t.string "epost"
+    t.string "telefonnr"
+    t.integer "singleton_guard"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "mandagclosinghour"
+    t.integer "mandagclosingminute"
+    t.integer "tirsdagclosinghour"
+    t.integer "tirsdagclosingminute"
+    t.integer "onsdagclosinghour"
+    t.integer "onsdagclosingminute"
+    t.integer "torsdagclosinghour"
+    t.integer "torsdagclosingminute"
+    t.integer "fredagclosinghour"
+    t.integer "fredagclosingminute"
+    t.integer "lørdagclosinghour"
+    t.integer "lørdagclosingminute"
+    t.integer "søndagclosinghour"
+    t.integer "søndagclosingminute"
+    t.index ["singleton_guard"], name: "index_globalsettings_on_singleton_guard", unique: true
   end
 
   create_table "omosses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

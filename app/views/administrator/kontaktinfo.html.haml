@@ -1,0 +1,30 @@
+.container
+	.row.justify-content-center
+		.col-12.col-md-6.col-lg-4
+			= form_for @setting do |f|
+				.row.mt-3
+					.col-12
+						= f.text_field :adresse, :class => "form-control", :placeholder => 'Sett gatenavn og nummer'
+				.row.justify-content-between.mt-3
+					.col-5
+						= f.text_field :postnr, :class => "form-control", :placeholder => 'Postnr'
+					.col-5
+						= f.text_field :poststed, :class => "form-control", :placeholder => 'poststed'
+				.row.mt-3
+					.col-12.input-group.input-group-lg
+						%span#email.input-group-addon
+							@
+						= f.email_field :epost, :class => "form-control", "aria-describedby" => "email"
+				.row.mt-3
+					.col-12.input-group.input-group-lg
+						%span#phone.input-group-addon
+							+47
+						= f.telephone_field :telefonnr, :class => "form-control", "aria-describedby" => "phone"
+
+				.row.mt-3
+					.col-12.pt-2
+						= link_to administrator_path do
+							%button.btn.btn-warning
+								%i.fa.fa-reply{"aria-hidden" => "true"}
+								Tilbake
+						= f.submit 'Lagre', :class => 'btn btn-success'

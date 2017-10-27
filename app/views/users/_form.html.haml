@@ -6,17 +6,25 @@
         - @user.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :password
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .actions
-    = f.submit 'Save'
+  .input-group.input-group-lg.mb-3.mt-4
+    %span#person.input-group-addon
+      %i.fa.fa-user-o{"aria-hidden" => "true"}
+    = f.text_field :name, :class => "form-control", "aria-describedby" => "person"
+  .input-group.input-group-lg.mb-3
+    %span#email.input-group-addon
+      @
+    = f.text_field :email, :class => "form-control", "aria-describedby" => "email"
+  .input-group.input-group-lg.mb-3
+    %span#password.input-group-addon
+      %i.fa.fa-key{"aria-hidden" => "true"}
+    = f.password_field :password, :class => "form-control", "aria-describedby" => "password", :placeholder => "Passord"
+  .input-group.input-group-lg.mb-3
+    %span#passwordconfirmation.input-group-addon
+      **
+    = f.password_field :password_confirmation, :class => "form-control", "aria-describedby" => "passwordconfirmation", :placeholder => "Bekreft passord"
+  .actions.mb-3
+    = f.submit 'Lagre', :class => "btn btn-lg btn-outline-success btn-block"
+  = link_to users_path do
+    .div.btn.btn-outline-warning.btn-block.btn-lg
+      Tilbake
+

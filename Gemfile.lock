@@ -80,6 +80,8 @@ GEM
     ffi (1.9.18-java)
     ffi (1.9.18-x64-mingw32)
     ffi (1.9.18-x86-mingw32)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -240,6 +242,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  font-awesome-sass
   haml
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)

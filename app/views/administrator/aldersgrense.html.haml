@@ -1,0 +1,21 @@
+.container
+	.row.justify-content-center
+		.col-12.col-md-6.col-lg-4
+			= form_for @setting do |f|
+				.row.mt-4
+					.col-7.pt-2
+						%h2
+							Aldersgrense
+						.input-group
+							=f.number_field :aldersgrense, :class => "form-control", 'aria-describedby' =>  "aar"
+							%span.input-group-addon#aar
+								år
+
+				.row.mt-3
+					.col-12.pt-2
+						= link_to administrator_path do
+							%button.btn.btn-warning
+								%i.fa.fa-reply{"aria-hidden" => "true"}
+								Tilbake
+						= f.submit 'Lagre', :class => 'btn btn-success'
+	

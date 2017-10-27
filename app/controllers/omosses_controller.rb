@@ -4,6 +4,7 @@ class OmossesController < ApplicationController
 
   # GET /omosses/1/edit
   def edit
+    render layout: 'admin'
   end
 
   # PATCH/PUT /omosses/1

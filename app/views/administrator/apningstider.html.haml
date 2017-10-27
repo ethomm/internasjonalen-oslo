@@ -1,0 +1,52 @@
+.container
+	.row.justify-content-center
+		.col-12.col-md-8.col-lg-6
+			= form_for @setting do |f|
+				.row.mt-3
+					.col-12.col-md-8.col-lg-6.form-check.border.border-light.p-3.mb-2.bg-warning.text-white
+						%h3
+							Dager åpent
+						.col-12
+							.row.mt-1
+								.col-6
+									Mandag
+								.col-6
+									= f.select :mandag, [['Åpent', true], ['Stengt', false]], { :selected => @setting.mandag }, {class: "form-control"} 
+						.col-12
+							.row.mt-1
+								.col-6
+									Tirsdag
+								.col-6
+									= f.select :tirsdag, [['Åpent', true], ['Stengt', false]], { :selected => @setting.tirsdag}, {class: "form-control"} 
+						.col-12
+							.row.mt-1
+								.col-6
+									Ondag
+								.col-6
+									= f.select :onsdag, [['Åpent', true], ['Stengt', false]], { :selected => @setting.onsdag}, {class: "form-control"} 
+						.col-12
+							.row.mt-1
+								.col-6
+									Torsdag
+								.col-6
+									= f.select :torsdag, [['Åpent', true], ['Stengt', false]], { :selected => @setting.torsdag}, {class: "form-control"} 
+						.col-12
+							.row.mt-1
+								.col-6
+									Fredag
+								.col-6
+									= f.select :fredag, [['Åpent', true], ['Stengt', false]], { :selected => @setting.fredag}, {class: "form-control"} 
+						.col-12
+							.row.mt-1
+								.col-6
+									Lørdag
+								.col-6
+									= f.select :lørdag, [['Åpent', true], ['Stengt', false]], { :selected => @setting.lørdag}, {class: "form-control"} 
+						.col-12
+							.row.mt-1
+								.col-6
+									Søndag
+								.col-6
+									= f.select :søndag, [['Åpent', true], ['Stengt', false]], { :selected => @setting.søndag}, {class: "form-control"} 
+				.row.mt-3
+					= f.submit 'lagre', :class => "btn btn-outline-success"
