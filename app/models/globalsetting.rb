@@ -1,10 +1,10 @@
 class Globalsetting < ApplicationRecord
 
 	def openingtimes
-		startdivs = "<div class='row'><div class='col-4'>"
-		stengtdivs = "</div><div class='col-8'>Stengt</div></div>"
+		startdivs = "<div class='row'><div class='col-6'>"
+		stengtdivs = "</div><div class='col-6 text-right'>Stengt</div></div>"
 		enddivs = "</div></div>"
-		mellomdivs = "</div><div class='col-8'>"
+		mellomdivs = "</div><div class='col-6 text-right'>"
 		tosign = " - "
 		text = ""
 

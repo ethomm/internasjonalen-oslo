@@ -1,4 +1,23 @@
 %h1 Pages#home
 %p Find me in app/views/pages/home.html.haml
 .container
-	= @setting.openingtimes.html_safe
+	.row
+		.col-4
+			.row
+				.col-12
+					= @setting.openingtimes.html_safe
+			.row.text-right
+				.col-12
+					Aldersgrense:
+					%strong
+						=@setting.aldersgrense
+					år
+		%address.col-4
+			= @setting.adresse
+			%br
+			= @setting.postnr
+			= @setting.poststed
+			%br
+			= @setting.epost
+
+
