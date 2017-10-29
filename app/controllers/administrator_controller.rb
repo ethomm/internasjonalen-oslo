@@ -65,4 +65,5 @@ class AdministratorController < ApplicationController
   											telefonnr: '22222222')
   			end
   		end
+  	
 end

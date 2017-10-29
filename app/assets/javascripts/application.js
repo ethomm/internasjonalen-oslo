@@ -18,8 +18,40 @@
 //= require_tree .
 
 
-$(document).ready(function(){
+$( document ).on('turbolinks:load', function() {
 	$('#nav-icon2').click(function(){
 		$(this).toggleClass('open');
 	});
+	// checks if any inputs has the class apeningstider
+	if($('input').hasClass('apningstider')){
+		setDoubleInteger();
+	}
+
+	// Makes shure to not bloat the input field with class apningstider
+	$('.apningstider').on('focusout', function(){
+		if(this.value == 0){
+    		this.value = "00";
+    	}else if(this.value > 0 && this.value < 10){
+    		var value = this.value.toString();
+    		var newvalue = "0" + value;
+    		//console.log(newvalue.length)
+    		if(newvalue.length == 2){
+    			this.value = "0"+value;
+    		}
+    		
+    	}
+	});
+
 });
+
+// Function to correct the inputfields of apningstider to double digets
+function setDoubleInteger(){
+	$(".apningstider").each(function() {
+    	if(this.value == 0){
+    		this.value = "00";
+    	}else if(this.value > 0 && this.value < 10){
+    		var value = this.value.toString();
+    		this.value = "0"+value;
+    	}
+	});
+}

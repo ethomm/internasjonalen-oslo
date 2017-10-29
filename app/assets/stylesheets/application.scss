@@ -23,6 +23,15 @@ $gray-medium-light: #eaeaea;
 	box-sizing: border-box;
 }
 
+/* Form styling */
+
+input.apningstider {
+  border: solid thin #ccc;
+  border-radius: 2px;
+  padding: 3px;
+  text-align: center;
+}
+
 /*  Miscellaneous */
 
 .debaug_dump{
