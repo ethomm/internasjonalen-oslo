@@ -69,7 +69,6 @@ class Globalsetting < ApplicationRecord
 		end
 		
 		#Tirsdag
-		#Cheking for Tuesday  closed streak
 		if self.tirsdag == false and self.mandag != false
 			if self.onsdag == false
 				if self.torsdag == false
@@ -92,7 +91,7 @@ class Globalsetting < ApplicationRecord
 			elsif self.mandag != false
 				text << startdivs + "Tirsdag" + stengtdivs
 			end	
-		elsif self.mandag == false or self.mondayopens != self.thursdayopens and self.tirsdag != false
+		elsif self.mandag == false or self.mondayopens != self.tuesdayopens or self.mondaycloses != self.tuesdaycloses and self.tirsdag != false
 			if self.tuesdayopens == self.wednesdayopens and self.tuesdaycloses == self.wednesdaycloses and self.onsdag != false
 				#Torsdag
 				if self.tuesdayopens == self.thursdayopens and self.tuesdaycloses == self.thursdaycloses and self.torsdag != false
