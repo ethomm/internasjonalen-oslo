@@ -21,6 +21,7 @@
 $( document ).on('turbolinks:load', function() {
 	$('#nav-icon2').click(function(){
 		$(this).toggleClass('open');
+		$('#mobilemenu').toggle('slow');
 	});
 	// checks if any inputs has the class apeningstider
 	if($('input').hasClass('apningstider')){

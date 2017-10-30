@@ -19,7 +19,7 @@ class DrinksController < ApplicationController
     @drink = Drink.new(drink_params)
     respond_to do |format|
       if @drink.save
-        format.html { redirect_to administrator_menykategory_path(:id => @drink.category_id), notice: 'Drink was successfully created.' }
+        format.html { redirect_to administrator_menykategori_url(:id => @drink.category_id), notice: 'Drink was successfully created.' }
         format.json { render :show, status: :created, location: @drink }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class DrinksController < ApplicationController
   def update
     respond_to do |format|
       if @drink.update(drink_params)
-        format.html { redirect_to administrator_menykategory_path(:id => @drink.category_id), notice: 'Drink was successfully updated.' }
+        format.html { redirect_to administrator_meny_url(:id => @drink.category_id), notice: 'Drink was successfully updated.' }
         format.json { render :show, status: :ok, location: @drink }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ class DrinksController < ApplicationController
   def destroy
     @drink.destroy
     respond_to do |format|
-      format.html { redirect_to administrator_menykategory_path(:id => @drink.category_id), notice: 'Drink was successfully destroyed.' }
+      format.html { redirect_to administrator_menykategori_url(:id => @drink.category_id), notice: 'Drink was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

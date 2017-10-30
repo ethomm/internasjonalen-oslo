@@ -28,6 +28,7 @@ class AdministratorController < ApplicationController
     end
 
     def menykategori
+      @drinks = Drink.where(category_id: params[:id] )
     end
 
   	private	

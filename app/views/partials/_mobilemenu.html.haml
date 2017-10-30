@@ -1,0 +1,15 @@
+%ul
+	%li
+		= link_to root_path do
+			Om oss
+	%li.dropdown
+		%a{:href => "#"}
+			Meny
+		%ul.submenu
+			- @category.each do |c|
+				%li
+					= link_to c do
+						= c.title
+	%li
+		= link_to root_path do
+			Utleie

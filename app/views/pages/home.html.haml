@@ -1,5 +1,21 @@
-%h1 Pages#home
-%p Find me in app/views/pages/home.html.haml
+%header.container-fluid.p-0
+	%nav.container-fluid.p-0
+		.row.justify-content-between
+			.col-6.col-lg-2.col-md-4
+				
+			.col-5.d-none.d-lg-block
+				= render 'partials/mainmenu'
+			.col-3.d-lg-none.text-right.mt-2
+				= render 'partials/hamburger'
+		%nav.row#mobilemenu
+			.col-12
+				= render 'partials/mobilemenu'
+
+.section.container-fluid.p-0
+	.row
+		.col-lg-6.bg-white.maincontainer
+			%h1 Pages#home
+			%p Find me in app/views/pages/home.html.haml
 .container
 	.row
 		.col-4

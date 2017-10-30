@@ -26,17 +26,54 @@ $custom-file-text: (
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import 'partials/typografi';
+@import 'partials/mainmenu';
+
 $gray-medium-light: #eaeaea;
+
+.st0 {
+  fill:#fff;
+  }
+.st1 {
+  fill:#00ff00;
+  stroke:#FFFFFF;
+  stroke-width:0.1106;
+}
+
 
 body{
   font-size: 16px;
   line-height: 1.5em;
+  background-image: url("bg1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+img{
+  width: 100%;
 }
 
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+
+.maincontainer{
+  height: 80vh;
+}
+
+
+
+/* Menu styling*/
+
+nav{
+  background-color: white;
+}
+
+#mobilemenu{
+  display: none;
 }
 
 /* Form styling */
@@ -48,7 +85,21 @@ input.apningstider {
   text-align: center;
 }
 
+textarea{
+  height: 25vh;
+}
+
 /*  Miscellaneous */
+
+.bottom-seperator{
+  border-bottom: 1px solid #8c8b8b;
+  padding-bottom: 10px;
+}
+
+.bottom-seperator:first-child{
+  border-top: 1px solid #8c8b8b;
+  padding-top: 10px;
+}
 
 .debaug_dump{
 	clear: both;
@@ -79,7 +130,7 @@ a:hover{
   width: 60px;
   height: 45px;
   position: relative;
-  margin: 50px auto;
+  margin-top: 50px auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);

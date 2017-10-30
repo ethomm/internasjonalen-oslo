@@ -1,6 +1,6 @@
 .row.justify-content-center
 	.col-md-8.col-lg-5.col-12
-		.row
+		.row.mt-4
 			.col-12
 				%h1
 					= @kategori.title
@@ -14,3 +14,36 @@
 					%button.btn.btn-lg.btn-success.btn-block
 						%i.fa.fa-plus{"aria-hidden" => "true"}
 						Legg til ny drink
+		.row.mt-1.justify-content-start
+			.col-4
+				= link_to administrator_meny_path do
+					%button.btn.btn-sm.btn-warning.btn-block
+						%i.fa.fa-reply{"aria-hidden" => "true"}
+						Tilbake
+		.row.mt-1
+			.col-12
+				-if @drinks.any?
+					%table.table
+						%thead
+							%tr
+								%th 
+									Navn
+								%th
+									Valg
+								%th
+						%tbody   
+							- @drinks.each do |d|
+								%tr
+									%td{width: "60%"}
+										= d.title
+									%td
+										= link_to edit_drink_path(d) do
+											%i.fa.fa-edit{"aria-hidden" => "true"}
+											Rediger
+									%td
+										= link_to d, method: :delete, data: { confirm: 'Are you sure?' } do
+											%i.fa.fa-trash{"aria-hidden" => "true"}
+											Slett
+							
+							
+								
