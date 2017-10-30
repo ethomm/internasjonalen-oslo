@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
   resources :globalsettings, only:[:edit, :update]
-  resources :drinks
+  resources :drinks, except: [:show, :index]
   resources :categories
   resources :omosses, only:[:edit, :update]
   root 		'pages#home'
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get     'administrator/aldersgrense'   =>   'administrator#aldersgrense'
   get     'administrator/kontaktinfo'    =>   'administrator#kontaktinfo'
   get     'administrator/apningstider'   =>   'administrator#apningstider'
+  get     'administrator/hjelp'          =>   'administrator#help'
+  get     'administrator/meny'           =>   'administrator#meny'
+  get     'administrator/menykategori'   =>   'administrator#menykategori'
 
   resources :users, except:[:show]
 

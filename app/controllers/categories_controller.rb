@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user, only: [:edit, :update, :destroy, :edit]
+  before_action :authenticate_user, only: [:new, :update, :destroy, :edit]
 
   # GET /categories
   # GET /categories.json
@@ -16,10 +16,12 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    render layout:'admin'
   end
 
   # GET /categories/1/edit
   def edit
+    render layout:'admin'
   end
 
   # POST /categories
@@ -29,7 +31,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to administrator_meny_path, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to administrator_meny_path, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }

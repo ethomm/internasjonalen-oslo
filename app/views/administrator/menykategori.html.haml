@@ -1,0 +1,16 @@
+.row.justify-content-center
+	.col-md-8.col-lg-5.col-12
+		.row
+			.col-12
+				%h1
+					= @kategori.title
+				%small
+					= link_to edit_category_path(@kategori) do
+						%i.fa.fa-edit{"aria-hidden" => "true"}
+						Rediger #{@kategori.title}
+		.row.mt-3
+			.col-12
+				= link_to new_drink_path do
+					%button.btn.btn-lg.btn-success.btn-block
+						%i.fa.fa-plus{"aria-hidden" => "true"}
+						Legg til ny drink

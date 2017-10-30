@@ -1,7 +1,8 @@
-%h1 Editing drink
-
-= render 'form'
-
-= link_to 'Show', @drink
-\|
-= link_to 'Back', drinks_path
+.row.justify-content-center
+	.col-md-8.col-lg-5.col-12
+		.row.mt-3
+			.col-12
+				%h2 Rediger #{@drink.title}
+		.row.mt-3
+			.col-12
+				= render 'form'

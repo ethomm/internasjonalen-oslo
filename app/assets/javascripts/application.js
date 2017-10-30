@@ -42,6 +42,59 @@ $( document ).on('turbolinks:load', function() {
     	}
 	});
 
+	// Initializing the timers
+	if($('div').is('#apningstider')){
+		if($('#mondayopen').prop('checked') == false){
+			$('.mondaytime').toggle();
+		}
+		if($('#tuesdayopen').prop('checked') == false){
+			$('.tuesdaytime').toggle();
+		}
+		if($('#wednesdayopen').prop('checked') == false){
+			$('.wednesdaytime').toggle();
+		}
+		if($('#thursdayopen').prop('checked') == false){
+			$('.thursdaytime').toggle();
+		}
+		if($('#fridayopen').prop('checked') == false){
+			$('.fridaytime').toggle();
+		}
+		if($('#saturdayopen').prop('checked') == false){
+			$('.saturdaytime').toggle();
+		}
+		if($('#sundayopen').prop('checked') == false){
+			$('.sundaytime').toggle();
+		}
+	}
+
+	$('#mondayopen').on('change', function(){
+		$('.mondaytime').toggle();
+	});
+
+	$('#tuesdayopen').on('change', function(){
+		$('.tuesdaytime').toggle();
+	});
+
+	$('#wednesdayopen').on('change', function(){
+		$('.wednesdaytime').toggle();
+	});
+
+	$('#thursdayopen').on('change', function(){
+		$('.thursdaytime').toggle();
+	});
+
+	$('#fridayopen').on('change', function(){
+		$('.fridaytime').toggle();
+	});
+
+	$('#saturdayopen').on('change', function(){
+		$('.saturdaytime').toggle();
+	});
+
+	$('#sundayopen').on('change', function(){
+		$('.sundaytime').toggle();
+	});
+
 });
 
 // Function to correct the inputfields of apningstider to double digets

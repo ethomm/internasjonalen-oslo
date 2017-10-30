@@ -1,6 +1,7 @@
 class AdministratorController < ApplicationController
 	before_action :authenticate_user
 	before_action :set_settings, only: [:aldersgrense, :kontaktinfo, :apningstider]
+  before_action :set_menykategori, only: [:menykategori]
 	layout 'admin'
   	def index
   		@about = Omoss.first_or_create do |about|
@@ -20,7 +21,21 @@ class AdministratorController < ApplicationController
   		
   	end
 
+    def help
+      
+    end
+
+    def meny
+      @category = Category.all
+    end
+
+    def menykategori
+    end
+
   	private	
+      def set_menykategori
+        @kategori = Category.find(params[:id])
+      end
   		def set_settings
   			@setting = Globalsetting.first_or_create do |setting|
   				@setting = Globalsetting.create(	mandag: true, 

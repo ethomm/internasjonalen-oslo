@@ -11,11 +11,24 @@
  * It is generally better to create a new file per style scope.
  */
 
+$custom-file-text: (
+  placeholder: (
+    en: "Choose file...",
+    no: "Velg bilde..."
+  ),
+  button-label: (
+    en: "Browse",
+    no: "Finn fil"
+  )
+);
+
 @import 'bootstrap';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 $gray-medium-light: #eaeaea;
+
+
 
 @mixin box_sizing {
 	-moz-box-sizing: border-box;

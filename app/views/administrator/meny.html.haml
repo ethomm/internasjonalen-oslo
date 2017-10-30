@@ -1,0 +1,28 @@
+.container
+	.row.justify-content-center
+		.col-md-8.col-lg-5.col-12
+			.row.mt-4
+				.col-12.text-center
+					%h2
+						Meny
+			.row.mt-3
+				.col-12
+					- @category.each do |c|
+						.row.mt-3
+							.col-12
+								=link_to administrator_menykategori_url(:id => c.id) do
+									%button.btn-info.btn-lg.btn.btn-block
+										= c.title
+			.row.mt-3
+				.col-12
+					= link_to new_category_path do
+						%button.btn-outline-success.btn.btn-block.btn-lg
+							%i.fa.fa-plus{"aria-hidden" => "true"}
+							Ny meny kategory
+			.row.mt-3
+				.col-12
+					= link_to administrator_path do
+						%button.btn-warning.btn.btn-block.btn-lg
+							%i.fa.fa-reply{"aria-hidden" => "true"}
+							Tilbake
+

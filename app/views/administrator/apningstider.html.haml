@@ -1,9 +1,9 @@
 .container
-	.row.mt-3
+	.row.mt-3.justify-content-center
 		%h3
-			Dager åpent
+			Åpningstider
 	= form_for @setting do |f|
-		.row.mt-3
+		.row.mt-3#apningstider.justify-content-center
 			.col-12.col-md-8.col-lg-6.form-check.mb-2
 				.row.mt-1
 					.col-3
@@ -21,12 +21,12 @@
 					.col-3
 						Mandag
 					.col-1 
-						= f.check_box :mandag, {:class => "form-check-input position-static"}, 'true' , 'false'
-					.col-4
+						= f.check_box :mandag, {:class => "form-check-input position-static", :id => "mondayopen"}, 'true' , 'false'
+					.col-4.mondaytime
 						= f.number_field :mandaghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :mandagminute , min: 0, max: 59, :class => "apningstider"
-					.col-4
+					.col-4.mondaytime
 						= f.number_field :mandagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :mandagclosingminute , min: 0, max: 59, :class => "apningstider"
@@ -34,12 +34,12 @@
 					.col-3
 						Tirsdag
 					.col-1
-						= f.check_box :tirsdag, {:class => "form-check-input position-static"}, 'true' , 'false'
-					.col-4
+						= f.check_box :tirsdag, {:class => "form-check-input position-static", :id => "tuesdayopen"}, 'true' , 'false'
+					.col-4.tuesdaytime
 						= f.number_field :tirsdaghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :tirsdagminute , min: 0, max: 59, :class => "apningstider"
-					.col-4
+					.col-4.tuesdaytime
 						= f.number_field :tirsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :tirsdagclosingminute , min: 0, max: 59, :class => "apningstider"
@@ -47,12 +47,12 @@
 					.col-3
 						Ondag
 					.col-1
-						= f.check_box :onsdag, {:class => "form-check-input position-static"}, 'true' , 'false'
-					.col-4
+						= f.check_box :onsdag, {:class => "form-check-input position-static", :id => "wednesdayopen"}, 'true' , 'false'
+					.col-4.wednesdaytime
 						= f.number_field :onsdaghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :onsdagminute , min: 0, max: 59, :class => "apningstider"
-					.col-4
+					.col-4.wednesdaytime
 						= f.number_field :onsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :onsdagclosingminute , min: 0, max: 59, :class => "apningstider"
@@ -60,12 +60,12 @@
 					.col-3
 						Torsdag
 					.col-1
-						= f.check_box :torsdag, {:class => "form-check-input position-static"}, 'true' , 'false'
-					.col-4
+						= f.check_box :torsdag, {:class => "form-check-input position-static", :id => "thursdayopen"}, 'true' , 'false'
+					.col-4.thursdaytime
 						= f.number_field :torsdaghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :torsdagminute , min: 0, max: 59, :class => "apningstider"
-					.col-4
+					.col-4.thursdaytime
 						= f.number_field :torsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :torsdagclosingminute , min: 0, max: 59, :class => "apningstider"
@@ -73,12 +73,12 @@
 					.col-3
 						Fredag
 					.col-1
-						= f.check_box :fredag, {:class => "form-check-input position-static"}, 'true' , 'false'
-					.col-4
+						= f.check_box :fredag, {:class => "form-check-input position-static", :id => "fridayopen"}, 'true' , 'false'
+					.col-4.fridaytime
 						= f.number_field :fredaghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :fredagminute , min: 0, max: 59, :class => "apningstider"
-					.col-4
+					.col-4.fridaytime
 						= f.number_field :fredagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :fredagclosingminute , min: 0, max: 59, :class => "apningstider"
@@ -86,12 +86,12 @@
 					.col-3
 						Lørdag
 					.col-1
-						= f.check_box :lørdag, {:class => "form-check-input position-static"}, 'true' , 'false'
-					.col-4
+						= f.check_box :lørdag, {:class => "form-check-input position-static", :id => "saturdayopen"}, 'true' , 'false'
+					.col-4.saturdaytime
 						= f.number_field :lørdaghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :lørdagminute , min: 0, max: 59, :class => "apningstider"
-					.col-4
+					.col-4.saturdaytime
 						= f.number_field :lørdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :lørdagclosingminute , min: 0, max: 59, :class => "apningstider"
@@ -99,15 +99,19 @@
 					.col-3
 						Søndag
 					.col-1
-						= f.check_box :søndag, {:class => "form-check-input position-static"}, 'true' , 'false'
-					.col-4
+						= f.check_box :søndag, {:class => "form-check-input position-static", :id => "sundayopen"}, 'true' , 'false'
+					.col-4.sundaytime
 						= f.number_field :søndaghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :søndagminute , min: 0, max: 59, :class => "apningstider"
-					.col-4
+					.col-4.sundaytime
 						= f.number_field :søndagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :søndagclosingminute , min: 0, max: 59, :class => "apningstider"
 				.row.mt-3
 					.col-12
+						= link_to administrator_path do
+							%button.btn.btn-warning
+								%i.fa.fa-reply{"aria-hidden" => "true"}
+								Tilbake
 						= f.submit 'lagre', :class => "btn btn-outline-success"

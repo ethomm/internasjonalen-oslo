@@ -5,15 +5,23 @@
       %ul
         - @category.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :slug
-    = f.text_field :slug
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-12.mb-3.mt-4
+      %strong
+        = f.label "Tittel"
+      = f.text_field :title, :class => "form-control"
+  .row
+    .col-12.mb-3
+      %strong
+        = f.label "Beskrivelse"
+      = f.text_area :description, :class => "form-control"
+  .actions.mb-3.mt-4
+    .row
+      .col-6
+        = link_to administrator_meny_path do
+          %button.btn.btn-outline-warning.btn-block.btn-lg
+            %i.fa.fa-reply{"aria-hidden" => "true"}
+            Tilbake
+      .col-6
+        = f.submit 'Lagre', :class => "btn btn-lg btn-outline-success btn-block"
+    
