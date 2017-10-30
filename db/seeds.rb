@@ -9,4 +9,4 @@
 User.create!(	name: 'Eirik Thommessen',
 				email: 'eirik@reelmedianordic.com',
 				password: 'termin8Er',
-				password_confirmatin: 'termin8er')
+				password_confirmation: 'termin8er')
