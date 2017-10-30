@@ -6,7 +6,7 @@
 		.row.mt-3#apningstider.justify-content-center
 			.col-12.col-md-8.col-lg-6.form-check.mb-2
 				.row.mt-1
-					.col-3
+					.col-2
 						%strong
 							Dag
 					.col.1
@@ -17,7 +17,7 @@
 					.col-4
 						%strong
 							Stenger
-				.row.mt-1
+				.row.p-1.pt-2.pb-3.bg-light.text-dark
 					.col-3
 						Mandag
 					.col-1 
@@ -30,7 +30,7 @@
 						= f.number_field :mandagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :mandagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.mt-1
+				.row.p-1.bg-info.text-white.pt-2.pb-3
 					.col-3
 						Tirsdag
 					.col-1
@@ -43,7 +43,7 @@
 						= f.number_field :tirsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :tirsdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.mt-1
+				.row.p-1.bg-light.text-dark.pt-2.pb-3
 					.col-3
 						Ondag
 					.col-1
@@ -56,7 +56,7 @@
 						= f.number_field :onsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :onsdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.mt-1
+				.row.p-1.bg-info.text-white.pt-2.pb-3
 					.col-3
 						Torsdag
 					.col-1
@@ -69,7 +69,7 @@
 						= f.number_field :torsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :torsdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.mt-1
+				.row.p-1.bg-light.text-dark.pt-2.pb-3
 					.col-3
 						Fredag
 					.col-1
@@ -82,7 +82,7 @@
 						= f.number_field :fredagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :fredagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.mt-1
+				.row.p-1.bg-info.text-white.pt-2.pb-3
 					.col-3
 						Lørdag
 					.col-1
@@ -95,7 +95,7 @@
 						= f.number_field :lørdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :lørdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.mt-1
+				.row.p-1.bg-light.text-dark.pt-2.pb-3
 					.col-3
 						Søndag
 					.col-1
@@ -109,9 +109,10 @@
 						\:
 						= f.number_field :søndagclosingminute , min: 0, max: 59, :class => "apningstider"
 				.row.mt-3
-					.col-12
+					.col-6
 						= link_to administrator_path do
-							%button.btn.btn-warning
+							%button.btn.btn-warning.btn-lg.btn-block
 								%i.fa.fa-reply{"aria-hidden" => "true"}
 								Tilbake
-						= f.submit 'lagre', :class => "btn btn-outline-success"
+					.col-6
+						= f.submit 'lagre', :class => "btn btn-outline-success btn-lg btn-block"

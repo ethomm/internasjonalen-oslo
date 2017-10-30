@@ -28,7 +28,10 @@ $custom-file-text: (
 
 $gray-medium-light: #eaeaea;
 
-
+body{
+  font-size: 16px;
+  line-height: 1.5em;
+}
 
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
@@ -39,10 +42,11 @@ $gray-medium-light: #eaeaea;
 /* Form styling */
 
 input.apningstider {
-  border: solid thin #ccc;
+  border: none;
   border-radius: 2px;
-  padding: 3px;
+  padding-left: 5px;
   text-align: center;
+  font-size: 0.8em;
 }
 
 /*  Miscellaneous */
