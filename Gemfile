@@ -22,6 +22,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 # Image upload
 gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
 
 # Fog Aws
 gem "fog-aws"
