@@ -4,7 +4,6 @@ class AdministratorController < ApplicationController
 	layout 'admin'
   	def index
   		@about = Omoss.first
-  		end
   	end
 
   	def aldersgrense
@@ -33,8 +32,5 @@ class AdministratorController < ApplicationController
   	private	
       def set_menykategori
         @kategori = Category.find(params[:id])
-      end
-  	
-  		end
-  	
+      end  	
 end

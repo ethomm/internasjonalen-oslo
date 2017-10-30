@@ -5,7 +5,6 @@ class PagesController < ApplicationController
 
   	def about
   		@about = Omoss.first
-  		end
   	end
   	
 end
