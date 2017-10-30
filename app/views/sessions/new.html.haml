@@ -8,10 +8,12 @@
 				=form_for(:session, url: login_path) do |f|
 					.col.pt-2.input-group
 						%span.input-group-addon#snabela
-						= f.email_field :email , :class => 'form-control', :placeholder "Brukernavn", "aria-label" => "Brukernavn", "aria-describedby" => "snabela"
+							@
+						= f.email_field :email , :class => 'form-control', :placeholder => "Brukernavn", "aria-label" => "Brukernavn", "aria-describedby" => "snabela"
 					.col.pt-2.input-group
 						%span.input-group-addon#astrix
-						= f.password_field :password, :class => 'form-control', :placeholder "Passord", "aria-label" => "Passord", "aria-describedby" => "astrix"
+							**
+						= f.password_field :password, :class => 'form-control', :placeholder => "Passord", "aria-label" => "Passord", "aria-describedby" => "astrix"
 					.col.pt-2
 						= f.label :remember_me, class: 'checkbox inline' do
 							=f.check_box :remember_me
