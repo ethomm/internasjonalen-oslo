@@ -13,3 +13,15 @@ $prata: 'Prata', serif;
 body{
 	font-family: $opensans;
 }
+
+
+footer{
+	font-size: 0.7rem;
+}
+
+.somefooter{
+	font-size: 2.4rem;
+	a:link, a:visited{
+		color: #555;
+	}
+}

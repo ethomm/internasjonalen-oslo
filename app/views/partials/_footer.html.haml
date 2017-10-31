@@ -1,0 +1,36 @@
+%footer.container-fluid.p-0.bg-light.fixed-bottom.pb-4
+	.row.container.justify-content-center.mt-4.ml-0.mr-0
+		.col-11.bg-white.pr-4.pb-2
+			%h5
+				Åpningstider:
+			= @setting.openingtimes.html_safe
+			.col-12.text-right.p-0
+				Aldersgrense:
+				%strong
+					=@setting.aldersgrense
+				år
+	.row.justify-content-center.mt-4
+		.col-10.text-center
+			= render 'partials/some'
+	.row.justify-content-center
+		%address.col-10
+			.row.mt-3
+				.col-6
+					= @setting.adresse
+					%br
+					= @setting.postnr
+					\
+					= @setting.poststed
+				.col-6.text-right
+					= @setting.epost
+	.row
+		.col-12#map{:image => "#{image_url('marker.png')}"}
+	.row.pb-2.text-center
+		.col-12.credit
+			created by: 
+			%a{:href => "http://www.reelmedianordic.com/", :target => "_blank"}
+				@reelmedianordic
+	%script{  :src =>"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIZWXAgJ-kotgLigFHHRJ9V7eHYnEsYRI&callback=initMap"}
+
+
+

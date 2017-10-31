@@ -28,6 +28,7 @@ $custom-file-text: (
 
 @import 'partials/typografi';
 @import 'partials/mainmenu';
+@import 'partials/mobilemenu';
 
 $gray-medium-light: #eaeaea;
 
@@ -60,10 +61,6 @@ img{
 }
 
 
-.maincontainer{
-  height: 80vh;
-}
-
 
 
 /* Menu styling*/
@@ -90,6 +87,10 @@ textarea{
 }
 
 /*  Miscellaneous */
+
+#map {
+  height: 250px;
+}
 
 .bottom-seperator{
   border-bottom: 1px solid #8c8b8b;
