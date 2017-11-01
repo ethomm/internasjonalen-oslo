@@ -25,6 +25,7 @@ $custom-file-text: (
 @import 'bootstrap';
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import  'animate';
 
 @import 'partials/typografi';
 @import 'partials/mainmenu';
@@ -50,7 +51,7 @@ body{
   background-repeat: no-repeat;
 }
 
-img{
+img, nav{
   width: 100%;
 }
 

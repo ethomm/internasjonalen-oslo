@@ -1,7 +1,11 @@
 %header.bg-white
 	.row.container-fluid.justify-content-between
-		.col-4
+		.col-4.col-sm-3.col-md-2
 			= render "partials/interlogorod.svg"
 		.col-4.text-right.p-0.pt-3
 			= render 'partials/hamburger'
-%nav
+	%nav.container.animated.flipOutX#mobilemenu{:role => "Navigation"}
+		.row.justify-content-center
+			.col-10
+				= render 'partials/mobilemenu'
+
