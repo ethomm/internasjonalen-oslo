@@ -1,16 +1,20 @@
-%nav	
-	%ul
-		%li
-			= link_to root_path do
-				Om oss
-		%li.dropdown
-			%a{:href => "#"}
+%nav
+	.row.justify-content-between
+		.col-6.text-left
+			%h6
+				Internasjonalen
+			%ul
+				%li
+					= link_to root_path do
+						Om oss
+				%li
+					= link_to root_path do
+						Utleie
+		.col-6.text-left
+			%h6
 				Meny
-			%ul.submenu
+			%ul
 				- @category.each do |c|
 					%li
 						= link_to c do
 							= c.title
-		%li
-			= link_to root_path do
-				Utleie

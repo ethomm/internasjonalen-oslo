@@ -1,4 +1,11 @@
-
+#mobilemenu ul{
+  padding-left: 0;
+  width: 100%;
+  text-align: left;
+  li{
+    list-style: none; 
+  }
+}
 
 $icon-settings: (
   font-size: 5px, // changes size of icons

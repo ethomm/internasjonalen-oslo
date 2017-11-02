@@ -42,14 +42,28 @@ $gray-medium-light: #eaeaea;
   stroke-width:0.1106;
 }
 
+@media (max-width: 730px) {
+  #section-main {
+  min-height: 400px;
+  background-image: url("bg1-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+}
 
+@media (min-width: 731px) {
+  #section-main {
+  min-height: 800px;
+  background-image: url("bg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+}
 body{
   font-size: 16px;
   line-height: 1.5em;
-  background-image: url("bg1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+  background-color: white;
+  }
 
 img, nav{
   width: 100%;
@@ -71,6 +85,14 @@ nav{
 }
 
 #mobilemenu{
+ display:none;
+}
+
+.apen{
+  display: block;
+}
+
+.lukket{
   display: none;
 }
 

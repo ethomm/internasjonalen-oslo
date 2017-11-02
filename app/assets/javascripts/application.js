@@ -22,9 +22,9 @@ $( document ).on('turbolinks:load', function() {
 
 	$('.icon').on('click', function() {
     $(this).toggleClass('open');
-    $('#mobilemenu').toggle();
-    $('#mobilemenu').toggleClass('flipInX');
-    $('#mobilemenu').toggleClass('flipOutX');
+    $('#mobilemenu').slideToggle('slow');
+    //$('#mobilemenu').toggleClass('lukket');
+    //$('#mobilemenu').toggleClass('apen');
 });
 
 
