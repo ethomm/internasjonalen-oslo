@@ -33,3 +33,15 @@ footer{
 		color: #555;
 	}
 }
+
+@media(max-width: 920){
+	h1{
+		font-size: 1.2rem !important;
+	}
+}
+
+@media(min-width: 921){
+	h1{
+		font-size: 4rem;
+	}
+}

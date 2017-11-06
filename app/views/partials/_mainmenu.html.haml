@@ -1,12 +1,12 @@
 %ul.menu.cf
 	%li
-		= link_to root_path do
+		= link_to omointernasjonalen_path do
 			Om oss
 	%li.dropdown
 		%a{:href => "#"}
 			Meny
 		%ul.submenu
-			- @category.each do |c|
+			- @categories.each do |c|
 				%li
 					= link_to c do
 						= c.title

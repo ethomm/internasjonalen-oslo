@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   resources :globalsettings, only:[:edit, :update]
   resources :drinks, except: [:show, :index]
-  resources :categories
   resources :omosses, only:[:edit, :update]
+  resources :categories, :as => 'meny', :path => 'meny', except: [:index]
   root 		'pages#home'
-  get 		'about'			                   =>	  'pages#about'
+  get 		'omointernasjonalen'			     =>	  'pages#about'
   get 		'login' 		                   =>	  'sessions#new'
   post		'login' 		                   => 	'sessions#create'
   delete	'logout'		                   =>	  'sessions#destroy'

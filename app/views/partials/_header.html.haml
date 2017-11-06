@@ -1,11 +1,11 @@
-%header.bg-white
+%header.bg-light.sticky-top
 	.row.container-fluid.justify-content-between
-		.col-4.col-sm-3.col-md-2.col-lg-2#logo.bg-white
+		.col-4.col-sm-3.col-md-2.col-lg-2#logo
 			= link_to root_path do
 				= render "partials/interlogorod.svg"
 		.col-4.text-right.p-0.pt-3
 			= render 'partials/hamburger'
-	%nav.container.lukket#mobilemenu.pt-4.pb-4{:role => "Navigation"}
+	%nav.container.lukket.bg-light#mobilemenu.pt-4.pb-2{:role => "Navigation"}
 		.row
 			.col-12
 				= render 'partials/mobilemenu'

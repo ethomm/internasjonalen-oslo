@@ -12,7 +12,7 @@ class OmossesController < ApplicationController
   def update
     respond_to do |format|
       if @omoss.update(omoss_params)
-        format.html { redirect_to @omoss, notice: 'Omoss was successfully updated.' }
+        format.html { redirect_to administrator_path, notice: 'Omoss was successfully updated.' }
         format.json { render :show, status: :ok, location: @omoss }
       else
         format.html { render :edit }

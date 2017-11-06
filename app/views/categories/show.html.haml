@@ -1,15 +1,17 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @category.title
-%p
-  %b Description:
-  = @category.description
-%p
-  %b Slug:
-  = @category.slug
-
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+%section.container.mt-4.mb-4
+	%article.row.justify-content-center.mb-4
+		.col-10
+			%h2
+				= @category.title
+			%p
+				= @category.description
+	.nav.row.justify-content-center{:role => "navigation"}
+		.col-10
+			= link_to :back do
+				%button.btn.btn-outline-secondary.btn-sm
+					%i.fa.fa-reply{"aria-hidden" => "true"}
+					Tilbake
+			= link_to root_path do
+				%button.btn.btn-outline-success.btn-sm
+					%i.fa.fa-home{"aria-hidden" => "true"}
+					Forsiden

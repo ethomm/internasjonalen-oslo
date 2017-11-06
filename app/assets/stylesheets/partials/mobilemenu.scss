@@ -5,7 +5,33 @@
   float: right;
   li{
     list-style: none; 
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
+  li:hover{
+    background-color: #333;
+    color: white;
+    padding-left: 5px;
+  }
+}
+
+#mobilemenu {
+  a:link, a:visited{
+    color: inherit;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+  }
+  a:hover {
+    font-weight: bolder;
+    color: white;
+    
+  }
+}
+
+.border-bottom-thin{
+  border-bottom: thin solid #ccc;
 }
 
 $icon-settings: (
@@ -273,25 +299,6 @@ span{
 
 // --- Demo styles
 
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
-body {
-  background: #ecf0f1;
-  overflow-Y: scroll;
-  text-align: center;  
-}
-
-h1 {
-  color: #222;
-  font-family: 'Roboto', sans-serif;
-  font-size: 4em;
-}
-
-section {
-  margin: 0 auto;
-}
 
 @for $i from 1 through 6 {
   .menu#{$i} {

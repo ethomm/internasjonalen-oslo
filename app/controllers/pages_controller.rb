@@ -13,6 +13,6 @@ class PagesController < ApplicationController
   	end
 
     def set_menu
-      @category = Category.all
+      @categories = Category.all
     end
 end

@@ -1,11 +1,11 @@
-%nav
+%nav.bg-light
 	.row.justify-content-between
 		.col-6.text-left
 			%h6
 				Internasjonalen
 			%ul
 				%li
-					= link_to root_path do
+					= link_to omointernasjonalen_path do
 						Om oss
 				%li
 					= link_to root_path do
@@ -14,7 +14,7 @@
 			%h6
 				Meny
 			%ul
-				- @category.each do |c|
+				- @categories.each do |c|
 					%li
-						= link_to c do
-							= c.title
+						= link_to c.title, meny_path(c.slug)
+							
