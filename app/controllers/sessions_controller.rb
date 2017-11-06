@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
   	def new
-  		render layout: 'admin'
+  		if logged_in?
+  			redirect_to administrator_path
+  		else
+	  		render layout: 'admin'
+	  	end
 	end
 	def create
 		@user = User.find_by(email: params[:session][:email].downcase)

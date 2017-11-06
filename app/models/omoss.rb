@@ -1,3 +1,2 @@
 class Omoss < ApplicationRecord
-
 end

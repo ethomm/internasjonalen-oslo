@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$opensans: 'Open Sans', sans-serif;
+
+body{
+	font-family: $opensans;
+}
+
+#cke_omoss_body, .cke_chrome {
+	border-radius: 15px;
+}
