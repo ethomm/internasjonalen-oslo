@@ -45,7 +45,7 @@ $gray-medium-light: #eaeaea;
 @media (max-width: 730px) {
   #section-main {
   min-height: 400px;
-  background-image: url("bg1-mobile.jpg");
+  background-image: image-url("bg1-mobile.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   }
@@ -54,7 +54,7 @@ $gray-medium-light: #eaeaea;
 @media (min-width: 731px) {
   #section-main {
   min-height: 800px;
-  background-image: url("bg1.jpg");
+  background-image: image-url("bg1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   }
