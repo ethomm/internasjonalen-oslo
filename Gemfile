@@ -28,9 +28,6 @@ gem "mini_magick"
 # Fog Aws
 gem "fog-aws"
 
-# Animate css
-gem "animate-rails"
-
 # WYSIWYG
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
