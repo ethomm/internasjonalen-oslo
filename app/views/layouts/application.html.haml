@@ -12,7 +12,10 @@
 		%meta{:itemprop => "servesCuisine", :content => "Baguetter og små bakevarer"}
 		%meta{:itemprop => "paymentAccepted", :content => "Cash, Credit Card"}
 		%meta{:itemprop => "priceRange", :content => "$$"}
+		= image_tag("bg1.jpg", :itemprop => "image", :class => "d-none", :alt => "internasjonalen")
+		= image_tag("logo.png", :itemprop => "logo", :class => "d-none", :alt => "internasjonalen logo")
 		= render 'partials/header'
 		= yield
 		= render 'partials/footer'
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+		%script{  :src =>"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIZWXAgJ-kotgLigFHHRJ9V7eHYnEsYRI&callback=initMap"}
