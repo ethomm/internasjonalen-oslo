@@ -4,16 +4,17 @@
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 		%title Internasjonalen
 		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+		%meta{"http-equiv" => "Expires", :content => "30"} 
 		= csrf_meta_tags
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	%body{"itemscope" => true, :itemtype => "http://schema.org/BarOrPub"}
 		%meta{:itemprop => "name", :content => "internasjonalen"}
 		%meta{:itemprop => "servesCuisine", :content => "Baguetter og små bakevarer"}
 		%meta{:itemprop => "paymentAccepted", :content => "Cash, Credit Card"}
 		%meta{:itemprop => "priceRange", :content => "$$"}
-		%meta{:itemprop => "logo", :url => asset_url('logo.png')}
-		%meta{:itemprop => "image", :url => asset_url('bg1.jpg')}
+		%meta{:itemprop => "logo", :url => asset_url('logo.png', :alt =>"internajsonalen logo")}
+		%meta{:itemprop => "image", :url => asset_url('bg1.jpg', :alt => "internajsonalen bilde")}
 		= render 'partials/header'
 		= yield
 		= render 'partials/footer'
+		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
