@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :globalsettings, only:[:edit, :update]
   resources :drinks, except: [:show, :index]
   resources :omosses, only:[:edit, :update]
-  resources :categories, :as => 'meny', :path => 'meny', except: [:index]
+  resources :categories, :as => 'meny', :path => 'meny', only: [:show]
+  resources :categories, except: [:show]
   root 		'pages#home'
   get 		'omointernasjonalen'			     =>	  'pages#about'
   get 		'login' 		                   =>	  'sessions#new'
