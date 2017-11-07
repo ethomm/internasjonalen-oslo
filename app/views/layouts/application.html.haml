@@ -9,9 +9,10 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	%body{"itemscope" => true, :itemtype => "http://schema.org/BarOrPub"}
 		%meta{:itemprop => "name", :content => "internasjonalen"}
-		%meta{:itemprop => "servesCuisine", :content => "Baggetter og små bakevarer"}
-		%meta{:itemprop => "paumentAccepted", :content => "Cash, Credit Card"}
+		%meta{:itemprop => "servesCuisine", :content => "Baguetter og små bakevarer"}
+		%meta{:itemprop => "paymentAccepted", :content => "Cash, Credit Card"}
 		%meta{:itemprop => "priceRange", :content => "$$"}
+		%meta{:itemprop => "logo", :url => asset_url('logo.png')}
 		= render 'partials/header'
 		= yield
 		= render 'partials/footer'
