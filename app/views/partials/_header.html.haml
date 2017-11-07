@@ -2,8 +2,7 @@
 	.row.container-fluid.justify-content-between
 		.col-4.col-sm-3.col-md-2.col-lg-2#logo
 			= link_to root_path do
-				%object{:data => asset_url('interlogorod.svg'), :type => "image/svg+xml"}
-					= image_tag("logo.png", :itemprop => "logo", :alt => "Internasjonalen logo")	
+				%img{:src => asset_url('interlogorod.svg'), :type => "image/svg+xml", :itemprop => "logo", :alt => "Internasjonalen logo"}
 		.col-4.text-right.p-0.pt-3
 			= render 'partials/hamburger'
 	%nav.container.lukket.bg-light#mobilemenu.pt-4.pb-2{:role => "Navigation"}
