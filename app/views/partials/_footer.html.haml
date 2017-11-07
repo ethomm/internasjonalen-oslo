@@ -29,14 +29,21 @@
 	.row.justify-content-center.d-sm-block.d-xs-block.d-md-none
 		%address.col-10
 			.row.mt-3
-				.col-6
-					= @setting.adresse
+				.col-6{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
+					%span{:itemprop => "streetAddress"}
+						= @setting.adresse
 					%br
-					= @setting.postnr
+					%span{:itemprop => "postalCode"}
+						= @setting.postnr
 					\
+					%span{:itemprop => "addressRegion"}
 					= @setting.poststed
 				.col-6.text-right
-					= @setting.epost
+					%span{:itemprop => "email"}
+						= @setting.epost
+					%br
+					%span{:itemprop => "telephone"}
+						= @setting.telefonnr
 	.row
 		.col-12#map{:image => "#{image_url('marker.png')}"}
 	.row.pb-2.text-center.mt-3
