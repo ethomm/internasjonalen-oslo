@@ -9,6 +9,9 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	%body{"itemscope" => true, :itemtype => "http://schema.org/BarOrPub"}
 		%meta{:itemprop => "name", :content => "internasjonalen"}
+		%meta{:itemprop => "servesCuisine", :content => "Baggetter og små bakevarer"}
+		%meta{:itemprop => "paumentAccepted", :content => "Cash, Credit Card"}
+		%meta{:itemprop => "priceRange", :content => "$$"}
 		= render 'partials/header'
 		= yield
 		= render 'partials/footer'
