@@ -23,6 +23,14 @@ class AdministratorController < ApplicationController
       
     end
 
+    def utleie
+      @utleie = Utleie.first
+    end
+
+    def utleietext
+      @utleie = Utleie.first
+    end
+
     def meny
       @category = Category.all
     end

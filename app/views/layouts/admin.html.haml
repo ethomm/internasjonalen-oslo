@@ -11,7 +11,7 @@
 		.container.mt-2
 			.row.justify-content-center
 				.col-5.col-md-5.col-lg-3
-					= render 'partials/interlogo.svg'
+					%img{:src => asset_url('interlogorod.svg'), :type => "image/svg+xml", :itemprop => "logo", :alt => "Internasjonalen logo"}
 		.container	
 			= yield
 		.container.mt-3

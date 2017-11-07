@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106212641) do
+ActiveRecord::Schema.define(version: 20171107161641) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -99,6 +99,18 @@ ActiveRecord::Schema.define(version: 20171106212641) do
     t.string "password_digest"
     t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "utleies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "ingress"
+    t.string "booking_email"
+    t.string "contactperson"
+    t.string "contact_email"
+    t.string "contact_position"
+    t.string "contact_number"
+    t.boolean "show_contact_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "drinks", "categories"

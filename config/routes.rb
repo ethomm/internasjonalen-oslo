@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :utleies, only: [:edit, :update]
   resources :globalsettings, only:[:edit, :update]
   resources :drinks, except: [:show, :index]
   resources :omosses, only:[:edit, :update]
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   get     'administrator/hjelp'          =>   'administrator#help'
   get     'administrator/meny'           =>   'administrator#meny'
   get     'administrator/menykategori'   =>   'administrator#menykategori'
+  get     'administrator/utleie'         =>   'administrator#utleie'
+  get     'administrator/utleietext'     =>   'administrator#utleietext'
 
   resources :users, except:[:show]
 

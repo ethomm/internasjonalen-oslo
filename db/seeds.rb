@@ -13,6 +13,8 @@ User.create!(	name: 'Eirik Thommessen',
 
 Omoss.create!(title: 'Om Internasjonalen', ingress:"ingress tekst", body: "Mer tekst her")
 
+Utleie.create( ingress: "Tekst kommer her", booking_email: "booking@internasjonalen.no", contactperson: "kari Nordmann", contact_email: "kari@internasjonalen.no", contact_position: "Daglig leder", contact_number: "99 99 99 99", show_contact_number: true)
+
 Globalsetting.create(	mandag: true, 
   											tirsdag: true, 
   											onsdag: true, 

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingress: MyText
+  booking_email: MyString
+  contactperson: MyString
+  contact_email: MyString
+  contact_position: MyString
+  contact_number: MyString
+  show_contact_number: false
+
+two:
+  ingress: MyText
+  booking_email: MyString
+  contactperson: MyString
+  contact_email: MyString
+  contact_position: MyString
+  contact_number: MyString
+  show_contact_number: false

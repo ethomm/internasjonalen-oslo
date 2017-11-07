@@ -1,0 +1,2 @@
+class Utleie < ApplicationRecord
+end

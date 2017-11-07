@@ -1,0 +1,24 @@
+.container
+	.row.justify-content-center
+		.col-md-8.col-lg-5.col-12
+			.row.mt-4
+				.col-12.text-center
+					%h2
+						Utleie
+			.row.mt-3
+				.col-12
+					= link_to administrator_utleietext_path do
+						%button.btn-info.btn.btn-block.btn-lg
+							Utleietekst
+			.row.mt-3
+				.col-12
+					= link_to edit_utleie_path(@utleie) do
+						%button.btn-info.btn.btn-block.btn-lg
+							Utleie kontaktinfo
+			
+			.row.mt-3
+				.col-12
+					= link_to :back do
+						%button.btn-warning.btn.btn-block.btn-lg
+							%i.fa.fa-reply{"aria-hidden" => "true"}
+							Tilbake
