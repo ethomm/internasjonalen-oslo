@@ -7,7 +7,7 @@
 		= csrf_meta_tags
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-	%body
+	%body{"itemscope" => true, :itemtype => "http://schema.org/BarOrPub"}
 		= render 'partials/header'
 		= yield
 		= render 'partials/footer'

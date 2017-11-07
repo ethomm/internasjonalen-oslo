@@ -2,7 +2,21 @@
 	.row.container.justify-content-center.ml-0.mr-0
 		.col-10.col-md-6.bg-white.pr-4.pb-2.mt-4
 			%h5.pt-2
-				Åpningstider:
+				Åpningstider:				
+			- if @setting.mandag?
+				%meta{:itemprop => "openingHours", :content => 'Mo '+@setting.mondayopens+'-'+@setting.mondaycloses}
+			- if @setting.tirsdag?
+				%meta{:itemprop => "openingHours", :content => 'Tu '+@setting.tuesdayopens+'-'+@setting.tuesdaycloses}
+			- if @setting.onsdag?
+				%meta{:itemprop => "openingHours", :content => 'We '+@setting.wednesdayopens+'-'+@setting.wednesdaycloses}
+			- if @setting.torsdag?
+				%meta{:itemprop => "openingHours", :content => 'Th '+@setting.thursdayopens+'-'+@setting.thursdaycloses}
+			- if @setting.fredag?
+				%meta{:itemprop => "openingHours", :content => 'Fr '+@setting.fridayopens+'-'+@setting.fridaycloses}
+			- if @setting.lørdag?
+				%meta{:itemprop => "openingHours", :content => 'Sa '+@setting.saturdayopens+'-'+@setting.saturdaycloses}
+			- if @setting.søndag?
+				%meta{:itemprop => "openingHours", :content => 'Su '+@setting.sundayopens+'-'+@setting.sundaycloses}
 			= @setting.openingtimes.html_safe
 			.col-12.text-right.p-0
 				Aldersgrense:
