@@ -1,0 +1,36 @@
+.container
+	.row.justify-content-center
+		.col-md-8.col-lg-5.col-12
+			.row.mt-4
+				.col-12.text-center
+					%h2
+						Booking
+			- @bookings.each do |b|
+				.row.mt-3
+					.col-9
+						= link_to administrator_editbooking_path(:id => b.id) do
+							%button.btn.btn-info.btn-sm.btn-block
+								= b.title
+					.col-3
+						= link_to b, method: :delete, data: { confirm: 'Er du sikker?' } do
+							%button.btn.btn-danger.btn-sm.btn-block.text-center
+								%i.fa.fa-trash.animated.tada{"aria-hidden" => "true"}
+			.row.mt-3
+				.col-12
+					= link_to administrator_path do
+						%button.btn.btn-info.btn-sm.btn-block
+							%i.fa.fa-cog.fa-spin{"aria-hidden" => "true"}
+							Tekniske spesifikasjoner
+			.row.mt-3
+				.col-12
+					= link_to new_booking_path do
+						%button.btn.btn-outline-success.btn-sm.btn-block
+							%i.fa.fa-pluss{"aria-hidden" => "true"}
+							Nytt booking objekt
+
+			.row.mt-3
+				.col-12
+					= link_to administrator_path do
+						%button.btn-warning.btn.btn-block.btn-sm
+							%i.fa.fa-reply{"aria-hidden" => "true"}
+							Tilbake

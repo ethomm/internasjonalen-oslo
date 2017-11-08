@@ -1,7 +1,7 @@
 %nav.bg-light
-	.row.justify-content-between
-		.col-6.text-left
-			%h6
+	.row.justify-content-center
+		.col-10.col-md-4.text-left.pt-4
+			%h5
 				Internasjonalen
 			%ul
 				%li
@@ -9,12 +9,21 @@
 						Om oss
 				%li
 					= link_to root_path do
-						Utleie
-		.col-6.text-left
-			%h6
-				Meny
+						Kontakt
+		.col-10.col-md-4.pt-4
+			%h5
+				Bar
 			%ul
-				- @categories.each do |c|
+				%li
+					1. Etasje
+				%li
+					2. Etasje	
+			
+		.col-10.col-md-8.text-left.pt-4.pb-4
+			%h5
+				Booking
+			%ul
+				- @bookings.each do |c|
 					%li
-						= link_to c.title, meny_path(c.slug)
-							
+						= link_to c.title, booking_path(c.slug)
+			

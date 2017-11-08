@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Antall:
+  = @utleieitem.antall
+%p
+  %b Brand:
+  = @utleieitem.brand
+%p
+  %b Title:
+  = @utleieitem.title
+%p
+  %b References:
+  = @utleieitem.references
+
+= link_to 'Edit', edit_utleieitem_path(@utleieitem)
+\|
+= link_to 'Back', utleieitems_path

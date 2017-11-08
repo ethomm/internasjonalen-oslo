@@ -1,18 +1,16 @@
 class PagesController < ApplicationController
-  before_action :set_setting
-  before_action :set_menu
+  before_action :set_stuff
   def home
   end
 
   def about
-  	@about = Omoss.first
+  	
   end
   private	
-  	def set_setting
+  	def set_stuff
   		@setting = Globalsetting.first
-  	end
-
-    def set_menu
       @categories = Category.all
+      @bookings = Booking.all
+      @about = Omoss.first
     end
 end

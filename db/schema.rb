@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107161641) do
+ActiveRecord::Schema.define(version: 20171108071224) do
+
+  create_table "bookingimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "image"
+    t.string "description"
+    t.string "fotograf"
+    t.bigint "bookings_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookings_id"], name: "index_bookingimages_on_bookings_id"
+  end
+
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "body"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -77,6 +95,7 @@ ActiveRecord::Schema.define(version: 20171107161641) do
     t.integer "lørdagclosingminute"
     t.integer "søndagclosinghour"
     t.integer "søndagclosingminute"
+    t.string "slogan"
     t.index ["singleton_guard"], name: "index_globalsettings_on_singleton_guard", unique: true
   end
 
@@ -101,17 +120,23 @@ ActiveRecord::Schema.define(version: 20171107161641) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "utleies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "ingress"
-    t.string "booking_email"
-    t.string "contactperson"
-    t.string "contact_email"
-    t.string "contact_position"
-    t.string "contact_number"
-    t.boolean "show_contact_number"
+  create_table "utleieitems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "antall"
+    t.string "brand"
+    t.string "title"
+    t.bigint "utleietypes_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["utleietypes_id"], name: "index_utleieitems_on_utleietypes_id"
+  end
+
+  create_table "utleietypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookingimages", "bookings", column: "bookings_id"
   add_foreign_key "drinks", "categories"
+  add_foreign_key "utleieitems", "utleietypes", column: "utleietypes_id"
 end

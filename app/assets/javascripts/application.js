@@ -16,6 +16,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require lightbox
 //= require ckeditor/init
 //= require_tree .
 
@@ -24,6 +25,11 @@
 
 $( document ).on('turbolinks:load', function() {
 
+
+  lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
 
 	$('.icon').on('click', function() {
     $(this).toggleClass('open');

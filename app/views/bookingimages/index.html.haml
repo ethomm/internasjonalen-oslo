@@ -1,0 +1,27 @@
+%h1 Listing bookingimages
+
+%table
+  %thead
+    %tr
+      %th Image
+      %th Description
+      %th Fotograf
+      %th Booking
+      %th
+      %th
+      %th
+
+  %tbody
+    - @bookingimages.each do |bookingimage|
+      %tr
+        %td= bookingimage.image
+        %td= bookingimage.description
+        %td= bookingimage.fotograf
+        %td= bookingimage.booking_id
+        %td= link_to 'Show', bookingimage
+        %td= link_to 'Edit', edit_bookingimage_path(bookingimage)
+        %td= link_to 'Destroy', bookingimage, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Bookingimage', new_bookingimage_path

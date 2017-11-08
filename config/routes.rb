@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :bookingimages
+  resources :utleieitems
+  resources :utleietypes
+  resources :bookings
   resources :utleies, only: [:edit, :update]
   resources :globalsettings, only:[:edit, :update]
   resources :drinks, except: [:show, :index]
@@ -18,8 +22,9 @@ Rails.application.routes.draw do
   get     'administrator/hjelp'          =>   'administrator#help'
   get     'administrator/meny'           =>   'administrator#meny'
   get     'administrator/menykategori'   =>   'administrator#menykategori'
-  get     'administrator/utleie'         =>   'administrator#utleie'
-  get     'administrator/utleietext'     =>   'administrator#utleietext'
+  get     'administrator/booking'        =>   'administrator#booking'
+  get     'administrator/editbooking'    =>   'administrator#edit_booking'
+
 
   resources :users, except:[:show]
 

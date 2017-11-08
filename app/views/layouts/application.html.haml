@@ -1,12 +1,21 @@
 !!!
 %html{:xmlns => "http://www.w3.org/1999/xhtml", :lang => "no", "xml:lang" => "no"}
 	%head
+		= render 'partials/google'
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-		%title Internasjonalen
+		%title 
+			= full_title(yield(:title))
+		%meta{:content => yield(:description), :name => "description"}
+		%link{:rel=>"canonical", :href => canonical(yield(:canonical))}
 		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
 		%meta{"http-equiv" => "Expires", :content => "30"} 
 		= csrf_meta_tags
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+		:plain
+			<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<![endif]-->
 	%body{"itemscope" => true, :itemtype => "http://schema.org/BarOrPub"}
 		%meta{:itemprop => "name", :content => "internasjonalen"}
 		%meta{:itemprop => "servesCuisine", :content => "Baguetter og små bakevarer"}

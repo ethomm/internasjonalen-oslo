@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  antall: 1
+  brand: MyString
+  title: MyString
+  references: 
+
+two:
+  antall: 1
+  brand: MyString
+  title: MyString
+  references: 

@@ -1,0 +1,26 @@
+= form_for @booking do |f|
+  - if @booking.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@booking.errors.count, "error")} prohibited this booking from being saved:"
+      %ul
+        - @booking.errors.full_messages.each do |message|
+          %li= message
+
+  .row.mt-3
+    .col-12
+      %strong
+        = f.label :title
+      = f.text_field :title, :class => 'form-control'
+  .row.mt-2
+    .col-12
+      %strong
+        = f.label :body
+      = f.cktext_area :body, :class => 'form-control'
+  .row.mt-3
+    .col-6
+      = link_to administrator_booking_path do
+        %button.btn.btn-warning.btn-block.btn-lg
+          %i.fa.fa-reply{"aria-hidden" => "true"}
+          Tilbake
+    .col-6
+      = f.submit 'Lagre', :class => "btn btn-lg btn-success btn-block"

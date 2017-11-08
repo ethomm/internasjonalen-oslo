@@ -1,2 +1,0 @@
-class Utleie < ApplicationRecord
-end

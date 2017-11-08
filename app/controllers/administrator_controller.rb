@@ -23,12 +23,14 @@ class AdministratorController < ApplicationController
       
     end
 
-    def utleie
-      @utleie = Utleie.first
+    def booking
+      @bookings = Booking.all
     end
 
-    def utleietext
-      @utleie = Utleie.first
+    def edit_booking
+      @booking = Booking.find(params[:id])
+      @image = Bookingimage.new
+      @images = Bookingimage.where(bookings_id: @booking.id).all
     end
 
     def meny

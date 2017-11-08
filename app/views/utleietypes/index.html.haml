@@ -1,0 +1,21 @@
+%h1 Listing utleietypes
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th
+      %th
+      %th
+
+  %tbody
+    - @utleietypes.each do |utleietype|
+      %tr
+        %td= utleietype.title
+        %td= link_to 'Show', utleietype
+        %td= link_to 'Edit', edit_utleietype_path(utleietype)
+        %td= link_to 'Destroy', utleietype, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Utleietype', new_utleietype_path
