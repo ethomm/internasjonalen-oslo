@@ -19,14 +19,10 @@ class BookingimagesController < ApplicationController
   # PATCH/PUT /bookingimages/1
   # PATCH/PUT /bookingimages/1.json
   def update
-    respond_to do |format|
       if @bookingimage.update(bookingimage_params)
-        format.html { redirect_to @bookingimage, notice: 'Bookingimage was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bookingimage }
+        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Bookingimage was successfully updated.' 
       else
-        format.html { render :edit }
-        format.json { render json: @bookingimage.errors, status: :unprocessable_entity }
-      end
+        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Endringene ble ikke lagret'
     end
   end
 

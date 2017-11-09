@@ -1,17 +1,27 @@
-%ul.menu.cf
-	%li
-		= link_to omointernasjonalen_path do
+%ul#mainmenu
+	= link_to omointernasjonalen_path do
+		%li
 			Om oss
 	%li.dropdown
-		%a{:href => "#"}
-			Meny
-		%ul.submenu
-			- @categories.each do |c|
-				%li
-					= link_to c do
+		Bar
+		%i.fa.fa-caret-down{"aria-hidden" => "true"}
+		%ul.submenu.lukket
+			%li
+				1. Etasje
+			%li
+				2. Etasje
+	%li.dropdown
+		Booking
+		%i.fa.fa-caret-down{"aria-hidden" => "true"}
+		%ul.submenu.lukket
+			- @bookings.each do |c|
+				= link_to booking_path(c.slug) do
+					%li
 						= c.title
-	%li
-		= link_to root_path do
-			Utleie
+			%li
+				Tekniske spesifikasjoner
+	= link_to kontakt_path do	
+		%li
+			Kontakt
 
 

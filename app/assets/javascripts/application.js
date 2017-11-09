@@ -39,10 +39,10 @@ $( document ).on('turbolinks:load', function() {
 });
 
 
-	$('#nav-icon2').click(function(){
+	/*$('#nav-icon2').click(function(){
 		$(this).toggleClass('open');
 		$('#mobilemenu').toggle('slow');
-	});
+	});*/
 	// checks if any inputs has the class apeningstider
 	if($('input').hasClass('apningstider')){
 		setDoubleInteger();
@@ -61,7 +61,16 @@ $( document ).on('turbolinks:load', function() {
     		}
     		
     	}
+    
 	});
+
+  $('#seodescription').on('change keyup paste', function(){
+      seodescription();    
+  });
+
+  if($('textarea').is('#seodescription')){
+    seodescription();
+  }
 
 	// Initializing the timers
 	if($('div').is('#apningstider')){
@@ -117,6 +126,24 @@ $( document ).on('turbolinks:load', function() {
 	});
 
 });
+
+
+// Function to check seodescriptions
+
+function seodescription(){
+  number = $('#seodescription').val().length;
+  left = 160 - number
+  $('#seodescriptioncount').html(left);
+  if(number > 160){
+    $('#seodescriptionfeedback').removeClass('text-muted');
+    if($('#seodescriptionfeedback').hasClass('text-danger') == false){
+        $('#seodescriptionfeedback').addClass('text-danger');
+    }
+  }else if($('#seodescriptionfeedback').hasClass('text-danger')){
+    $('#seodescriptionfeedback').removeClass('text-danger');
+    $('#seodescriptionfeedback').addClass('text-muted');
+  }
+}
 
 // Function to correct the inputfields of apningstider to double digets
 function setDoubleInteger(){
@@ -361,5 +388,12 @@ function setMap() {
 
   map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
+
+  marker.addListener('click', function() {
+      console.log('marker click');
+      var url = 'https://www.google.com/maps/place/Internasjonalen/@59.9141892,10.7487952,419m/data=!3m1!1e3!4m13!1m7!3m6!1s0x0:0x0!2zNDXCsDI3JzUxLjAiTiA5wrAxMScyOS4wIkU!3b1!8m2!3d45.464167!4d9.191389!3m4!1s0x0:0x2f311a016cc4580a!8m2!3d59.9145319!4d10.7495843?hl=no';
+        window.open(url, "_blank")
+
+        });
 
 }

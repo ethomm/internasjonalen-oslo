@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy]
   before_action :get_stuff, only: [:show]
 
   # GET /bookings
@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+    @images = Bookingimage.where(bookings_id: @booking.id).all
   end
 
   # GET /bookings/new
@@ -54,8 +55,10 @@ class BookingsController < ApplicationController
 
   private
     def get_stuff
+      @booking = Booking.find_by_slug(params[:id])
       @categories = Category.all
-      @setting = Globalsetting.first      
+      @setting = Globalsetting.first
+      @bookings = Booking.all 
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
@@ -64,6 +67,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:title, :body, :slug)
+      params.require(:booking).permit(:title, :body, :slug, :seodescription)
     end
 end

@@ -6,6 +6,10 @@ class PagesController < ApplicationController
   def about
   	
   end
+
+  def kontakt
+  end
+  
   private	
   	def set_stuff
   		@setting = Globalsetting.first

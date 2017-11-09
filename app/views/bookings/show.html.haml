@@ -1,8 +1,16 @@
-%p#notice= notice
-
-%p
-  %b Type:
-  = @booking.title
-%p
-  %b Body:
-  = @booking.body.html_safe
+-provide(:description, "#{@booking.seodescription}")
+-provide(:title, "informasjon om booking av #{@booking.title}")
+-provide(:canonical, "/booking/#{@booking.slug}")
+%section.container.mt-4.mb-4
+	%article.row.justify-content-center.mb-4		
+		.col-10
+			%h2.pb-4.pt-4
+				= @booking.title
+			= @booking.body.html_safe
+	%aside.row.justify-content-center
+		.col-10
+			.row
+				- @images.each do |i|
+					.col-6.col-md-4.col-lg-3.mt-1
+						%a{:href => i.image.url, 'data-lightbox' => @booking.title, 'data-title' => i.description}
+							= image_tag i.image.url(:mobile)

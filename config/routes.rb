@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :categories, except: [:show]
   root 		'pages#home'
   get 		'omointernasjonalen'			     =>	  'pages#about'
+  get     'kontakt'                      =>   'pages#kontakt'
   get 		'login' 		                   =>	  'sessions#new'
   post		'login' 		                   => 	'sessions#create'
   delete	'logout'		                   =>	  'sessions#destroy'

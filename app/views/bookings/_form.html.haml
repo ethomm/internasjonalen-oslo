@@ -11,6 +11,16 @@
       %strong
         = f.label :title
       = f.text_field :title, :class => 'form-control'
+  .row.mt-3
+    .col-12
+      %strong
+        = f.label "SEO beskrivelse"
+      = f.text_area :seodescription, :id => 'seodescription', :class => "form-control", :height => '200px'
+  .row
+    .col-12#seodescriptionfeedback.text-muted.text-right
+      Tegn igjen:
+      %span#seodescriptioncount
+        160
   .row.mt-2
     .col-12
       %strong
@@ -18,9 +28,15 @@
       = f.cktext_area :body, :class => 'form-control'
   .row.mt-3
     .col-6
-      = link_to administrator_booking_path do
-        %button.btn.btn-warning.btn-block.btn-lg
-          %i.fa.fa-reply{"aria-hidden" => "true"}
-          Tilbake
+      - if @booking.id?
+        = link_to administrator_editbooking_path(:id => @booking.id) do
+          %button.btn.btn-warning.btn-block.btn-lg
+            %i.fa.fa-reply{"aria-hidden" => "true"}
+            Tilbake
+      -else
+        = link_to administrator_booking_path do
+          %button.btn.btn-warning.btn-block.btn-lg
+            %i.fa.fa-reply{"aria-hidden" => "true"}
+            Tilbake
     .col-6
       = f.submit 'Lagre', :class => "btn btn-lg btn-success btn-block"

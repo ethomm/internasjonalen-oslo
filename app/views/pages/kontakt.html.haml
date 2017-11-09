@@ -1,0 +1,42 @@
+-provide(:description, "Slå på tråden eller send oss en mail. Her finner du kontakt informasjon til Internasjonalen på Youngstorget i Oslo")
+-provide(:title, "Slå på tråden eller send oss en mail")
+-provide(:canonical, "/kontakt")
+%section.container.mt-4.mb-4
+	%article
+		.row.mb-4		
+			.col-12.col-lg-5
+				%h2.pt-4
+					Kontakt informasjon
+		.row
+			.col-12.col-lg-5
+				%h3
+					Generelle henvendelser
+				.row.mt-3.mb-4
+					.col-md-6.col-12.pt-3{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
+						%h6
+							Internasjonalen
+						%span{:itemprop => "streetAddress"}
+							= @setting.adresse
+						%br
+						%span{:itemprop => "postalCode"}
+							= @setting.postnr
+						\
+						%span{:itemprop => "addressRegion"}
+							= @setting.poststed
+						%p.pt-4
+							%a{:href => "https://www.google.com/maps/place/Internasjonalen/@59.9141892,10.7487952,419m/data=!3m1!1e3!4m13!1m7!3m6!1s0x0:0x0!2zNDXCsDI3JzUxLjAiTiA5wrAxMScyOS4wIkU!3b1!8m2!3d45.464167!4d9.191389!3m4!1s0x0:0x2f311a016cc4580a!8m2!3d59.9145319!4d10.7495843?hl=no" , :target => "_blank"}
+								%button.btn.btn-outline-secondary
+									%i.fa.fa-location-arrow{"aria-hidden" => "true"}
+									Finn veien for meg!
+					.col-md-6.col-12.pt-3
+						%span{:itemprop => "email"}
+							= @setting.epost
+						%br
+						%span{:itemprop => "telephone"}
+							(+47) 
+							= @setting.telefonnr
+
+		.row
+			.col-12.col-lg-5
+				%h3
+					Booking

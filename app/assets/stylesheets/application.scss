@@ -91,20 +91,8 @@ img, nav{
 
 /* Menu styling*/
 
-nav{
-  background-color: white;
-}
-
 #mobilemenu{
  display:none;
-}
-
-.apen{
-  display: block;
-}
-
-.lukket{
-  display: none;
 }
 
 /* Form styling */
@@ -116,10 +104,10 @@ input.apningstider {
   text-align: center;
 }
 
-textarea{
-  height: 25vh;
-}
 
+textarea#seodescription {
+  height: 100px;
+}
 /*  Miscellaneous */
 
 #map {

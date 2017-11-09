@@ -1,5 +1,5 @@
 =notice
-.row.justify-content-center.mt-4
+.row.mt-4
 	.col-12.col-md-10.col-lg-5.mt-4
 		%h1
 			= @booking.title
@@ -7,21 +7,59 @@
 			=link_to edit_booking_path(@booking) do
 				%i.fa.fa-edit{"aria-hidden" => "true"}
 				Rediger #{@booking.title.downcase}
-.row.justify-content-center.mt-4
+.row.mt-4
 	.col-12
-		- @images.each do |i|
-			.row.mt-1
-				.col-2
-					%a{:href => i.image.url, 'data-lightbox' => @booking.title, 'data-title' => i.description}
-						= image_tag i.image.url(:mobile)
-					=link_to i, method: :delete, data: { confirm: 'Are you sure?' } do
-						%i.fa.fa-trash{"aria-hidden" => "true"}
-						slett
-.row.justify-content-center.mt-4
+		.row.mt-2
+			- @images.each do |i|
+				.col-6.col-md-4.col-lg-3.mt-1
+					.row
+						.col-12
+							%a{:href => i.image.url, 'data-lightbox' => @booking.title, 'data-title' => i.description}
+								= image_tag i.image.url(:mobile)
+					.row
+						.col-12
+							%em
+								= i.description
+					.row
+						.col-12
+							%small
+								%em
+								%strong
+									Foto:
+								= i.fotograf
+					.row.justify-content-left
+						.col-3
+							%div{'data-toggle' => 'modal', 'data-target' => "##{i.description.parameterize}" }
+								%i.fa.fa-edit{"aria-hidden" => "true"}
+						.col-3
+							=link_to i, method: :delete, data: { confirm: 'Are you sure?' } do
+								%i.fa.fa-trash{"aria-hidden" => "true"}
+				.modal.fade{:id => i.description.parameterize, :tabindex => '-1', :role => "dialog", 'aria-labelledby' =>i.description.parameterize + i.id.to_s, 'aria-hidden' => 'true' }
+					.modal-dialog{:role => 'document'}
+						.modal-content
+							= form_for i do |f|
+								.modal-header
+									%h6.modal-title{:id => "#{i.description.parameterize}-title"}
+										Rediger bilde
+									%button.close{:type => "button", 'data-dismiss' => 'modal', 'aria-label' => 'close'}
+										%span{ 'aria-hidden' => 'true'} 
+											&times; 
+								.modal-body
+									.row.mt-2
+										.col-12
+											= f.text_field :description, :class => "form-control", :placeholder => "beskrivelse av bilde"
+									.row.mt-2
+										.col-12
+											= f.text_field :fotograf, :class => "form-control", :placeholder => "fotograf"
+								.modal-footer
+									= f.submit 'Lagre endringer', :class => "btn-success btn"
+									%button.btn.btn-secondary{:type => 'button', 'data-dismiss' => 'modal'}
+										Lukk
+.row.mt-4
 	.col-12.col-md-10.col-lg-5.mt-4
 		%h4
 			Legg til bilde
-.row.justify-content-center
+.row
 	.col-12.col-md-10.col-lg-5
 		= form_for @image do |f|
 			- if @image.errors.any?
@@ -47,7 +85,7 @@
 				.col-12
 					= f.submit 'Legg til', :class => "btn btn-lg btn-block btn-success"
 
-.row.justify-content-center.mt-4
+.row.mt-4
 	.col-12.col-md-10.col-lg-5.mt-4
 		= link_to administrator_booking_path do
 			%button.btn.btn-lg.btn-warning.btn-block

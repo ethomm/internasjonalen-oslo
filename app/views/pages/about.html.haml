@@ -2,16 +2,16 @@
 -provide(:title, "#{@about.title}")
 -provide(:canonical, "/ominternasjonalen")
 %section.container.mt-4.mb-4
-	%article.row.justify-content-center.mb-4		
-		.col-10
+	%article.row.mb-4		
+		.col-12.col-lg-5
 			%h2.pb-4.pt-4
 				= @about.title
 			%p.lead.pb-3
 				= @about.ingress
 			%p
 				= @about.body.html_safe
-	.nav.row.justify-content-center{:role => "navigation"}
-		.col-10
+	.nav.row{:role => "navigation"}
+		.col-12.col-lg-5
 			= link_to :back do
 				%i.fa.fa-reply{"aria-hidden" => "true"}
 				Tilbake

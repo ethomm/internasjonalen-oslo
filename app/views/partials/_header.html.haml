@@ -1,12 +1,16 @@
-%header.bg-light.sticky-top{"data-turbolinks-permanent" => true}
-	.row.container-fluid.justify-content-between
-		.col-4.col-sm-3.col-md-2.col-lg-2#logo
-			= link_to root_path do
-				%img{:src => asset_url('interlogorod.svg'), :type => "image/svg+xml", :itemprop => "logo", :alt => "Internasjonalen logo"}
-		.col-4.text-right.p-0.pt-3
-			= render 'partials/hamburger'
-	%nav.container.lukket.bg-light#mobilemenu.pt-4.pb-2{:role => "Navigation"}
-		.row
-			.col-12
-				= render 'partials/mobilemenu'
+%header.container-fluid.bg-light.sticky-top{"data-turbolinks-permanent" => true}
+	.container
+		.row.justify-content-between
+			.col-4.col-sm-3.col-md-2.col-lg-2.col-#logo
+				= link_to root_path do
+					%img{:src => asset_url('interlogorod.svg'), :type => "image/svg+xml", :itemprop => "logo", :alt => "Internasjonalen logo"}
+			.col-4.text-right.p-0.pt-3.d-lg-none
+				= render 'partials/hamburger'
+			.col-auto.d-none.d-lg-block.align-content-right
+				%nav{:role => 'navigation'}
+					= render 'partials/mainmenu'
+		%nav.container.lukket.bg-light#mobilemenu.pt-4.pb-2.d-lg-none{:role => "Navigation"}
+			.row
+				.col-12
+					= render 'partials/mobilemenu'
 
