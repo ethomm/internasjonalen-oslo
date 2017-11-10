@@ -1,9 +1,5 @@
-.row.justify-content-center
-  .col-md-8.col-lg-5.col-12
-    
-
 .row.justify-content-center.mt-4
-  .col-md-8.col-lg-5.col-12
+  .col-12.col-md-10.col-lg-5
     %h2
       Brukere
     - @users.each do |user|
@@ -19,14 +15,17 @@
           = link_to user, method: :delete, data: { confirm: 'Er du sikker?' } do
             .col.p-3.bg-danger.text-white
               Slett
-.row.justify-content-center.no-gutters.m-0.p-0
-  .col-md-8.col-lg-5.col-12.m-0.p-0
-    = link_to administrator_path do
-      %button.btn.btn-outline-warning
-        %i.fa.fa-reply{"aria-hidden" => "true"}
-        Tilbake
-    = link_to new_user_path do
-      %button.btn.btn-outline-success
-        %i.fa.fa-plus{"aria-hidden" => "true"}
-        Ny Bruker
+.row.justify-content-center.mt-4
+  .col-12.col-md-10.col-lg-5
+    .row
+      .col-6
+        = link_to administrator_path do
+          %button.btn.btn-warning.btn-block
+            %i.fa.fa-reply{"aria-hidden" => "true"}
+            Tilbake
+      .col-6
+        = link_to new_user_path do
+          %button.btn.btn-success.btn-block
+            %i.fa.fa-plus{"aria-hidden" => "true"}
+            Ny Bruker
         

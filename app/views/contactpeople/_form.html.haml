@@ -24,7 +24,7 @@
     = f.text_field :position, :class => "form-control", "aria-describedby" => "phone", :placeholder => "Stilling"
   .form-check
     %label.form-check-label
-      = f.check_box :showtelefon, :class => "form-check-input"
+      = f.check_box :showtelefon, { :class => "form-check-input"},'true' , 'false' 
       Vis telefonnr på siden
   .actions
     .row

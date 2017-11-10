@@ -26,6 +26,8 @@ class AdministratorController < ApplicationController
 
     def booking
       @bookings = Booking.all
+      @setting = Globalsetting.first
+      @contactpeople = Contactperson.all
     end
 
     def edit_booking

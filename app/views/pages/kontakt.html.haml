@@ -11,7 +11,7 @@
 			.col-12.col-lg-5
 				%h3
 					Generelle henvendelser
-				- if @setting.contactperson_id?
+				- if @contactperson
 					.row.mt-4.pt-4.pb-4
 						.col-12
 							%h5
@@ -23,6 +23,11 @@
 							%p
 								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
 								= @contactperson.email
+							- if @contactperson.showtelefon?
+								%p
+									%i.fa.fa-phone{"aria-hidden" => "true"}
+									(+47)
+									= @contactperson.telefon
 				.row.mt-3
 					.col-12
 						%h5
@@ -56,3 +61,41 @@
 			.col-12.col-lg-5
 				%h3
 					Booking
+				- if @bookingperson
+					.row.mt-4.pt-4.pb-4
+						.col-12
+							%h5
+								%i.fa.fa-user{"aria-hidden" => "true"}
+								= @bookingperson.name
+								%small
+									-
+									= @bookingperson.position
+							%p
+								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
+								= @bookingperson.email
+							- if @bookingperson.showtelefon?
+								%p
+									%i.fa.fa-phone{"aria-hidden" => "true"}
+									(+47)
+									= @bookingperson.telefon
+		- if @tekniskperson
+			.row
+				.col-12.col-lg-5
+					%h3
+						Teknisk
+					.row.mt-4.pt-4.pb-4
+						.col-12
+							%h5
+								%i.fa.fa-user{"aria-hidden" => "true"}
+								= @tekniskperson.name
+								%small
+									-
+									= @tekniskperson.position
+							%p
+								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
+								= @tekniskperson.email
+							- if @tekniskperson.showtelefon?
+								%p
+									%i.fa.fa-phone{"aria-hidden" => "true"}
+									(+47)
+									= @tekniskperson.telefon

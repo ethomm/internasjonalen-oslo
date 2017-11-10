@@ -1,5 +1,5 @@
 class Globalsetting < ApplicationRecord
-	belongs_to :contactpersons
+	
 
 	def openingtimes
 		startdivs = "<div class='row'><div class='col-6'>"

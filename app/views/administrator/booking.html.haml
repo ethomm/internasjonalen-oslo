@@ -5,6 +5,18 @@
 				.col-12.text-center
 					%h2
 						Booking
+			.row.mt-3
+				.col-12
+					= form_for @setting do |f|
+						%h5
+							Bookingansvalig:
+						= f.select(:booking_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {}, {class: 'custom-select'})
+						%button.btn.btn-primary{:type => 'submit'}
+							%i.fa.fa-floppy-o{"aria-hidden" => "true"}
+						=link_to new_contactperson_path do
+							%button.btn.btn-success
+								%i.fa.fa-plus{"aria-hidden" => "true"}
+								%i.fa.fa-user{"aria-hidden" => "true"}
 			- @bookings.each do |b|
 				.row.mt-3
 					.col-9

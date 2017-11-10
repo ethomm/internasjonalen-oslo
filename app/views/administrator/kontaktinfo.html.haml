@@ -23,7 +23,7 @@
 				.row.mt-3
 					-if @contactpeople.any?
 						.col-12
-							= f.select(:contactperson_id, [['Ingen', 'nil']] + @contactpeople.collect{|c| [c.name, c.id]}, {include_blank: "Velg Kontaktperson" , 
+							= f.select(:contact_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {include_blank: "Velg Kontaktperson" , 
 							}, {class: 'custom-select'})
 
 				.row.mt-3

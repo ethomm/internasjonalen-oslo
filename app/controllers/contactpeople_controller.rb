@@ -30,6 +30,7 @@ class ContactpeopleController < ApplicationController
         redirect_to administrator_kontaktinfo_path, notice: 'Kontaktperson ble oppdatert'
       else
         redirect_to administrator_kontaktinfo_path, notice: 'Noe gikk galt... Sorry' 
+        puts @contactperson.errors.full_messages
       end
   end
 

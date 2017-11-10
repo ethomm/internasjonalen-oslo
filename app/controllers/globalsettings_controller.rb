@@ -1,21 +1,11 @@
 class GlobalsettingsController < ApplicationController
-  before_action :set_globalsetting, only: [ :edit, :update,]
-
-  # GET /globalsettings/new
-  def new
-    @globalsetting = Globalsetting.new
-  end
-
-  # GET /globalsettings/1/edit
-  def edit
-  end
+  before_action :authenticate_user
+  before_action :set_globalsetting, only: [:update,]
 
   # PATCH/PUT /globalsettings/1
   # PATCH/PUT /globalsettings/1.json
   def update
       if @globalsetting.update(globalsetting_params)
-        @globalsetting.contactperson_id = params[:contactperson_id]
-        puts 'Dette er greiea' + params[:contactperson_id].to_s
         redirect_to administrator_path, notice: 'Oppdatert' 
       else
         redirect_to administrator_path, notice: 'Ups! Der skjedde det noe galt'
@@ -71,6 +61,8 @@ class GlobalsettingsController < ApplicationController
                                             :poststed,
                                             :epost,
                                             :telefonnr,
-                                            :contactperson_id)
+                                            :contact_id,
+                                            :teknisk_id,
+                                            :booking_id)
     end
 end

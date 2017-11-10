@@ -1,0 +1,10 @@
+-provide(:description, "Beskrivelse")
+-provide(:title, "Vår spennende #{@bar.title}")
+-provide(:canonical, "/bar/#{@bar.slug}")
+%section.container.mt-4.mb-4
+	%article.row.justify-content-center.mb-2		
+		.col-10
+			%h2.pb-4.pt-4
+				= @bar.title
+			%p
+				= @bar.body.html_safe

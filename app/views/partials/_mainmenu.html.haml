@@ -6,10 +6,10 @@
 		Bar
 		%i.fa.fa-caret-down{"aria-hidden" => "true"}
 		%ul.submenu.lukket
-			%li
-				1. Etasje
-			%li
-				2. Etasje
+			- @bars.each do |b|
+				= link_to bar_path(b.slug) do
+					%li
+						= b.title
 	%li.dropdown
 		Booking
 		%i.fa.fa-caret-down{"aria-hidden" => "true"}

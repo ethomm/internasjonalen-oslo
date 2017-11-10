@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110164000) do
+ActiveRecord::Schema.define(version: 20171110203347) do
+
+  create_table "bars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+  end
 
   create_table "bookingimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image"
@@ -107,8 +115,9 @@ ActiveRecord::Schema.define(version: 20171110164000) do
     t.integer "søndagclosinghour"
     t.integer "søndagclosingminute"
     t.string "slogan"
-    t.bigint "contactperson_id"
-    t.index ["contactperson_id"], name: "index_globalsettings_on_contactperson_id"
+    t.integer "contact_id", default: 0
+    t.integer "booking_id", default: 0
+    t.integer "teknisk_id", default: 0
     t.index ["singleton_guard"], name: "index_globalsettings_on_singleton_guard", unique: true
   end
 
@@ -151,6 +160,5 @@ ActiveRecord::Schema.define(version: 20171110164000) do
 
   add_foreign_key "bookingimages", "bookings", column: "bookings_id"
   add_foreign_key "drinks", "categories"
-  add_foreign_key "globalsettings", "contactpeople"
   add_foreign_key "tekniskitems", "tekniskcategories"
 end

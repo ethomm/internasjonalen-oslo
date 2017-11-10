@@ -17,9 +17,18 @@ class PagesController < ApplicationController
   private	
   	def set_stuff
   		@setting = Globalsetting.first
-      @contactperson = Contactperson.find(@setting.contactperson_id)
+      if @setting.contact_id != 0;
+        @contactperson = Contactperson.find(@setting.contact_id)
+      end
+      if @setting.booking_id != 0;
+        @bookingperson = Contactperson.find(@setting.booking_id)
+      end
+      if @setting.teknisk_id != 0;
+        @tekniskperson = Contactperson.find(@setting.teknisk_id)
+      end
       @categories = Category.all
       @bookings = Booking.all
       @about = Omoss.first
+      @bars = Bar.all
     end
 end

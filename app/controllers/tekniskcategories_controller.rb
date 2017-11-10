@@ -8,16 +8,8 @@ class TekniskcategoriesController < ApplicationController
     @tekniskcategories = Tekniskcategory.all.eager_load(:tekniskitems)
     @nyteknisk = Tekniskcategory.new
     @nyitem = Tekniskitem.new
-  end
-
-  # GET /tekniskcategories/1
-  # GET /tekniskcategories/1.json
-  def show
-  end
-
-  # GET /tekniskcategories/new
-  def new
-    @tekniskcategory = Tekniskcategory.new
+    @setting = Globalsetting.first
+    @contactpeople = Contactperson.all
   end
 
   # GET /tekniskcategories/1/edit

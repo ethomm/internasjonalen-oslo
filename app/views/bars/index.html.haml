@@ -1,0 +1,30 @@
+.container
+  .row.justify-content-center
+    .col-md-8.col-lg-5.col-12
+      .row.mt-4
+        .col-12.text-center
+          %h2
+            Bar
+      - @bars.each do |bar|
+        .row.mt-3
+          .col-10
+            = link_to edit_bar_path(bar) do
+              %button.btn.btn-info.btn-block
+                = bar.title
+          .col-2
+            = link_to bar, method: :delete, data: { confirm: 'Are you sure?' } do
+              %button.btn.btn-warning.btn-block
+                %i.fa.fa-trash{"aria-hidden" => "true"}
+      .row.mt-3
+        .col-12
+          = link_to new_bar_path do
+            %button.btn.btn-success.btn-block
+              %i.fa.fa-plus{"aria-hidden" => "true"}
+              Legg til etasje..ehhh..Bar...
+      .row.mt-3
+        .col-12
+          = link_to administrator_path do
+
+            %button.btn.btn-warning.btn-block
+              %i.fa.fa-reply{"aria-hidden" => "true"}
+              Tilbake

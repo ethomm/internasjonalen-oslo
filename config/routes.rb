@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :bars
   resources :contactpeople, except: [:show, :index]
   resources :tekniskitems
   resources :tekniskcategories

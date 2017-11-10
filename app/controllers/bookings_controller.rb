@@ -13,6 +13,13 @@ class BookingsController < ApplicationController
   # GET /bookings/1.json
   def show
     @images = Bookingimage.where(bookings_id: @booking.id).all
+    @setting = Globalsetting.first
+      if @setting.contact_id != 0;
+        @contactperson = Contactperson.find(@setting.contact_id)
+      end
+      if @setting.booking_id != 0;
+        @bookingperson = Contactperson.find(@setting.booking_id)
+      end
   end
 
   # GET /bookings/new
