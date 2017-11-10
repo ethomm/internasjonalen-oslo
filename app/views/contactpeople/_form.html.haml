@@ -1,0 +1,38 @@
+= form_for @contactperson do |f|
+  - if @contactperson.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@contactperson.errors.count, "error")} prohibited this contactperson from being saved:"
+      %ul
+        - @contactperson.errors.full_messages.each do |message|
+          %li= message
+
+  .input-group.input-group-lg.mb-3.mt-4
+    %span#person.input-group-addon
+      %i.fa.fa-user-o{"aria-hidden" => "true"}
+    = f.text_field :name, :class => "form-control", "aria-describedby" => "person", :placeholder => "Navn"
+  .input-group.input-group-lg.mb-3
+    %span#email.input-group-addon
+      @
+    = f.text_field :email, :class => "form-control", "aria-describedby" => "email", :placeholder => "E-post"
+  .input-group.input-group-lg.mb-3
+    %span#phone.input-group-addon
+      + 47
+    = f.text_field :telefon, :class => "form-control", "aria-describedby" => "phone", :placeholder => "99 99 99 99"
+  .input-group.input-group-lg.mb-3
+    %span#position.input-group-addon
+      %i.fa.fa-street-view{"aria-hidden" => "true"}
+    = f.text_field :position, :class => "form-control", "aria-describedby" => "phone", :placeholder => "Stilling"
+  .form-check
+    %label.form-check-label
+      = f.check_box :showtelefon, :class => "form-check-input"
+      Vis telefonnr på siden
+  .actions
+    .row
+      .col-12
+        = f.submit 'Save', :class => "btn btn-success btn-block"
+    .row.mt-3
+      .col-12
+        = link_to administrator_kontaktinfo_path do
+          %button.btn.btn-warning.btn-block
+            %i.fa.fa-reply{"aria-hidden" => "true"}
+            Tilbake

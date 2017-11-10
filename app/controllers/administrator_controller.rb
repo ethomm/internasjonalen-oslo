@@ -12,7 +12,8 @@ class AdministratorController < ApplicationController
   	end
 
   	def kontaktinfo
-
+      @contactpeople = Contactperson.all
+      @contactperson = Contactperson.new
   	end
 
   	def apningstider

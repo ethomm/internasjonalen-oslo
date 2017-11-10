@@ -11,7 +11,23 @@
 			.col-12.col-lg-5
 				%h3
 					Generelle henvendelser
-				.row.mt-3.mb-4
+				- if @setting.contactperson_id?
+					.row.mt-4.pt-4.pb-4
+						.col-12
+							%h5
+								%i.fa.fa-user{"aria-hidden" => "true"}
+								= @contactperson.name
+								%small
+									-
+									= @contactperson.position
+							%p
+								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
+								= @contactperson.email
+				.row.mt-3
+					.col-12
+						%h5
+							Adresse
+				.row.mb-4
 					.col-md-6.col-12.pt-3{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
 						%h6
 							Internasjonalen

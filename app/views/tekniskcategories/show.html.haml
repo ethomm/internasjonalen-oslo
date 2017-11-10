@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @tekniskcategory.title
+
+= link_to 'Edit', edit_tekniskcategory_path(@tekniskcategory)
+\|
+= link_to 'Back', tekniskcategories_path

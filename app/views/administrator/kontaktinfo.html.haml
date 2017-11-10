@@ -20,11 +20,53 @@
 						%span#phone.input-group-addon
 							+47
 						= f.telephone_field :telefonnr, :class => "form-control", "aria-describedby" => "phone"
+				.row.mt-3
+					-if @contactpeople.any?
+						.col-12
+							= f.select(:contactperson_id, [['Ingen', 'nil']] + @contactpeople.collect{|c| [c.name, c.id]}, {include_blank: "Velg Kontaktperson" , 
+							}, {class: 'custom-select'})
 
 				.row.mt-3
 					.col-12.pt-2
+						= f.submit 'Lagre', :class => 'btn btn-success btn-block'
+				- if @contactpeople.any?
+					.row.mt-3
+						.col-12
+							%h5
+								Kontaktpersoner
+						%table.table
+							%thead
+								%tr
+									%th
+										Navn
+									%th
+										Posisjon
+									%th
+							%tbody
+								- @contactpeople.each do |cp|							
+									%tr
+										%td
+											%small
+												= cp.name
+										%td
+											%small
+												= cp.position
+										%td
+											= link_to edit_contactperson_path(cp) do
+												%i.fa.fa-edit{"aria-hidden" => "true"}
+											= link_to cp, method: :delete, data: { confirm: 'Are you sure?' } do
+												%i.fa.fa-trash{"aria-hidden" => "true"}
+				.row.mt-3
+					.col-12
+						= link_to new_contactperson_path do
+							%button.btn.btn-block.btn-outline-success
+								%i.fa.fa-plus{"aria-hidden" => "true"}
+								Legg til kontaktperson
+
+
+				.row.mt-2
+					.col-12
 						= link_to administrator_path do
-							%button.btn.btn-warning
+							%button.btn.btn-warning.btn-block
 								%i.fa.fa-reply{"aria-hidden" => "true"}
 								Tilbake
-						= f.submit 'Lagre', :class => 'btn btn-success'

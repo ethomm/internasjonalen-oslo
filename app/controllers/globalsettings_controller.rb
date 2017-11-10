@@ -13,14 +13,13 @@ class GlobalsettingsController < ApplicationController
   # PATCH/PUT /globalsettings/1
   # PATCH/PUT /globalsettings/1.json
   def update
-    respond_to do |format|
       if @globalsetting.update(globalsetting_params)
-        format.html { redirect_to administrator_path, notice: 'Oppdatert' }
+        @globalsetting.contactperson_id = params[:contactperson_id]
+        puts 'Dette er greiea' + params[:contactperson_id].to_s
+        redirect_to administrator_path, notice: 'Oppdatert' 
       else
-        format.html { render :edit }
-        format.json { render json: @globalsetting.errors, status: :unprocessable_entity }
+        redirect_to administrator_path, notice: 'Ups! Der skjedde det noe galt'
       end
-    end
   end
 
   private
@@ -71,6 +70,7 @@ class GlobalsettingsController < ApplicationController
                                             :postnr,
                                             :poststed,
                                             :epost,
-                                            :telefonnr)
+                                            :telefonnr,
+                                            :contactperson_id)
     end
 end

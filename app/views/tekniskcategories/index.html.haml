@@ -1,0 +1,69 @@
+.container
+  .row.justify-content-center
+    .col-md-8.col-lg-5.col-12
+      .row.mt-4
+        .col-12.text-center
+          %h2
+            %i.fa.fa-cog.fa-spin{"aria-hidden" => "true"}
+            Tekniske spesifikasjoner
+      - @tekniskcategories.each do |k|
+        .row.mt-3
+          .col-12
+            %h5
+              = k.title
+              %small.ml-4
+                %i.fa.fa-edit{"aria-hidden" => "true"}
+              %small.ml-4
+                %i.fa.fa-trash{"aria-hidden" => "true"}
+        .row.mt-1
+          .col-2
+            Antall
+          .col-6
+            Tittel
+        - k.tekniskitems.each do |i|
+          .row.mt-1
+            .col-2
+              = i.antall
+            .col-8
+              = i.title
+            .col-2
+              = link_to i , method: :delete, data: { confirm: 'Er du sikker?' } , :class=> "btn btn-block btn-danger" do
+                %i.fa.fa-trash{"aria-hidden" => "true"}
+        = form_for @nyitem do |f|
+          .row.mt-1.justify.content-between
+            = f.hidden_field :tekniskcategory_id, :value => k.id
+            .col-2
+              = f.number_field :antall, :class => "form-control"
+            .col-8  
+              = f.text_field :title, :class => "form-control"
+            .col-2
+              = f.submit '+', :class => "btn btn-success btn-block"
+      .row.mt-3
+        .col-12
+          %button.btn.btn-outline-success.btn-lg.btn-block{'data-toggle' => 'modal', 'data-target' => "#nyteknisk" }
+            %i.fa.fa-plus{"aria-hidden" => "true"}
+            Ny teknisk gruppe
+        .modal.fade{:id => "nyteknisk", :tabindex => '-1', :role => "dialog", 'aria-labelledby' => "nytek", 'aria-hidden' => 'true' }
+          .modal-dialog{:role => 'document'}
+            .modal-content
+              = form_for @nyteknisk do |f|
+                .modal-header
+                  %h6.modal-title{:id => "nytekniskgruppetitle"}
+                    Rediger bilde
+                  %button.close{:type => "button", 'data-dismiss' => 'modal', 'aria-label' => 'close'}
+                    %span{ 'aria-hidden' => 'true'} 
+                      &times; 
+                .modal-body
+                  .row.mt-2
+                    .col-12
+                      = f.text_field :title, :class => "form-control", :placeholder => "Tittel på teknisk gruppe"
+                .modal-footer
+                  = f.submit 'Lagre endringer', :class => "btn-success btn"
+                  %button.btn.btn-secondary{:type => 'button', 'data-dismiss' => 'modal'}
+                    Lukk
+      .row.mt-3
+        .col-12
+          = link_to administrator_booking_path do
+            %button.btn.btn-lg.btn-warning.btn-block
+              %i.fa.fa-reply{"aria-hidden" => "true"}       
+              Tilbake

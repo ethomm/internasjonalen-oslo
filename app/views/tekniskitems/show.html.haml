@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @tekniskitem.title
+%p
+  %b Antall:
+  = @tekniskitem.antall
+%p
+  %b Tekniskcategory:
+  = @tekniskitem.tekniskcategory
+%p
+  %b Status:
+  = @tekniskitem.status
+
+= link_to 'Edit', edit_tekniskitem_path(@tekniskitem)
+\|
+= link_to 'Back', tekniskitems_path

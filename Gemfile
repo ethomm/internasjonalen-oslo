@@ -18,6 +18,7 @@ gem 'font-awesome-sass'
 
 # Jquery
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Security
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 

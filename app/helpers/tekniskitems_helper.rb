@@ -1,0 +1,2 @@
+module TekniskitemsHelper
+end

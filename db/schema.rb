@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109133051) do
+ActiveRecord::Schema.define(version: 20171110164000) do
 
   create_table "bookingimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20171109133051) do
     t.string "title"
     t.text "description"
     t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contactpeople", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "email"
+    t.string "telefon"
+    t.string "position"
+    t.boolean "showtelefon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,6 +107,8 @@ ActiveRecord::Schema.define(version: 20171109133051) do
     t.integer "søndagclosinghour"
     t.integer "søndagclosingminute"
     t.string "slogan"
+    t.bigint "contactperson_id"
+    t.index ["contactperson_id"], name: "index_globalsettings_on_contactperson_id"
     t.index ["singleton_guard"], name: "index_globalsettings_on_singleton_guard", unique: true
   end
 
@@ -110,6 +122,22 @@ ActiveRecord::Schema.define(version: 20171109133051) do
     t.index ["singleton_guard"], name: "index_omosses_on_singleton_guard", unique: true
   end
 
+  create_table "tekniskcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tekniskitems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.integer "antall"
+    t.bigint "tekniskcategory_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tekniskcategory_id"], name: "index_tekniskitems_on_tekniskcategory_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -121,23 +149,8 @@ ActiveRecord::Schema.define(version: 20171109133051) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "utleieitems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "antall"
-    t.string "brand"
-    t.string "title"
-    t.bigint "utleietypes_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["utleietypes_id"], name: "index_utleieitems_on_utleietypes_id"
-  end
-
-  create_table "utleietypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "bookingimages", "bookings", column: "bookings_id"
   add_foreign_key "drinks", "categories"
-  add_foreign_key "utleieitems", "utleietypes", column: "utleietypes_id"
+  add_foreign_key "globalsettings", "contactpeople"
+  add_foreign_key "tekniskitems", "tekniskcategories"
 end

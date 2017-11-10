@@ -1,0 +1,20 @@
+-provide(:description, "Tekniske spesifikasjoner på hva som befinner seg av lyd og AV utstyr hos Internajsonalen")
+-provide(:title, "Tekniske Pesifikasjoner")
+-provide(:canonical, "/tekniskespsifikasjoner")
+%section.container.mt-4.mb-4
+	%article
+		.row.mb-4		
+			.col-12.col-lg-5
+				%h2.pb-4.pt-4
+					Tekniske spesifikasjoner
+		- @tekniskcategories.each do |t|
+			.row.mt-2
+				.col-12.col-lg-5
+					%h5
+						= t.title
+					%ul.utstyrsliste
+						- t.tekniskitems.each do |i|
+							%li
+								= i.antall
+								x
+								= i.title

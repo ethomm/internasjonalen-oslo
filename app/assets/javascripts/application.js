@@ -13,6 +13,7 @@
 
 //= require rails-ujs
 //= require jquery3
+//= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
@@ -24,7 +25,6 @@
 
 
 $( document ).on('turbolinks:load', function() {
-
 
   lightbox.option({
       'resizeDuration': 200,

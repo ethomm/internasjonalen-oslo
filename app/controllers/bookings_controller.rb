@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user, except: [:show]
   before_action :set_booking, only: [:edit, :update, :destroy]
   before_action :get_stuff, only: [:show]
 

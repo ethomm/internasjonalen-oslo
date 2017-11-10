@@ -142,6 +142,12 @@ textarea#seodescription {
   padding: 0; 
 }
 
+ul.utstyrsliste {
+  li{
+    list-style: none;
+  }
+}
+
 /* Lenker */
 a:hover{
   text-decoration: none;

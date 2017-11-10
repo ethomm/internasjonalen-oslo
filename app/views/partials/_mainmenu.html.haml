@@ -18,8 +18,9 @@
 				= link_to booking_path(c.slug) do
 					%li
 						= c.title
-			%li
-				Tekniske spesifikasjoner
+			= link_to tekniskespsifikasjoner_path do
+				%li
+					Tekniske spesifikasjoner
 	= link_to kontakt_path do	
 		%li
 			Kontakt

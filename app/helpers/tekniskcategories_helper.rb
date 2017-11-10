@@ -1,0 +1,2 @@
+module TekniskcategoriesHelper
+end
