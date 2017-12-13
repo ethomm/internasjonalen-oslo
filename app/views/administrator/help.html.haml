@@ -1,4 +1,174 @@
-.container
-	.row
-		.col-12
-			Hjelp!
+.row.justify-content-center
+	.col-md-8.col-lg-5.col-12
+		.row.pt-2.justify-content-between.mt-3
+			.col-12
+				%h1
+					Hjelp
+				%p
+					Backenden er lagt for at du som bruker ikke skal måtte kunne noe som helst form for HTML eller CSS eller noen annen kode for å lagt ut eller inn den informasjonen du skal.
+				%p
+					Det skal derfor heller ikke være mulig å ødelegge noe.
+					%strong.text-danger
+						selvfølgelig med untak av å slette elementer fra siden...
+					Før du sletter noe som helst vil du få opp en dialogboks som spør om du er sikker. Så det er lagt inn en liten fail-safe her. Til alt annet du måttte lure på håper jeg du finner informasjonen du trenger under.
+				%p
+					Siden er programert med en egen bildebehandler. Det vil si at du kan laste opp bilder direkte fra mobilen eller en PC uten å måtte tenkte på om bildet er optimalisert for web eller mobile enheter. Backenden lager to versjoner av bildet. Et for maskin og en for mobil.
+				%p
+					Skulle det være noen problemer eller noe som ikke blir forklart her, er det bare å ta kontakt med Eirik Thommessen, på 99598827
+				%p.bg-info.text-white.p-2
+					%i.fa.fa-info-circle{"aria-hidden" => "true"}
+					Informasjonen blir oppdatert etterhvert som nytt innhold og funksjoner legges til
+				%p.pt-3.pb-3
+					%h2
+						Innhold:
+					1. Generell info
+					%br
+					2. Administrator menyen
+					%br
+					2.1 Åpningstider
+					%br
+					2.2 Om Oss
+					%br
+					2.3 Bar
+					%br
+					2.4 Booking
+					%br
+					2.4.1 Tekniske spesifikasjoner
+					%br
+					2.5 Aldersgrense
+					%br
+					2.6 Kontaktinformasjon
+					%br
+					2.7 Brukere
+		.row.pt-3.mt-3
+			.col-12
+				%h3
+					1. Generell info
+				%p
+					Sidene er lagd for å være mest mulig optimalisert mot søkemoterer. For å få dette til kreves det også noe av de som legger inn innhold på siden.
+				%p
+					De fleste sidene hvor det er innhold er tre bokser med tekst. Den ene er tittel på siden og de to andre er selve innholdet. Disse er delt opp i to. Ingress/Seo beskrivelse og body.
+				%p
+					Tittel og ingressen/Seo beskrivelse blir lagt inn som meta tagger for søkemotorer. Være derfor flinke når dere legger inn tekst her og bruk ord som folk normalt søker på når de leter etter dere
+				%p
+					= image_tag('seoeks.png')
+					Her er et eksempel på hvordan det vil se ut. Tittlen blir lagt Internasjonalen - tittel. og ingressen/beskrivelsen blir lagt på som introtekst.
+				%p
+					Body teksten er resten av innholdet på siden. Denne teksboksen fungerer som vanlig teksteditor hvor enter skaper en ny paragraf.
+
+
+
+				%h3.pt-2
+					2. Administrator Menyen
+				%p
+					Administrator menyen er designet for at det skal være enklest mulig vei til de mest vanlige tingene som skal oppdateres. Åpningstider er derfor lagt øvest siden dette er det elementet som mest sansynelig endres oftest.
+				
+
+				%h4.pt-3
+					2.1 Åpningstider
+				%p
+					Åpningstider består av en liste med ukedager.
+				%p
+					%em
+						Åpent eller stengt?
+					%br
+					Checkboxen som står foran ukedagen er huket av om det er åpent den dagen. Dersom det er steng, fjernes markeringen.
+				%p
+					%em
+						Selve tidene
+					%br
+					I nummerfeltene er det kun mulig å sette inn tall som korrensponderer med riktig angivelse av timer og minutter i et 24 timers system. Det vil si at det ikke går ann å skrive tall høyere enn 23 i timer og 59 i minutter.
+					%small.text-warning
+						Det går ann å skrive men, det går ikke ann å lagre.
+				%p
+					Bakenden tar seg av formateringen av åpningstidene og setter sammen rekker med like åpningstider.
+				
+
+				%h4.pt-3
+					2.2 Om Oss
+				%p
+					Om oss har tre tekstfelter som. Tittel, ingress og body. Se punkt 1 for mer info om disse boksene
+
+
+				%h4.pt-3
+					2.3 Bar
+				%p
+					Den grønne knappen tar deg til et skjema hvor du oppretter en ny "bar". Opprettelse av elementer her skaper nye menyelementer i hovedmenyen.
+				%p
+					Når et nytt element er opprettet vil du få tilgang til fra menyen du stod i. Her vil du nå kunne slette, opprette ny eller redigere.
+				%p
+					For å redigere elementet klikker du på det, og blir tat med til en ny side.
+
+
+				%h4.pt-3
+					2.4 Booking
+				%p
+					Dette er kanksje den mest avanserte siden av dem alle. Men frykt ikke. Det er ment å være logisk. Alle objekter som opprettet dukker opp som valg i dropdown menyen under Booking i hovedmenyen på siden.
+				%p
+					%em
+						Bookingansvalig
+					%br
+					Dersom dere har en som er kontaktperson for bukking kan denne personen legges til eller velges fra rullgardinen om personen allerde lagt inn via 
+					= link_to "kontaktinformasjonsiden", administrator_kontaktinfo_path
+					i hovedmenyen. Personen som velges her kommer opp på siden for de forskjellige bookinobjektene. Dere kan også velge "Ingen". Da vil det ikke komme opp noe informasjon om bookingansvarlig på siden.
+				%p
+					%em
+						Nytt booking objekt
+					%br
+					Denne knappen gjør at dere kan legge inn nye bookingobjekter. Her er det infomrajsonen under punkt 1 "Generell info" som gjelder.
+				%p
+					%em
+						Slett/Rediger/leggtil bilder
+					%br
+					Når et bookingobjekt er opprettet for eksempel "Seminar", vil det dukke opp i listen på siden. Her har man to valg. Slette eller redigere. Slette er markert med en 
+					%span.btn.btn-danger.btn-sm
+						rød knapp
+					med et søppelkasse ikon
+					%i.fa.fa-trash{"aria-hidden" => "true"}
+					i høyre kant.
+				%p
+					Hovedkanppen 
+					%span.btn.btn-info.btn-sm
+						bookingobjektet
+					tar deg til en side hvor du kan legge til bilder. Under tittelen finner du lenken til å redigere selve objektet
+				%p
+					Opplasting av bilder kan foregå fra mobil eller pc uten å måtte tenke på filstørelse. Dette tas håndom automagisk. Å legge til en beskrivelse på bilder er viktig for de som ikke kan se. De får lest opp beskrivelsen. Krediter fotografen om du vil... Sletting av bilder foregår ved å klikke på søpplebøtta under bilder. Du kan redigere bildetekst ved å klikke på
+					%i.fa.fa-edit{"aria-hidden" => "true"}
+					ikonet. Et pop-up skjema vil da dukke opp.
+				%h4.pt-3
+					2.4.1 Tekniske spesifikasjoner
+				%p
+					Tekniskespesifikasjoner er listen over alt teknisk utstyr som er til disposijon ved utleie. Disse kan legges i egne grupper med antall og hva. En teknisk gruppe må opprettes før noe kan legges inn. Dette kan være "PA system". I gruppen "PA system" kan man legge inn "4" "VUE Adiotechnik a-15 tops".
+				%p
+					Som ved bookingansvalig kan det også legges inn en egen tekniskansvalig. Denne kan også settes til "Ingen".
+
+
+
+				%h4.pt-3
+					2.5 Aldersgrense
+				%p
+					Tast inn et tall og trykk "lagre". Ikke værre enn det.
+
+				%h4.pt-3
+					2.6 Kontaktinformasjon
+
+				%p
+					Øverst i dette menypunktet er selve kontakt infoen til Internajsonalen. Det være seg adresse, epost, telefonnr og kontaktperson. Kontaktperson kan settes til "Ingen", dersom det skulle være tilfellet.
+				%p
+					Forskjellige Kontaktpersoner kan legges inn med navn, nummer og epost. Telefonnr vises ikke by default. Men kan hukes av for å vise dersom man ønsker at nr skal vises på siden.
+				%p
+					For å redigere kontaktpersoner kan man klikke på 
+					%i.fa.fa-edit{"aria-hidden" => "true"}
+					rediger ikonet.
+				%p
+					Kontaktpersoner kan slettes ved å trykke på
+					%i.fa.fa-trash{"aria-hidden" => "true"}
+					søppelkasse ikonet. Her vil du bli bedt om å bekrefte.
+
+				%h4.pt-3
+					2.7 Brukere
+				%p
+					Her administreres hvem som har tilgang til administratorsidene. Påloggingsinfomrasjonen er epost og passord.
+				%p
+					Som en fail-safe kan alle brukere med untak av den som har laget siden slettes.
+

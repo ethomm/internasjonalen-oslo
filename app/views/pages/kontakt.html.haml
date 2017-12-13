@@ -56,19 +56,18 @@
 						%span{:itemprop => "telephone"}
 							(+47) 
 							= @setting.telefonnr
-
-		.row
-			.col-12.col-lg-5
-				%h3
-					Booking
-				- if @bookingperson
+		- if @bookingperson
+			.row
+				.col-12.col-lg-5
+					%h3
+						Booking
 					.row.mt-4.pt-4.pb-4
 						.col-12
 							%h5
 								%i.fa.fa-user{"aria-hidden" => "true"}
 								= @bookingperson.name
 								%small
-									-
+									\-
 									= @bookingperson.position
 							%p
 								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
@@ -89,7 +88,7 @@
 								%i.fa.fa-user{"aria-hidden" => "true"}
 								= @tekniskperson.name
 								%small
-									-
+									\-
 									= @tekniskperson.position
 							%p
 								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
