@@ -14,7 +14,6 @@
 //= require rails-ujs
 //= require jquery3
 //= require jquery-ui
-//= require jquery.mobile
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
@@ -33,12 +32,6 @@ $( document ).on('turbolinks:load', function() {
     })
 
 	$('.icon').on('click', function() {
-    $(this).toggleClass('open');
-    $('#mobilemenu').slideToggle('slow');
-    //$('#mobilemenu').toggleClass('lukket');
-    //$('#mobilemenu').toggleClass('apen');
-  });
-  $('.icon').bind('tap', function() {
     $(this).toggleClass('open');
     $('#mobilemenu').slideToggle('slow');
     //$('#mobilemenu').toggleClass('lukket');

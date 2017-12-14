@@ -23,7 +23,6 @@ $custom-file-text: (
 );
 
 @import 'bootstrap';
-@import 'jquery.mobile';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'lightbox';
@@ -66,6 +65,8 @@ body{
   line-height: 1.5em;
   background-color: white;
   }
+
+body.mobile{pointer:cursor}
 
 img, nav{
   width: 100%;
