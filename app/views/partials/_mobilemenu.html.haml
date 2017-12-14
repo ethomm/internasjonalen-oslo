@@ -14,6 +14,11 @@
 			%h5
 				Bar
 			%ul
+				- @bars.each do |b|
+					%li
+						= link_to b.title, bar_path(b.slug)
+							
+			%ul
 				%li
 					1. Etasje
 				%li
