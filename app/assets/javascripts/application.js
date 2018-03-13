@@ -19,10 +19,6 @@
 //= require turbolinks
 //= require lightbox
 //= require ckeditor/init
-//= require_tree .
-
-
-
 
 $( document ).on('turbolinks:load', function() {
 
