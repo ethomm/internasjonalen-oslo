@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110203347) do
+ActiveRecord::Schema.define(version: 20180313235338) do
 
   create_table "bars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -39,14 +39,6 @@ ActiveRecord::Schema.define(version: 20171110203347) do
     t.text "seodescription"
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
-    t.text "description"
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "contactpeople", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -55,18 +47,6 @@ ActiveRecord::Schema.define(version: 20171110203347) do
     t.boolean "showtelefon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "drinks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
-    t.text "description"
-    t.string "slug"
-    t.decimal "price", precision: 10
-    t.bigint "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "picture"
-    t.index ["category_id"], name: "index_drinks_on_category_id"
   end
 
   create_table "globalsettings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -160,6 +140,5 @@ ActiveRecord::Schema.define(version: 20171110203347) do
   end
 
   add_foreign_key "bookingimages", "bookings", column: "bookings_id"
-  add_foreign_key "drinks", "categories"
   add_foreign_key "tekniskitems", "tekniskcategories"
 end

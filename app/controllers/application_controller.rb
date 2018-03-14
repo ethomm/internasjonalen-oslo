@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
       if @setting.teknisk_id != 0;
         @tekniskperson = Contactperson.find(@setting.teknisk_id)
       end
-      @categories = Category.all
       @bookings = Booking.all
       @about = Omoss.first
       @bars = Bar.all
