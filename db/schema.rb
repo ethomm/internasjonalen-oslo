@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 20180313235338) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "singelton_guard"
     t.integer "singleton_guard"
     t.index ["singleton_guard"], name: "index_omosses_on_singleton_guard", unique: true
   end
