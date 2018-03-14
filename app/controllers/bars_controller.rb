@@ -61,16 +61,11 @@ class BarsController < ApplicationController
     end
 
     def find_bar
-      @setting = Globalsetting.first
-      @bar = Bar.find_by_slug(params[:id])
-      @categories = Category.all
-      @bookings = Booking.all
-      @about = Omoss.first
-      @bars = Bar.all
+      @bar = Bar.find_by_slug(params[:id])   
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bar_params
-      params.require(:bar).permit(:title, :body)
+      params.require(:bar).permit(:title, :body, :seo_description)
     end
 end

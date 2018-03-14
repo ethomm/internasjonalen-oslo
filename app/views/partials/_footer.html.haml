@@ -1,49 +1,55 @@
 %footer.container-fluid.bg-light.pb-4{"data-turbolinks-permanent" => true}
 	.container
-		.row.container.ml-0.mr-0.justify-content-between
-			.col-12.col-md-5.bg-white.pr-4.pb-2.mt-4
-				%h4.pt-2
-					Åpningstider				
-				- if @setting.mandag?
-					%meta{:itemprop => "openingHours", :content => 'Mo '+@setting.mondayopens+'-'+@setting.mondaycloses}
-				- if @setting.tirsdag?
-					%meta{:itemprop => "openingHours", :content => 'Tu '+@setting.tuesdayopens+'-'+@setting.tuesdaycloses}
-				- if @setting.onsdag?
-					%meta{:itemprop => "openingHours", :content => 'We '+@setting.wednesdayopens+'-'+@setting.wednesdaycloses}
-				- if @setting.torsdag?
-					%meta{:itemprop => "openingHours", :content => 'Th '+@setting.thursdayopens+'-'+@setting.thursdaycloses}
-				- if @setting.fredag?
-					%meta{:itemprop => "openingHours", :content => 'Fr '+@setting.fridayopens+'-'+@setting.fridaycloses}
-				- if @setting.lørdag?
-					%meta{:itemprop => "openingHours", :content => 'Sa '+@setting.saturdayopens+'-'+@setting.saturdaycloses}
-				- if @setting.søndag?
-					%meta{:itemprop => "openingHours", :content => 'Su '+@setting.sundayopens+'-'+@setting.sundaycloses}
-				= @setting.openingtimes.html_safe
-				.col-12.text-right.p-0
-					Aldersgrense:
-					%strong
-						=@setting.aldersgrense
-					år
-			%address.col-12.col-md-5.d-sm-none.d-md-block.bg-white.pr-4.pb-2.mt-4
-				%h4.p2
-					Adresse
-				.row.mt-3
-					.col-6{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
-						%span{:itemprop => "streetAddress"}
-							= @setting.adresse
-						%br
-						%span{:itemprop => "postalCode"}
-							= @setting.postnr
-						\
-						%span{:itemprop => "addressRegion"}
-							= @setting.poststed
-					.col-6
-						%span{:itemprop => "email"}
-							= @setting.epost
-						%br
-						%span{:itemprop => "telephone"}
-							(+47) 
-							= @setting.telefonnr
+		.row.container.ml-0.mr-0.justify-content-between.pt-3
+			.card.col-12.col-md-5.mb-3
+				.card-body
+					.card-title
+						%h4
+							Åpningstider
+					.card-text		
+						- if @setting.mandag?
+							%meta{:itemprop => "openingHours", :content => 'Mo '+@setting.mondayopens+'-'+@setting.mondaycloses}
+						- if @setting.tirsdag?
+							%meta{:itemprop => "openingHours", :content => 'Tu '+@setting.tuesdayopens+'-'+@setting.tuesdaycloses}
+						- if @setting.onsdag?
+							%meta{:itemprop => "openingHours", :content => 'We '+@setting.wednesdayopens+'-'+@setting.wednesdaycloses}
+						- if @setting.torsdag?
+							%meta{:itemprop => "openingHours", :content => 'Th '+@setting.thursdayopens+'-'+@setting.thursdaycloses}
+						- if @setting.fredag?
+							%meta{:itemprop => "openingHours", :content => 'Fr '+@setting.fridayopens+'-'+@setting.fridaycloses}
+						- if @setting.lørdag?
+							%meta{:itemprop => "openingHours", :content => 'Sa '+@setting.saturdayopens+'-'+@setting.saturdaycloses}
+						- if @setting.søndag?
+							%meta{:itemprop => "openingHours", :content => 'Su '+@setting.sundayopens+'-'+@setting.sundaycloses}
+						= @setting.openingtimes.html_safe
+						.col-12.text-right.p-0
+							Aldersgrense:
+							%strong
+								=@setting.aldersgrense
+							år
+			%address.card.col-12.col-md-5
+				.card-body
+					.card-title
+						%h4
+							Adresse
+					.card-text
+						.row.mt-3
+							.col-5{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
+								%span{:itemprop => "streetAddress"}
+									= @setting.adresse
+								%br
+								%span{:itemprop => "postalCode"}
+									= @setting.postnr
+								\
+								%span{:itemprop => "addressRegion"}
+									= @setting.poststed
+							.col-7.text-right
+								%span{:itemprop => "email"}
+									= @setting.epost
+								%br
+								%span{:itemprop => "telephone"}
+									(+47) 
+									= @setting.telefonnr
 	.row.justify-content-center.mt-4
 		.col-10.text-center
 			= render 'partials/some'
@@ -51,8 +57,8 @@
 		.col-12#map{:image => "#{image_url('marker.png')}"}
 	.row.pb-2.text-center.mt-3
 		.col-12.credit
-			created by: 
-			%a{:href => "http://www.reelmedianordic.com/", :target => "_blank"}
+			2017 - #{Time.now.year} 
+			%a.credit{:href => "http://www.reelmedianordic.com/", :target => "_blank"}
 				@reelmedianordic
 	
 

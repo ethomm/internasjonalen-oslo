@@ -64,9 +64,6 @@ class BookingsController < ApplicationController
   private
     def get_stuff
       @booking = Booking.find_by_slug(params[:id])
-      @categories = Category.all
-      @setting = Globalsetting.first
-      @bookings = Booking.all 
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_booking

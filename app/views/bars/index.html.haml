@@ -5,6 +5,12 @@
         .col-12.text-center
           %h2
             Bar
+      .row.mt-4
+        .col-12.small
+          -if @bars.nil?
+            Når det ikke er lag til noen barer/etasjer må du først gjøre dette. Titelen på vil dukke opp i menyen på hovedsiden.
+          -else
+            Her kan du klikke og endre informasjonen om etasjene legge til eller slette.
       - @bars.each do |bar|
         .row.mt-3
           .col-10
@@ -12,7 +18,7 @@
               %button.btn.btn-info.btn-block
                 = bar.title
           .col-2
-            = link_to bar, method: :delete, data: { confirm: 'Are you sure?' } do
+            = link_to bar, method: :delete, data: { confirm: 'Er du sikker?' } do
               %button.btn.btn-warning.btn-block
                 %i.fa.fa-trash{"aria-hidden" => "true"}
       .row.mt-3

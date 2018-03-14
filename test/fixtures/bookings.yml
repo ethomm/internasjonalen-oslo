@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
+  title: Fest 
   body: MyText
   slug: MyString
-
+  id: 1
 two:
-  type: 
+  title: Arrangement
   body: MyText
   slug: MyString
+  id: 2

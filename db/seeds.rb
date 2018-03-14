@@ -3,9 +3,17 @@ User.create!(	name: 'Eirik Thommessen',
 				password: 'termin8Er',
 				password_confirmation: 'termin8Er')
 
+puts "=================================================="
+
+puts "1 User was created"
+
 Omoss.create!(title: 'Om Internasjonalen', ingress:"ingress tekst", body: "Mer tekst her")
 
-Globalsetting.create(	mandag: true, 
+puts "=================================================="
+
+puts "Om oss was created"
+
+Globalsetting.create!(	mandag: true, 
   											tirsdag: true, 
   											onsdag: true, 
   											torsdag: true, 
@@ -44,4 +52,31 @@ Globalsetting.create(	mandag: true,
   											postnr: '0181',
   											poststed: 'Oslo',
   											epost: 'post@internasjonalen.no',
-  											telefonnr: '22222222')
+                        slogan: 'In dog we trust!',
+  											telefonnr: '22222222',)
+
+puts "=================================================="
+
+puts "Globals settings was created"
+
+
+Contactperson.create!(name: "Eirik", email: "Eirik@meetprod.no", telefon: "99598827")
+Contactperson.create!(name: "Laura", email: "laura@meetprod.no", telefon: "99598827")
+Contactperson.create!(name: "Thomas", email: "thomas@meetprod.no", telefon: "99598827")
+Contactperson.create!(name: "Wilima", email: "Wilima@meetprod.no", telefon: "99598827")
+Contactperson.create!(name: "Mickey", email: "Mickey@meetprod.no", telefon: "99598827")
+
+puts "=================================================="
+
+puts "5 Contactpersons was created"
+
+Role.create!(title: "Dagligleder", stilling: 1, globalsetting_id: 1)
+Role.create!(title: "Booking ansvalig", stilling: 2, globalsetting_id: 1)
+Role.create!(title: "Teknisk ansvalig", stilling: 3, globalsetting_id: 1)
+
+puts "=================================================="
+
+puts "Roles created"
+
+
+

@@ -1,6 +1,6 @@
 .container
 	.row.justify-content-center
-		.col-12.col-md-6.col-lg-4
+		.col-12.col-md-8.col-lg-6
 			= form_for @setting do |f|
 				.row.mt-3
 					.col-12
@@ -21,21 +21,28 @@
 							+47
 						= f.telephone_field :telefonnr, :class => "form-control", "aria-describedby" => "phone"
 				.row.mt-3
-					-if @contactpeople.any?
-						.col-12
-							= f.select(:contact_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {include_blank: "Velg Kontaktperson" , 
-							}, {class: 'custom-select'})
-
-				.row.mt-3
 					.col-12.pt-2
 						= f.submit 'Lagre', :class => 'btn btn-success btn-block'
+				-if @contactpeople.any?
+					.row.mt-3
+						.col-12.pt-2
+							%h4
+								Sett daglig leder
+	.row.justify-content-center
+		.col-12.col-md-8.col-lg-6
+			= form_for @role, :url => role_path(@role.id),:html => {:method => :put} do |r|
+				.row
+					.col-12.pt-2
+						= r.select(:contactperson_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {include_blank: "Velg Kontaktperson" , }, {class: 'custom-select'})
+						= r.submit 'Lagre', :class => 'btn btn-success'
+
 				- if @contactpeople.any?
 					.row.mt-3
 						.col-12
-							%h5
+							%h4
 								Kontaktpersoner
 						%table.table
-							%thead
+							%thead.dark
 								%tr
 									%th
 										Navn
@@ -50,7 +57,7 @@
 												= cp.name
 										%td
 											%small
-												= cp.position
+												= contact_rolle cp.stilling
 										%td
 											= link_to edit_contactperson_path(cp) do
 												%i.fa.fa-edit{"aria-hidden" => "true"}

@@ -11,6 +11,19 @@
       %strong
         = f.label "Navn på etasjen"
       = f.text_field :title, :class => "form-control"
+  .row
+    .col-12.pt-3
+      %strong
+        = f.label "SEO beskrivelse"
+      %br
+      %span.small
+        Beskrivelsen her vil gå i headeren på siden som igjen blir plukket opp av søkemotorer. For at denne skal være optimal, er det fint om teksten her holdes til 160 tegn
+      = f.text_area :seo_description, :id => 'seodescription', :class => 'form-control'
+  .row
+    .col-12#seodescriptionfeedback.text-muted.text-right
+      Tegn igjen:
+      %span#seodescriptioncount
+        160
   .row.mt-2
     .col-12
       %strong
