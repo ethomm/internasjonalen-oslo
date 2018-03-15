@@ -6,15 +6,8 @@ class ApplicationController < ActionController::Base
   private	
   	def set_stuff
   		@setting = Globalsetting.first
-      if @setting.contact_id != 0;
-        @contactperson = Contactperson.find(@setting.contact_id)
-      end
-      if @setting.booking_id != 0;
-        @bookingperson = Contactperson.find(@setting.booking_id)
-      end
-      if @setting.teknisk_id != 0;
-        @tekniskperson = Contactperson.find(@setting.teknisk_id)
-      end
+      puts "==========================================================}"
+      @contact = Contactperson.where.not(stilling: :ingen)
       @bookings = Booking.all
       @about = Omoss.first
       @bars = Bar.all

@@ -1,16 +1,16 @@
 .container
 	.row.justify-content-center
-		.col-md-8.col-lg-5.col-12
+		.col-md-8.col-lg-6.col-12
 			.row.mt-4
 				.col-12.text-center
 					%h2
 						Booking
 			.row.mt-3
 				.col-12
-					= form_for @setting do |f|
+					= form_for @role, :url => role_path(@role.id),:html => {:method => :put} do |f|
 						%h5
 							Bookingansvalig:
-						= f.select(:booking_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {}, {class: 'custom-select'})
+						= f.select(:contactperson_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {}, {class: 'custom-select'})
 						%button.btn.btn-primary{:type => 'submit'}
 							%i.fa.fa-floppy-o{"aria-hidden" => "true"}
 						=link_to new_contactperson_path do

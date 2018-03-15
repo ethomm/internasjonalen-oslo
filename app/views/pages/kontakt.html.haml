@@ -4,37 +4,19 @@
 %section.container.mt-4.mb-4
 	%article
 		.row.mb-4		
-			.col-12.col-lg-5
+			.col-12
 				%h2.pt-4
 					Kontakt informasjon
 		.row
 			.col-12.col-lg-5
+				- if @contact.leder.first
+					= render partial:'partials/kontakt_person', locals: {person: @contact.leder.first, titel: "Generelle henvendelser" } 
+			.col-12.col-lg-5.offset-lg-2{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
 				%h3
-					Generelle henvendelser
-				- if @contactperson
-					.row.mt-4.pt-4.pb-4
-						.col-12
-							%h5
-								%i.fa.fa-user{"aria-hidden" => "true"}
-								= @contactperson.name
-								%small
-									\-
-									= @contactperson.position
-							%p
-								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
-								= @contactperson.email
-							- if @contactperson.showtelefon?
-								%p
-									%i.fa.fa-phone{"aria-hidden" => "true"}
-									(+47)
-									= @contactperson.telefon
-				.row.mt-3
+					Adresse
+				.row.pt-2.pb-4
 					.col-12
 						%h5
-							Adresse
-				.row.mb-4
-					.col-md-6.col-12.pt-3{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
-						%h6
 							Internasjonalen
 						%span{:itemprop => "streetAddress"}
 							= @setting.adresse
@@ -49,52 +31,16 @@
 								%button.btn.btn-outline-secondary
 									%i.fa.fa-location-arrow{"aria-hidden" => "true"}
 									Finn veien for meg!
-					.col-md-6.col-12.pt-3
 						%span{:itemprop => "email"}
-							= @setting.epost
+							= mail_to @setting.epost, encode: "hex", class: "contactmail" do
+								= email_robot(@setting.epost)
 						%br
 						%span{:itemprop => "telephone"}
-							(+47) 
-							= @setting.telefonnr
-		- if @bookingperson
-			.row
-				.col-12.col-lg-5
-					%h3
-						Booking
-					.row.mt-4.pt-4.pb-4
-						.col-12
-							%h5
-								%i.fa.fa-user{"aria-hidden" => "true"}
-								= @bookingperson.name
-								%small
-									\-
-									= @bookingperson.position
-							%p
-								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
-								= @bookingperson.email
-							- if @bookingperson.showtelefon?
-								%p
-									%i.fa.fa-phone{"aria-hidden" => "true"}
-									(+47)
-									= @bookingperson.telefon
-		- if @tekniskperson
-			.row
-				.col-12.col-lg-5
-					%h3
-						Teknisk
-					.row.mt-4.pt-4.pb-4
-						.col-12
-							%h5
-								%i.fa.fa-user{"aria-hidden" => "true"}
-								= @tekniskperson.name
-								%small
-									\-
-									= @tekniskperson.position
-							%p
-								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
-								= @tekniskperson.email
-							- if @tekniskperson.showtelefon?
-								%p
-									%i.fa.fa-phone{"aria-hidden" => "true"}
-									(+47)
-									= @tekniskperson.telefon
+							(+47)
+							%a{:href => "tel:#{@setting.telefonnr}"} 
+								= @setting.telefonnr
+		- if @contact.booking.first
+			= render partial:'partials/kontakt_person', locals: {person: @contact.booking.first, titel: "Booking" } 
+		- if @contact.teknisk.first != nil
+			= render partial:'partials/kontakt_person', locals: {person: @contact.teknisk.first, titel: "Teknisk" } 
+			

@@ -8,12 +8,13 @@
             Tekniske spesifikasjoner
       .row.mt-3
         .col-12
-          = form_for @setting do |f|
-            %h5
-              Tekniskansvalig:
-            = f.select(:teknisk_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {}, {class: 'custom-select'})
-            %button.btn.btn-primary{:type => 'submit'}
-              %i.fa.fa-floppy-o{"aria-hidden" => "true"}
+          %h5
+            Set teknisk ansvarlig
+      .row
+        .col-12
+          = form_for @role, :url => role_path(@role.id),:html => {:method => :put} do |r|
+            = r.select(:contactperson_id, [['Ingen', 0]] + @contactpeople.collect{|c| [c.name, c.id]}, {include_blank: "Velg Kontaktperson" , }, {class: 'custom-select'})
+            = r.submit 'Lagre', :class => 'btn btn-success'
             =link_to new_contactperson_path do
               %button.btn.btn-success
                 %i.fa.fa-plus{"aria-hidden" => "true"}

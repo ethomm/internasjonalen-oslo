@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313235338) do
+ActiveRecord::Schema.define(version: 20180314210213) do
 
   create_table "bars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180313235338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.text "seo_description"
   end
 
   create_table "bookingimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,10 +44,10 @@ ActiveRecord::Schema.define(version: 20180313235338) do
     t.string "name"
     t.string "email"
     t.string "telefon"
-    t.string "position"
     t.boolean "showtelefon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stilling", default: 0
   end
 
   create_table "globalsettings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -95,9 +96,6 @@ ActiveRecord::Schema.define(version: 20180313235338) do
     t.integer "søndagclosinghour"
     t.integer "søndagclosingminute"
     t.string "slogan"
-    t.integer "contact_id", default: 0
-    t.integer "booking_id", default: 0
-    t.integer "teknisk_id", default: 0
     t.index ["singleton_guard"], name: "index_globalsettings_on_singleton_guard", unique: true
   end
 
@@ -109,6 +107,17 @@ ActiveRecord::Schema.define(version: 20180313235338) do
     t.datetime "updated_at", null: false
     t.integer "singleton_guard"
     t.index ["singleton_guard"], name: "index_omosses_on_singleton_guard", unique: true
+  end
+
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.bigint "contactperson_id"
+    t.bigint "globalsetting_id", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "stilling", default: 0
+    t.index ["contactperson_id"], name: "index_roles_on_contactperson_id"
+    t.index ["globalsetting_id"], name: "index_roles_on_globalsetting_id"
   end
 
   create_table "tekniskcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -139,5 +148,7 @@ ActiveRecord::Schema.define(version: 20180313235338) do
   end
 
   add_foreign_key "bookingimages", "bookings", column: "bookings_id"
+  add_foreign_key "roles", "contactpeople"
+  add_foreign_key "roles", "globalsettings"
   add_foreign_key "tekniskitems", "tekniskcategories"
 end

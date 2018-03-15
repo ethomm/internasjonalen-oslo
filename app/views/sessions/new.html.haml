@@ -9,7 +9,7 @@
 						= f.email_field :email , :class => 'form-control', :placeholder => "Brukernavn", "aria-label" => "Brukernavn", "aria-describedby" => "snabela"
 					.col.pt-2.input-group
 						%span.input-group-addon#astrix
-							**
+							%i.fa.fa-key{"aria-hidden" => "true"}
 						= f.password_field :password, :class => 'form-control', :placeholder => "Passord", "aria-label" => "Passord", "aria-describedby" => "astrix"
 					.col.pt-2
 						= f.label :remember_me, class: 'checkbox inline' do
@@ -17,4 +17,4 @@
 							%span
 								Husk meg på denne maskinen
 					.col.pt-2
-						= f.submit 'Logg inn', class: 'btn btn-outline-success form-control'
+						= f.submit 'Logg inn', class: 'btn btn-outline-secondary form-control'

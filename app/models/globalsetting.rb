@@ -1,6 +1,5 @@
 class Globalsetting < ApplicationRecord
-	
-
+		has_many :roles
 	def openingtimes
 		startdivs = "<div class='row'><div class='col-6'>"
 		stengtdivs = "</div><div class='col-6 text-right'>Stengt</div></div>"

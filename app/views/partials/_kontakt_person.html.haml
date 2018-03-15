@@ -1,0 +1,24 @@
+%h3
+  = titel
+.row.pt-2.pb-4
+  .col-12
+    %h5
+      %i.fa.fa-user{"aria-hidden" => "true"}
+      = person.name
+      %small
+        \-
+        = contact_rolle person.stilling
+    %p
+      %i.fa.fa-envelope-o{"aria-hidden" => "true"}
+      = mail_to person.email, encode: "hex", class: "contactmail" do
+        = email_robot(person.email)
+    - if person.showtelefon?
+      %p
+        %i.fa.fa-phone{"aria-hidden" => "true"}
+        (+47)
+        %a{:href => "tel:#{person.telefon}"}
+          = person.telefon
+        \//
+        %a{:href => "sms://#{person.telefon}"}
+          %i.fa.fa-comments{"aria-hidden" => "true"}
+          Send en melding

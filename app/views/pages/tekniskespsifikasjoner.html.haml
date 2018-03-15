@@ -8,34 +8,15 @@
 				%h2.pb-4.pt-4
 					Tekniske spesifikasjoner
 		- @tekniskcategories.each do |t|
-			.row.mt-2
+			.row.mt-3.mb-3.pb-3
 				.col-12.col-lg-5
-					%h5
+					%h3
 						= t.title
-					%ul.utstyrsliste
+					%ul.list-group.list-group-flush
 						- t.tekniskitems.each do |i|
-							%li
+							%li.list-group-item
 								= i.antall
 								x
 								= i.title
 		- if @tekniskperson
-			.row.mt-4.mb-4
-				.col-12.col-lg-5
-					%h3
-						Teknisk kontaktperson
-					.row.mt-4.pt-4.pb-4
-						.col-12
-							%h5
-								%i.fa.fa-user{"aria-hidden" => "true"}
-								= @tekniskperson.name
-								%small
-									-
-									= @tekniskperson.position
-							%p
-								%i.fa.fa-envelope-o{"aria-hidden" => "true"}
-								= @tekniskperson.email
-							- if @tekniskperson.showtelefon?
-								%p
-									%i.fa.fa-phone{"aria-hidden" => "true"}
-									(+47)
-									= @tekniskperson.telefon
+			= render partial: 'partials/kontakt_person', locals: { person: @tekniskperson, titel: "Teknisk kontaktperson"}

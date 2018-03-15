@@ -1,5 +1,5 @@
 -provide(:description, "#{@about.ingress}")
--provide(:title, "#{@about.title}")
+-provide(:title, "Om Internasjonalen")
 -provide(:canonical, "/ominternasjonalen")
 %section.container.mt-4.mb-4
 	%article.row.mb-4		
@@ -12,7 +12,7 @@
 				= @about.body.html_safe
 	.row.mt-2
 		.col-12.col-lg-5
-			= link_to kontakt_path do
+			= link_to kontakt_internasjonalen_path do
 				%button.btn.btn-outline-secondary.btn-block
 					Kontaktinformasjon til Internasjonalen
 	.row.mt-2

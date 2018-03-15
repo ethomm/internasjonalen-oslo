@@ -61,7 +61,7 @@ class GlobalsettingsController < ApplicationController
                                             :poststed,
                                             :epost,
                                             :telefonnr,
-                                            :contact_id,
+                                            :leder_id,
                                             :teknisk_id,
                                             :booking_id)
     end
