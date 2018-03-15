@@ -36,6 +36,9 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 # Encoding email adresses
 gem 'actionview-encoded_mail_to', '~> 1.0', '>= 1.0.9'
 
+# Controll testing
+gem 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use mysql as the database for Active Record

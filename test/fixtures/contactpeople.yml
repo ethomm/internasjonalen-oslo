@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  telefon: MyString
-  position: MyString
-  showtelefon: false
+eirik:
+  name: Eirik Thommessen
+  email: mail@mail.com
+  telefon: 9999999
+  stilling: 1
+  showtelefon: true
 
-two:
-  name: MyString
-  email: MyString
-  telefon: MyString
-  position: MyString
+laura:
+  name: Laura Coppa
+  email: mail@mail.com
+  telefon: 99999999
+  stilling: 2
   showtelefon: false

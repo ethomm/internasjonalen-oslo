@@ -4,8 +4,10 @@ eirik:
   name: Eirik Thommessen
   email: eirik@eksempel.no
   admin: true
+  password_digest: <%= User.digest("Password1234") %>
 
 stompa:
   name: Stompa Brunvatne
   email: eirik@brunvatne.com
   admin: false
+  password_digest: <%= User.digest("Password1234") %>
