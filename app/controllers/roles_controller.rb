@@ -2,38 +2,26 @@ class RolesController < ApplicationController
   before_action :authenticate_user
   before_action :set_role, only: [:update]
 
-
   def update
-    id = params[:role][:contactperson_id]
-    case id
+    @id = params[:role][:contactperson_id]
+    @roleid = params[:id]
+    case @id
     # If the role is sett to none/ingen  
     when "0"
-      puts "============================"
-      puts "Case 0 Is run"
       @oldRoleOwner = Contactperson.where(stilling: @role.id);
       if !@oldRoleOwner.first.nil?
         @oldRoleOwner.first.stilling = 0
         @oldRoleOwner.first.save!
         @role.contactperson_id = nil
         @role.save!
+      else
+        @role.contactperson_id = nil
+        @role.save
       end
     else
-      oldRoleOwner = Contactperson.where(stilling: Integer(@role.id)
-      newRoleOwner = Contactperson.find(params[:role][:contactperson_id])
-      updatating
-    # If there is no users assigned to the old role
-      if oldRoleOwner.first.nil? 
-        ingen_gammel_rolle(newRoleOwner, @role.id )
-        updatating
-    # If the change of roles is between to different persons
-      elsif newRoleOwner != oldRoleOwner
-        gammel_og_ny(newRoleOwner, oldRoleOwner, id)
-        updatating
-      else
-        puts "============================"
-        puts "NO CHANGE"
-      end
+      update_contactpersons
     end
+    redirect_to administrator_kontaktinfo_path
   end
   private
     def set_role
@@ -56,8 +44,8 @@ class RolesController < ApplicationController
     def gammel_og_ny(nycontact, gammelcontact, id)
       nycontact.stilling = Integer(id)
       nycontact.save!
-      gammelcontact.stilling = 0
-      gammelcontact.save!
+      gammelcontact.first.stilling = 0
+      gammelcontact.first.save!
     end
 
     def updatating
@@ -79,5 +67,21 @@ class RolesController < ApplicationController
       flas.now[:alert] = "Noe gikk skikkelig galt"
       redirect_to administrator_path
     end
+    end
+
+    def update_contactpersons
+      oldRoleOwner = Contactperson.where(stilling: Integer(@role.id))
+      newRoleOwner = Contactperson.find(params[:role][:contactperson_id])
+    # If there is no users assigned to the old role
+      if oldRoleOwner.first.nil? 
+        ingen_gammel_rolle(newRoleOwner, @role.id )
+        updatating
+    # If the change of roles is between to different persons
+      elsif newRoleOwner.id != oldRoleOwner.first.id
+        gammel_og_ny(newRoleOwner, oldRoleOwner, @role.id)
+        updatating
+      else
+    # Do nothing if nothing is changing
+      end
     end
 end
