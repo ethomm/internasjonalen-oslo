@@ -30,7 +30,7 @@ class BookingimagesController < ApplicationController
   # DELETE /bookingimages/1.json
   def destroy
     @bookingimage.destroy
-    redirect_to :back, notice: 'Bookingimage was successfully destroyed.' 
+    redirect_to administrator_editbooking_path, notice: 'Bookingimage was successfully destroyed.' 
   end
 
   private

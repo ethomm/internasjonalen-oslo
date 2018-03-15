@@ -5,8 +5,10 @@ one:
   body: MyText
   slug: MyString
   id: 1
+  seodescription: "Some description"
 two:
   title: Arrangement
   body: MyText
   slug: MyString
   id: 2
+  seodescription: "Some description"

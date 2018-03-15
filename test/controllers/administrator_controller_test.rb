@@ -7,12 +7,10 @@ class AdministratorControllerTest < ActionDispatch::IntegrationTest
 		@stompa = users(:stompa)
 	end
   test "should get access to adminpage with valid cerdentials" do
-  	get login_path
-    assert_template 'sessions/new'
-    post login_path, params: { session: { email: @user.email, password: "Password1234" } }
-  	get login_path
+  	login_valid_user
     get administrator_url
     assert_response :success
+    assert_template layout: 'layouts/admin'
   end
 
   test "Should not get access to adminpage" do

@@ -4,16 +4,14 @@ Rails.application.routes.draw do
   resources :bars, except: [:show]
   resources :contactpeople, except: [:show, :index]
   resources :tekniskitems
-  resources :tekniskcategories
-  resources :bookingimages
-  resources :bookings, except: [:show]
-  resources :utleies, only: [:edit, :update]
+  resources :tekniskcategories, except: [:new]
+  resources :bookingimages, except: [:index, :show, :edit]
+  resources :bookings, except: [:show, :index]
   resources :globalsettings, only:[:edit, :update]
   resources :drinks, except: [:show, :index]
   resources :omosses, only:[:edit, :update]
-  resources :categories, :as => 'meny', :path => 'meny', only: [:show]
-  resources :categories, except: [:show]
-
+  resources :users, except:[:show]
+  
   root 		'pages#home'
   get 		'om-internasjonalen'			     =>	  'pages#about'
   get     'kontakt-internasjonalen'      =>   'pages#kontakt'
@@ -36,7 +34,7 @@ Rails.application.routes.draw do
   get     'administrator/editbooking'    =>   'administrator#edit_booking'
 
 
-  resources :users, except:[:show]
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

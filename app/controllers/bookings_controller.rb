@@ -3,12 +3,6 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :destroy]
   before_action :get_stuff, only: [:show]
 
-  # GET /bookings
-  # GET /bookings.json
-  def index
-    @bookings = Booking.all
-  end
-
   # GET /bookings/1
   # GET /bookings/1.json
   def show
