@@ -1,4 +1,5 @@
 module ApplicationHelper
+
 	def full_title(page_title = '')
 		base_title = 'Internasjonalen Oslo'
 		if page_title.empty?
@@ -30,5 +31,10 @@ module ApplicationHelper
       else
         "Ops!"
     end
+  end
+
+  def email_robot email
+    mail = email.split('@')
+    mail[0] + '(at)' + mail[1]
   end
 end

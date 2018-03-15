@@ -45,11 +45,13 @@
 									= @setting.poststed
 							.col-7.text-right
 								%span{:itemprop => "email"}
-									= @setting.epost
+									= mail_to @setting.epost, encode: "hex", class: "contactmail" do
+										= email_robot(@setting.epost)
 								%br
 								%span{:itemprop => "telephone"}
-									(+47) 
-									= @setting.telefonnr
+									(+47)
+									%a{:href => "tel:#{@setting.telefonnr}"}
+										= @setting.telefonnr
 	.row.justify-content-center.mt-4
 		.col-10.text-center
 			= render 'partials/some'

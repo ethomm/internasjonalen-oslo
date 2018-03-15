@@ -10,6 +10,9 @@
     .col-12
       %strong
         = f.label "Navn på etasjen"
+        %br
+        %span.small
+          (Dette vil også bli navnet på menyelementet)
       = f.text_field :title, :class => "form-control"
   .row
     .col-12.pt-3
@@ -18,6 +21,7 @@
       %br
       %span.small
         Beskrivelsen her vil gå i headeren på siden som igjen blir plukket opp av søkemotorer. For at denne skal være optimal, er det fint om teksten her holdes til 160 tegn
+        = link_to "Mer informasjon her", administrator_hjelp_path(anchor: "seoingress")
       = f.text_area :seo_description, :id => 'seodescription', :class => 'form-control'
   .row
     .col-12#seodescriptionfeedback.text-muted.text-right

@@ -8,8 +8,12 @@
 			.col-12.col-md-8.col-lg-6.form-check.mb-2
 				.row
 					.col-12
-						%span.small
+
+						%p.small
 							Boksen til venstre hukes av om det er åpent på aktuelle dagen. Ellers føres åpnings og lukketider inn for hver dag. Serveren vil slå sammen dager med like åpningstider og sette dette sammen på riktig måte.
+						%p.small
+							Lurer du på flere ting vedrørende administrasjonssiden kan du finne 
+							= link_to "mer informasjon her", administrator_hjelp_path
 				.row.p-1.pt-2.pb-3.bg-light.text-dark
 					.col-1 
 						= f.check_box :mandag, {:id => "mondayopen"}, 'true' , 'false'

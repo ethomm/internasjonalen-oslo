@@ -9,23 +9,10 @@
 			= @booking.body.html_safe
 	%article.row.justify-content-center.mb-4
 		.col-10
-			- if @bookingperson
-				.row.mt-4.pt-4.pb-4
-					.col-12
-						%h5
-							%i.fa.fa-user{"aria-hidden" => "true"}
-							= @bookingperson.name
-							%small
-								-
-								= @bookingperson.position
-						%p
-							%i.fa.fa-envelope-o{"aria-hidden" => "true"}
-							= @bookingperson.email
-						- if @bookingperson.showtelefon?
-							%p
-								%i.fa.fa-phone{"aria-hidden" => "true"}
-								(+47)
-								= @bookingperson.telefon
+			- if @contact.booking.first
+				= render partial:'partials/kontakt_person', locals: {person: @contact.booking.first, titel: "Booking" }
+			- else
+				= render partial:'partials/kontakt_person', locals: {person: @contact.leder.first, titel: "Booking" } 
 			
 	%aside.row.justify-content-center
 		.col-10

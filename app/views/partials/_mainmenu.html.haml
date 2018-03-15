@@ -7,7 +7,7 @@
 		%i.fa.fa-caret-down{"aria-hidden" => "true"}
 		%ul.submenu.lukket
 			- @bars.each do |b|
-				= link_to bar_path(b.slug) do
+				= link_to bar_show_path(b.slug) do
 					%li
 						= b.title
 	%li.dropdown
@@ -15,7 +15,7 @@
 		%i.fa.fa-caret-down{"aria-hidden" => "true"}
 		%ul.submenu.lukket
 			- @bookings.each do |c|
-				= link_to booking_path(c.slug) do
+				= link_to booking_show_path(c.slug) do
 					%li
 						= c.title
 			= link_to tekniskespsifikasjoner_path do

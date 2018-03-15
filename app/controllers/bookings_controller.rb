@@ -14,12 +14,7 @@ class BookingsController < ApplicationController
   def show
     @images = Bookingimage.where(bookings_id: @booking.id).all
     @setting = Globalsetting.first
-      if @setting.contact_id != 0;
-        @contactperson = Contactperson.find(@setting.contact_id)
-      end
-      if @setting.booking_id != 0;
-        @bookingperson = Contactperson.find(@setting.booking_id)
-      end
+    @contact = Contactperson.where.not(stilling: 'ingen')
   end
 
   # GET /bookings/new
