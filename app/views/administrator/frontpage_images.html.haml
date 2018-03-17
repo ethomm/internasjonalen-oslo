@@ -1,0 +1,68 @@
+.row.justify-content-center
+  .col-md-8.col-lg-6.col-12
+    .row.mt-4
+      .col-12
+        %h1
+          Forside bilder
+        %p.small
+          Skriv noe info om hvordan denne siden skal brukes
+    .row.mt-4
+      .col-12
+        = form_for(@frontpageImage) do |f|
+          - if @frontpageImage.errors.any?
+            #error_explanation
+              %h2= "#{pluralize(@frontpageImage.errors.count, "error")} prohibited this booking from  being saved:"
+              %ul
+                - @frontpageImage.errors.full_messages.each do |message|
+                  %li= message
+
+          .row.mt-3
+            .row
+              .d-flex.ml-3
+                %label.custom-file
+                  = f.file_field :image_url, :class => 'custom-file-input'
+                  %span.custom-file-control
+              .d-flex.ml-3
+                %button.btn.btn-success.btn-block{:type => "submit"}
+                  %i.fa.fa-floppy-o{"aria-hidden" => "true"}
+
+
+    .row.mt-4
+      -if @frontpage_images.any?
+        %table.table
+          %thead
+            %tr
+              %th
+                \#
+              %th{width: 100, scope: 'col'}
+                Bilde
+              %th{scope: 'col'}
+                Status
+              %th{scope: 'col'}
+          %tbody
+            - @frontpage_images.each_with_index do |i,x|
+              %tr
+                %td{scope: "row"}
+                  = x+1
+                %td
+                  = image_tag(i.image_url)
+                %td{ class: "#{i.status}"}
+                  = image_status i.status
+                %td.text-right
+                  = link_to image_btn(i) , toggle_status_frontpage_image_path(i), class:"btn #{image_btn_style(i)}"
+
+                %td.text-right
+                  = link_to i, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do
+                    %i.fa.fa-trash{"aria-hidden" => "true"}
+      -else
+        .col-12
+          .alert.alert-warning
+            %i.fa.fa-info-circle{"aria-hidden" => "true"}
+            Det er ikke lagt inn noen forside bilder enda. Siden bruker nå default bilde
+    .row.mt-3
+      .col-12
+        = link_to administrator_path do
+          %button.btn-warning.btn.btn-block.btn-sm
+            %i.fa.fa-reply{"aria-hidden" => "true"}
+            Tilbake
+

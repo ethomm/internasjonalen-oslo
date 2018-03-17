@@ -1,5 +1,5 @@
 .row.justify-content-center
-	.col-md-8.col-lg-5.col-12
+	.col-md-8.col-lg-6.col-12
 		.row.pt-2.justify-content-between
 			.col-12.small.text-secondary.font-weight-light.mt-3
 				%i.fa.fa-user{"aria-hidden" => "true"}
@@ -46,6 +46,11 @@
 				= link_to administrator_kontaktinfo_path do
 					%button.btn.btn-secondary.btn-block.btn-lg
 						Kontaktinformasjon
+		.row.pt-3
+			.col-12
+				= link_to administrator_frontpage_images_path do
+					%button.btn.btn-secondary.btn-block.btn-lg
+						Forsidebilder
 		.row.pt-3
 			.col-12
 				= link_to users_path do

@@ -1,6 +1,6 @@
 %footer.container-fluid.bg-light.pb-4{"data-turbolinks-permanent" => true}
 	.container
-		.row.container.ml-0.mr-0.justify-content-between.pt-3
+		.row.ml-0.mr-0.justify-content-between.pt-3
 			.card.col-12.col-md-5.mb-3
 				.card-body
 					.card-title
@@ -34,7 +34,7 @@
 							Adresse
 					.card-text
 						.row.mt-3
-							.col-5{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
+							.col-4{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
 								%span{:itemprop => "streetAddress"}
 									= @setting.adresse
 								%br
@@ -43,7 +43,7 @@
 								\
 								%span{:itemprop => "addressRegion"}
 									= @setting.poststed
-							.col-7.text-right
+							.col-8.text-right
 								%span{:itemprop => "email"}
 									= mail_to @setting.epost, encode: "hex", class: "contactmail" do
 										= email_robot(@setting.epost)

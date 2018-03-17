@@ -34,6 +34,10 @@ $( document ).on('turbolinks:load', function() {
     //$('#mobilemenu').toggleClass('apen');
   });
 
+$('#newFrontpageImage').on('shown.bs.modal', function () {
+    console.log('skjer det noe?')
+  $('#myInput').trigger('focus')
+})
 
 	/*$('#nav-icon2').click(function(){
 		$(this).toggleClass('open');

@@ -22,6 +22,11 @@ class AdministratorController < ApplicationController
       
     end
 
+    def frontpage_images
+      @frontpage_images = FrontpageImage.all
+      @frontpageImage = FrontpageImage.new
+    end
+
     def booking
       @bookings = Booking.all
       @contactpeople = Contactperson.all
