@@ -2,3 +2,5 @@
 -provide(:title, "#{@setting.slogan}")
 -provide(:canonical, "/")
 %section.container-fluid#section-main
+  %h1.mt-3.text-center.text-white
+    = @setting.slogan.upcase

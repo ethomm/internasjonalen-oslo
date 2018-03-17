@@ -4,7 +4,7 @@
 
 ready = undefined
 images = []
-intervall = 10000
+intervall = 30000
 index = 0
 bilder = 0
 carusell = true
