@@ -3,5 +3,8 @@
 		%h1
 			Edit
 			= @bar.title
-		= render partial: 'bars/add_image', locals: { bar: @bar, image: @image}
-		= render 'form'
+	.row
+		.col-12.col-lg-5
+			= render 'bars/add_image'
+		.col-12.col-lg-6.offset-lg-1
+			= render 'form'

@@ -1,0 +1,47 @@
+.row.mt-4
+	.col-12
+		= form_for @image do |f|
+			- if @image.errors.any?
+				#error_explanation
+					%h2= "#{pluralize(@bookingimage.errors.count, "error")} prohibited this bookingimage from being saved:"
+					%ul
+						- @image.errors.full_messages.each do |message|
+							%li= message
+			= f.hidden_field :bar_id, :value => @bar.id
+			.row.mt-2
+				.col-12
+					%h6
+						Legg til bilde for baren
+			.row.mt-2
+				.col-12
+					%label.custom-file
+						= f.file_field :image_url, :class => 'custom-file-input'
+						%span.custom-file-control
+			.row.mt-2
+				.col-12
+					= f.text_field :description, :class => "form-control", :placeholder => "beskrivelse av bilde"
+			.row.mt-2
+				.col-12
+					= f.text_field :fotograf, :class => "form-control", :placeholder => "fotograf"
+
+			.row.mt-2
+				.col-12
+					= f.submit 'Legg til', :class => "btn btn-lg btn-block btn-success"
+-if @bar.barimages.any?
+	.row.mt-4
+		- @bar.barimages.each do |image|
+			.col-4
+				.row
+					.col-12
+						%a{:href => image.image_url, 'data-lightbox' => @bar.title, 'data-title' => image.description}
+							= image_tag image.image_url.url(:mobile)
+				.row
+					.col-12.small.text-muted
+						= image.fotograf
+				.row
+					.col-12.small
+						= image.description
+				.row
+					.col-12
+						= link_to image, method: :destroy,  data: { confirm: 'Er du sikker?' }, class: "btn btn-sm btn-block btn-danger" do
+							%i.fa.fa-trash{"aria-hidden" => "true"}

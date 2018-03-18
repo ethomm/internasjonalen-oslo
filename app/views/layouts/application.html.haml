@@ -13,7 +13,6 @@
 		= csrf_meta_tags
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production?
-		= javascript_include_tag 'frontpage_images', 'data-turbolinks-track': 'reload', async: Rails.env.production?
 		:plain
 			<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -31,4 +30,4 @@
 		= yield
 		= render 'partials/footer'
 		
-		%script{  :src =>"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIZWXAgJ-kotgLigFHHRJ9V7eHYnEsYRI&callback=initMap"}
+		%script{  :src =>"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIZWXAgJ-kotgLigFHHRJ9V7eHYnEsYRI&callback=initMap", 'data-turbolinks-permanent' => true}

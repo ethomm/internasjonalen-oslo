@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180316103618) do
+ActiveRecord::Schema.define(version: 20180318111006) do
+
+  create_table "barimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "bar_id"
+    t.text "image_url"
+    t.string "fotograf"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_barimages_on_bar_id"
+  end
 
   create_table "bars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -155,6 +165,7 @@ ActiveRecord::Schema.define(version: 20180316103618) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "barimages", "bars"
   add_foreign_key "bookingimages", "bookings", column: "bookings_id"
   add_foreign_key "roles", "contactpeople"
   add_foreign_key "roles", "globalsettings"

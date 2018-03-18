@@ -1,6 +1,7 @@
 -provide(:description, "#{@about.ingress}")
 -provide(:title, "#{@setting.slogan}")
 -provide(:canonical, "/")
+= javascript_include_tag 'frontpage_images', 'data-turbolinks-track': 'reload', async: Rails.env.production?
 %section.container-fluid#section-main
 	.jumbotron
 		.row

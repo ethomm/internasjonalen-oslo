@@ -1,0 +1,2 @@
+module BarimagesHelper
+end

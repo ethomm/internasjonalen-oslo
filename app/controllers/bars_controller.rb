@@ -23,6 +23,7 @@ class BarsController < ApplicationController
 
   # GET /bars/1/edit
   def edit
+    @image = Barimage.new
     render layout: 'admin'
   end
 
@@ -61,7 +62,7 @@ class BarsController < ApplicationController
     end
 
     def find_bar
-      @bar = Bar.find_by_slug(params[:id])   
+      @bar = Bar.includes(:barimages).find_by_slug(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

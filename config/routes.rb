@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :barimages
   resources :frontpage_images, only: [:create, :destroy, :index] do
     member do
       get :toggle_status
