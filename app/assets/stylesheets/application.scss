@@ -11,6 +11,7 @@ $custom-file-text: (
   )
 );
 
+
 @import 'bootstrap';
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -258,3 +259,42 @@ a.credit{
 a.contactmail {
   color: #333;
 }
+
+.jumbotron {
+  background-color: transparent;
+  text-shadow: 2px 2px 50px #000000;
+  h1{
+    font-family: $teko;
+    font-weigth: 600;
+  }
+}
+
+@media (max-width: 730px) {
+.jumbotron {
+  padding-top: 100px;
+
+  h1{
+    font-family: $teko;
+    font-weigth: 600;
+    font-size: 5rem;
+  }
+}
+
+}
+
+@media (min-width: 731px) {
+.jumbotron {
+  padding-top: 250px;
+
+  h1{
+    font-size: 10rem;
+  }
+}
+
+}
+
+
+
+
+
+

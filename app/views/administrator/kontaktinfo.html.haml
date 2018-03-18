@@ -21,6 +21,11 @@
 							+47
 						= f.telephone_field :telefonnr, :class => "form-control", "aria-describedby" => "phone"
 				.row.mt-3
+					.col-12
+						%strong
+							= f.label "Slagord:"
+						= f.text_field :slogan, class: "form-control"
+				.row.mt-3
 					.col-12.pt-2
 						= f.submit 'Lagre', :class => 'btn btn-success btn-block'
 				-if @contactpeople.any?

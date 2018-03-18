@@ -3,4 +3,5 @@
 		%h1
 			Edit
 			= @bar.title
+		= render partial: 'bars/add_image', locals: { bar: @bar, image: @image}
 		= render 'form'

@@ -2,25 +2,27 @@
 	= link_to om_internasjonalen_path do
 		%li
 			Om oss
-	%li.dropdown
-		Bar
-		%i.fa.fa-caret-down{"aria-hidden" => "true"}
-		%ul.submenu.lukket
-			- @bars.each do |b|
-				= link_to bar_show_path(b.slug) do
+	- if @bars.any?
+		%li.dropdown
+			Bar
+			%i.fa.fa-caret-down{"aria-hidden" => "true"}
+			%ul.submenu.lukket
+				- @bars.each do |b|
+					= link_to bar_show_path(b.slug) do
+						%li
+							= b.title
+	- if @bookings.any?
+		%li.dropdown
+			Booking
+			%i.fa.fa-caret-down{"aria-hidden" => "true"}
+			%ul.submenu.lukket
+				- @bookings.each do |c|
+					= link_to booking_show_path(c.slug) do
+						%li
+							= c.title
+				= link_to tekniskespsifikasjoner_path do
 					%li
-						= b.title
-	%li.dropdown
-		Booking
-		%i.fa.fa-caret-down{"aria-hidden" => "true"}
-		%ul.submenu.lukket
-			- @bookings.each do |c|
-				= link_to booking_show_path(c.slug) do
-					%li
-						= c.title
-			= link_to tekniskespsifikasjoner_path do
-				%li
-					Tekniske spesifikasjoner
+						Tekniske spesifikasjoner
 	= link_to kontakt_internasjonalen_path do	
 		%li
 			Kontakt

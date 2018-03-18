@@ -29,6 +29,6 @@ class OmossesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def omoss_params
-      params.require(:omoss).permit(:title, :ingress, :body)
+      params.require(:omoss).permit(:title, :ingress, :body, :slogan)
     end
 end
