@@ -4,7 +4,7 @@
 
 ready = undefined
 images = []
-intervall = 30000
+intervall = 1000
 index = 0
 bilder = 0
 carusell = true
@@ -12,18 +12,14 @@ carusell = true
 ready =  ->
     if $(window).width() > 800
         $.get('frontpage_images.json/', (data, status) ->
-            if data.length > 1
-              startKarusell(data) if status == 'success'
-            else if data.length == 1
-              $('#section-main').css('background-image', 'url('+data[0].image_url.url+')')   
+            console.log('started');
+            startKarusell(data) if status == 'success'   
           )
 
 image = ( i, bilde) -> images.push(bilde.image_url.url)
 
 anim_loop = ->
-    $('#section-main').fadeTo('slow', 0.1, ->
-        $(this).css('background-image', 'url('+images[index]+')');
-    ).fadeTo('slow', 1)
+    $('#section-main').css('background-image', 'url('+images[index]+')';
     if index != bilder
       index += 1
       setTimeout anim_loop, intervall  

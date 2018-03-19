@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+    @images = Bookingimage.where(bookings_id: @booking.id).all
     @setting = Globalsetting.first
     @contact = Contactperson.where.not(stilling: 'ingen')
   end
@@ -51,7 +52,7 @@ class BookingsController < ApplicationController
 
   private
     def get_stuff
-      @booking = Booking.includes(:bookingimages).find_by_slug(params[:id])
+      @booking = Booking.find_by_slug(params[:id])
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_booking

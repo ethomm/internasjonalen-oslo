@@ -7,17 +7,17 @@
 			%h2.pb-4.pt-4
 				= @booking.title
 			= @booking.body.html_safe
-	%article.row.justify-content-center.mb-4
-		.col-10
-			- if @contact.booking.first
-				= render partial:'partials/kontakt_person', locals: {person: @contact.booking.first, titel: "Booking" }
-			- else
-				= render partial:'partials/kontakt_person', locals: {person: @contact.leder.first, titel: "Booking" } 
-			
+	- if @contact.any?
+		%article.row.justify-content-center.mb-4
+			.col-10
+				- if @contact.booking.first
+					= render partial:'partials/kontakt_person', locals: {person: @contact.booking.first, titel: "Booking" }
+				- else
+					= render partial:'partials/kontakt_person', locals: {person: @contact.leder.first, titel: "Booking" }			
 	%aside.row.justify-content-center
 		.col-10
 			.row.mb-4.pb-3
-				- @booking.bookingimages.each do |i|
+				- @images.each do |i|
 					.col-6.col-md-4.col-lg-3.mt-1
 						%a{:href => i.image.url, 'data-lightbox' => @booking.title, 'data-title' => i.description}
 							= image_tag i.image.url(:mobile)

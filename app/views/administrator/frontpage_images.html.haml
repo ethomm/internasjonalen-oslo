@@ -25,7 +25,12 @@
               .d-flex.ml-3
                 %button.btn.btn-success.btn-block{:type => "submit"}
                   %i.fa.fa-floppy-o{"aria-hidden" => "true"}
-
+    - if @frontpage_images.count > 0 && @frontpage_images.count < 2
+      .row.mt-4
+        .col-12
+          .alert.alert-warning
+            %i.fa.fa-info-circle{"aria-hidden" => "true"}
+            Hei! Bra at du har lagt til et bilde. Men et bilde gjør ingen karusell... Så for at vi skal kunne stare å snurre bilder, må du legge til en til.
 
     .row.mt-4
       -if @frontpage_images.any?
