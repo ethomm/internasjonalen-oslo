@@ -4,19 +4,19 @@ class GlobalsettingsController < ApplicationController
 
   # # PATCH/PUT /globalsettings/1
   # # PATCH/PUT /globalsettings/1.json
-  # def update
-  #     if @globalsetting.update(globalsetting_params)
-  #       redirect_to administrator_path, notice: 'Oppdatert' 
-  #     else
-  #       redirect_to administrator_path, notice: 'Ups! Der skjedde det noe galt'
-  #     end
-  # end
+  def update
+      if @globalsetting.update(globalsetting_params)
+         redirect_to administrator_path, notice: 'Oppdatert' 
+       else
+         redirect_to administrator_path, notice: 'Ups! Der skjedde det noe galt'
+       end
+  end
 
-  # private
-  #   # Use callbacks to share common setup or constraints between actions.
-  #   def set_globalsetting
-  #     @globalsetting = Globalsetting.find(params[:id])
-  #   end
+   private
+     # Use callbacks to share common setup or constraints between actions.
+     def set_globalsetting
+       @globalsetting = Globalsetting.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def globalsetting_params

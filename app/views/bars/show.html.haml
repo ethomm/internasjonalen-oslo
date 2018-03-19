@@ -5,7 +5,9 @@
 	%article.row.justify-content-center.mb-2		
 		.col-10
 			%h2.pb-4.pt-4
-				= @bar.title
+				= @bar.title.upcase
+			-if @bar.top_image?
+				%img{src: @bar.top_image}
 			%p
 				= @bar.body.html_safe
 	%aside.row.justify-content-center

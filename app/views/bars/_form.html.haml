@@ -5,7 +5,6 @@
       %ul
         - @bar.errors.full_messages.each do |message|
           %li= message
-
   .row.mt-4
     .col-12
       %strong
@@ -14,7 +13,21 @@
         %span.small
           (Dette vil også bli navnet på menyelementet)
       = f.text_field :title, :class => "form-control"
+  .row.mt-3
+    .col-12
+      Legg til top bildet (Valgfritt)
+      %br
+      %label.custom-file
+        = f.file_field :top_image, :class => 'custom-file-input'
+        %span.custom-file-control
+  - if @bar.top_image?
+    .row.mt-2
+      .col-12
+        %img{src: @bar.top_image}
+        = link_to "fjern", remove_top_image_bar_path(@bar), class: "btn btn-danger btn-sm"
   .row
+    .col-12
+  .row.mt-3
     .col-12.pt-3
       %strong
         = f.label "SEO beskrivelse"

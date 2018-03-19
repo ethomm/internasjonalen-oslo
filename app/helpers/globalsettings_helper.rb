@@ -1,2 +1,4 @@
 module GlobalsettingsHelper
+
+
 end

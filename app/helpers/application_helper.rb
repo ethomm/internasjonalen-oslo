@@ -37,4 +37,7 @@ module ApplicationHelper
     mail = email.split('@')
     mail[0] + '(at)' + mail[1]
   end
+
+
+  
 end

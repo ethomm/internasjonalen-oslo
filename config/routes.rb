@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     end
   end
   resources :roles, only: [:update]
-  resources :bars, except: [:show]
+  resources :bars, except: [:show] do
+    member do
+      get :remove_top_image
+    end
+  end
   resources :contactpeople, except: [:show, :index]
   resources :tekniskitems
   resources :tekniskcategories, except: [:new]

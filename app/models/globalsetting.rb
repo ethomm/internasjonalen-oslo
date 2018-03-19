@@ -261,58 +261,58 @@ class Globalsetting < ApplicationRecord
 	end
 
 	def mondayopens
-		return Time.new.change(hour: self.mandaghour, minute: self.mandagminute).to_s(:time) 
+		return Time.new.change(hour: self.mandaghour, min: self.mandagminute).to_s(:time) 
 	end
 
 	def mondaycloses
-		return Time.new.change(hour: self.mandagclosinghour, minute: self.mandagclosingminute).to_s(:time) 
+		return Time.new.change(hour: self.mandagclosinghour, min: self.mandagclosingminute).to_s(:time) 
 	end
 
 	def tuesdayopens
-		return Time.new.change(hour: self.tirsdaghour, minute: self.tirsdagminute).to_s(:time) 
+		return Time.new.change(hour: self.tirsdaghour, min: self.tirsdagminute).to_s(:time) 
 	end
 
 	def tuesdaycloses
-		return Time.new.change(hour: self.tirsdagclosinghour, minute: self.tirsdagclosingminute).to_s(:time) 
+		return Time.new.change(hour: self.tirsdagclosinghour, min: self.tirsdagclosingminute).to_s(:time) 
 	end
 
 	def wednesdayopens
-		return Time.new.change(hour: self.onsdaghour, minute: self.onsdagminute).to_s(:time) 
+		return Time.new.change(hour: self.onsdaghour, min: self.onsdagminute).to_s(:time) 
 	end
 
 	def wednesdaycloses
-		return Time.new.change(hour: self.onsdagclosinghour, minute: self.onsdagclosingminute).to_s(:time) 
+		return Time.new.change(hour: self.onsdagclosinghour, min: self.onsdagclosingminute).to_s(:time) 
 	end
 
 	def thursdayopens
-		return Time.new.change(hour: self.torsdaghour, minute: self.torsdagminute).to_s(:time) 
+		return Time.new.change(hour: self.torsdaghour, min: self.torsdagminute).to_s(:time) 
 	end
 
 	def thursdaycloses
-		return Time.new.change(hour: self.torsdagclosinghour, minute: self.torsdagclosingminute).to_s(:time) 
+		return Time.new.change(hour: self.torsdagclosinghour, min: self.torsdagclosingminute).to_s(:time) 
 	end
 
 	def fridayopens
-		return Time.new.change(hour: self.fredaghour, minute: self.fredagminute).to_s(:time) 
+		return Time.new.change(hour: self.fredaghour, min: self.fredagminute).to_s(:time) 
 	end
 
 	def fridaycloses
-		return Time.new.change(hour: self.fredagclosinghour, minute: self.fredagclosingminute).to_s(:time) 
+		return Time.new.change(hour: self.fredagclosinghour, min: self.fredagclosingminute).to_s(:time) 
 	end
 
 	def saturdayopens
-		return Time.new.change(hour: self.lørdaghour, minute: self.lørdagminute).to_s(:time) 
+		return Time.new.change(hour: self.lørdaghour, min: self.lørdagminute).to_s(:time) 
 	end
 
 	def saturdaycloses
-		return Time.new.change(hour: self.lørdagclosinghour, minute: self.lørdagclosingminute).to_s(:time) 
+		return Time.new.change(hour: self.lørdagclosinghour, min: self.lørdagclosingminute).to_s(:time) 
 	end
 
 	def sundayopens
-		return Time.new.change(hour: self.søndaghour, minute: self.søndagminute).to_s(:time) 
+		return Time.new.change(hour: self.søndaghour, min: self.søndagminute).to_s(:time) 
 	end
 
 	def sundaycloses
-		return Time.new.change(hour: self.søndagclosinghour, minute: self.søndagclosingminute).to_s(:time) 
+		return Time.new.change(hour: self.søndagclosinghour, min: self.søndagclosingminute).to_s(:time) 
 	end
 end

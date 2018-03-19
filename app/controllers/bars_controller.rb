@@ -1,8 +1,13 @@
 class BarsController < ApplicationController
   before_action :authenticate_user, except: [:show]
-  before_action :set_bar, only: [:edit, :update, :destroy]
+  before_action :set_bar, only: [:edit, :update, :destroy, :remove_top_image]
   before_action :find_bar, only: [:show]
 
+
+  def remove_top_image
+    @bar.top_image.remove!
+    redirect_to edit_bar_path(@bar)
+  end
   # GET /bars
   # GET /bars.json
   def index
@@ -67,6 +72,6 @@ class BarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bar_params
-      params.require(:bar).permit(:title, :body, :seo_description)
+      params.require(:bar).permit(:title, :body, :seo_description, :top_image)
     end
 end
