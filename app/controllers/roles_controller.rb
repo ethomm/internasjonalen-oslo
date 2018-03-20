@@ -11,6 +11,7 @@ class RolesController < ApplicationController
       @oldRoleOwner = Contactperson.where(stilling: @role.id);
       if !@oldRoleOwner.first.nil?
         @oldRoleOwner.first.stilling = 0
+        flash[:notice] = @oldRoleOwner.name + "har nå ingen ansvarsområder"
         @oldRoleOwner.first.save!
         @role.contactperson_id = nil
         @role.save!
@@ -39,12 +40,14 @@ class RolesController < ApplicationController
     def ingen_gammel_rolle(contact, id)
       contact.stilling = @role.id
       contact.save!
+      flash[:notice] = contact.name+" Har nå fått nye oppgaver"
     end
 
     def gammel_og_ny(nycontact, gammelcontact, id)
       nycontact.stilling = Integer(id)
       nycontact.save!
       gammelcontact.first.stilling = 0
+      flash[:notice] = gammelcontact.name+" Har ikke noen ansvarsområder lenger"
       gammelcontact.first.save!
     end
 
@@ -61,7 +64,7 @@ class RolesController < ApplicationController
     def updating_nil
       @role.contactperson_id = nil
       if @role.update  
-      flash.now[:alert] = "Der var det gjort!"
+      flash[:alert] = "Der var det gjort!"
       redirect_to administrator_kontaktinfo_path
     else
       flas.now[:alert] = "Noe gikk skikkelig galt"

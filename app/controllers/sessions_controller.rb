@@ -15,13 +15,13 @@ class SessionsController < ApplicationController
 			redirect_to administrator_path
 		else
 			flash[:alert] = "Feil brukernavn og passord"
-			render 'new'
+			render 'new', layout: 'admin'
 		end
 	end
 
 	def destroy
 		log_out if logged_in?
-		flash[:alert] = "You are now logged out"
+		flash[:alert] = "Du er blitt logget ut"
 		redirect_to root_url
 	end
 end

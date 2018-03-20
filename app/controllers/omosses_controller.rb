@@ -14,7 +14,7 @@ class OmossesController < ApplicationController
         flash[:notice] = "Om oss ble oppdatert"
         redirect_to administrator_path
       else
-        render :edit, layout: 'admin'
+        render :edit, layout: 'admin', notice: "Husk at alle områder må være fylt inn ordentlig!"
     end
   end
 

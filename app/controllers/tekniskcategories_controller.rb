@@ -23,7 +23,7 @@ class TekniskcategoriesController < ApplicationController
       if @tekniskcategory.save
         redirect_to tekniskcategories_path , notice: 'Teknisk kategory ble opprettet' 
       else
-        redirect_to tekniskcategories_path , notice: 'Desverre gikk ikke dette helt etter planen...'
+        redirect_to tekniskcategories_path , notice: 'Desverre gikk ikke dette helt etter planen... Husk en skikkelig tittel før du trykker legg til'
       end
   end
 
@@ -31,7 +31,7 @@ class TekniskcategoriesController < ApplicationController
   # PATCH/PUT /tekniskcategories/1.json
   def update
       if @tekniskcategory.update(tekniskcategory_params)
-        redirect_to tekniskcategories_path, notice: 'Teknisk kategory ble oppdatert' 
+        redirect_to tekniskcategories_path, notice: 'Tekniskkategory ble oppdatert' 
       else
         
       end

@@ -32,7 +32,7 @@ class TekniskitemsController < ApplicationController
   # DELETE /tekniskitems/1.json
   def destroy
     @tekniskitem.destroy
-      redirect_to tekniskcategories_path , notice: 'Tøffe person som letta denna dingsen.'
+      redirect_to tekniskcategories_path , notice: 'Greia er sletta'
   end
 
   private

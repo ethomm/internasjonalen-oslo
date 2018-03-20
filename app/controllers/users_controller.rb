@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash.now[:notice] = 'User was successfully created.'
+      flash[:notice] = 'Brukeren '+ @user.name + ' er blitt opprettet'
       redirect_to users_path
     else
       render :new 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      flash.now[:notice] = 'User was successfully updated.'
+      flash[:notice] = @user.name+' Er blitt oppdatert'
       redirect_to users_path
     else
       render :edit
@@ -44,10 +44,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to users_url, notice: @user.name+' Er blitt slettet'
   end
 
   private
