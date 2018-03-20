@@ -2,10 +2,10 @@
 
 one:
   title: Fest 
-  body: MyText
+  body: Litt mer en bare litt tekst trengs her
   slug: MyString
   id: 1
-  seodescription: "Some description"
+  seodescription: Some description
 two:
   title: Arrangement
   body: MyText

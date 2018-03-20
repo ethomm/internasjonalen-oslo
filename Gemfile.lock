@@ -119,6 +119,7 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gritter (1.2.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -300,6 +301,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   fog-aws
   font-awesome-sass
+  gritter (~> 1.2)
   haml
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)

@@ -9,8 +9,9 @@ class BookingimagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create bookingimage" do
     login_valid_user
+    image = create_photo('files/test.png')
     assert_difference('Bookingimage.count') do
-      post bookingimages_url, params: { bookingimage: { booking_id_id: @bookingimage.bookings_id, description: @bookingimage.description, fotograf: @bookingimage.fotograf, image: @bookingimage.image } }
+      post bookingimages_url, params: { bookingimage: { booking_id_id: @bookingimage.bookings_id, description: @bookingimage.description, fotograf: @bookingimage.fotograf, image: image } }
     end
 
     assert_redirected_to administrator_editbooking_path
@@ -18,7 +19,8 @@ class BookingimagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update bookingimage" do
     login_valid_user
-    patch bookingimage_url(@bookingimage), params: { bookingimage: { booking_id_id: @bookingimage.bookings_id, description: @bookingimage.description, fotograf: @bookingimage.fotograf, image: @bookingimage.image } }
+    image = create_photo('files/test.png')
+    patch bookingimage_url(@bookingimage), params: { bookingimage: { booking_id_id: @bookingimage.bookings_id, description: @bookingimage.description, fotograf: @bookingimage.fotograf, image: image } }
     assert_redirected_to administrator_editbooking_path(id: @booking.id)
   end
 

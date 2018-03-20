@@ -4,10 +4,10 @@ class BarimagesController < ApplicationController
 	def create
 		@barimage = Barimage.new(barimage_params)
 		if @barimage.save
-				flash.now[:notice] = "New image added"
+				flash[:notice] = "Nytt bilde ble lagt til"
 				redirect_to edit_bar_path(@barimage.bar_id)
 		else
-				flash.now[:alert] = "Obs dette gikk ikke helt etter planen"
+				flash[:alert] = "For å legge til et bilde, må bildet både ha en fil (PNG, JPG, JPEG eller GIF), deretter må den ha en kort beskrivelse. Fotograf er valgfritt"
 				redirect_to edit_bar_path(@barimage.bar_id)
 		end
 	end

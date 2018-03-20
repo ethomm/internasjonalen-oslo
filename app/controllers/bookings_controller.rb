@@ -27,9 +27,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
       if @booking.save
-        redirect_to administrator_booking_path, notice: 'Booking was successfully created.'
+        redirect_to administrator_booking_path, notice: 'Booking objekt er opprettet'
       else
-        render :new
+        render :new, layout: 'admin', notice: 'Et booking objekt må ha en skikkelig tittel, Seo beskrivelse og Tekst'
       end
   end
 
@@ -37,9 +37,9 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1.json
   def update
       if @booking.update(booking_params)
-        redirect_to administrator_booking_path, notice: 'Booking was successfully updated.'
+        redirect_to administrator_booking_path, notice: @booking.title+' er blitt oppdatert'
       else
-        render :edit
+        render :edit, layout: 'admin', notice: 'Et booking objekt må ha en skikkelig tittel, Seo beskrivelse og Tekst'
       end
   end
 
@@ -47,7 +47,7 @@ class BookingsController < ApplicationController
   # DELETE /bookings/1.json
   def destroy
     @booking.destroy
-    redirect_to administrator_booking_path, notice: 'Booking was successfully destroyed.'
+    redirect_to administrator_booking_path, notice: @booking.title+' Er nå slettet'
   end
 
   private

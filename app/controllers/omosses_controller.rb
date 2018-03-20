@@ -10,14 +10,11 @@ class OmossesController < ApplicationController
   # PATCH/PUT /omosses/1
   # PATCH/PUT /omosses/1.json
   def update
-    respond_to do |format|
       if @omoss.update(omoss_params)
-        format.html { redirect_to administrator_path, notice: 'Omoss was successfully updated.' }
-        format.json { render :show, status: :ok, location: @omoss }
+        flash[:notice] = "Om oss ble oppdatert"
+        redirect_to administrator_path
       else
-        format.html { render :edit }
-        format.json { render json: @omoss.errors, status: :unprocessable_entity }
-      end
+        render :edit, layout: 'admin'
     end
   end
 

@@ -19,7 +19,7 @@ class ContactpeopleController < ApplicationController
       if @contactperson.save
         redirect_to administrator_kontaktinfo_path, notice: 'Kontaktperson ble opprettet' 
       else
-        redirect_to administrator_kontaktinfo_path, notice: 'Noe gikk galt... Sorry'
+        redirect_to administrator_kontaktinfo_path, notice: 'Husk å ha en ordentlig epost adresse og et ekte navn'
       end
   end
 
@@ -29,7 +29,7 @@ class ContactpeopleController < ApplicationController
       if @contactperson.update(contactperson_params)
         redirect_to administrator_kontaktinfo_path, notice: 'Kontaktperson ble oppdatert'
       else
-        redirect_to administrator_kontaktinfo_path, notice: 'Noe gikk galt... Sorry' 
+        redirect_to administrator_kontaktinfo_path, notice: 'Noe gikk galt... Er du sikker på at du har fylt inn riktig informasjon... Og all informasjon?' 
         puts @contactperson.errors.full_messages
       end
   end

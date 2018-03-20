@@ -1,11 +1,7 @@
 = form_for @booking do |f|
-  - if @booking.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@booking.errors.count, "error")} prohibited this booking from being saved:"
-      %ul
-        - @booking.errors.full_messages.each do |message|
-          %li= message
-
+  - if @booking.errors.any? 
+    - @booking.errors.full_messages.each do |error|
+      = alert_generator(error) 
   .row.mt-3
     .col-12
       %strong
@@ -24,7 +20,7 @@
   .row.mt-2
     .col-12
       %strong
-        = f.label :body
+        = f.label 'Tekst'
       = f.cktext_area :body, :class => 'form-control'
   .row.mt-3
     .col-6

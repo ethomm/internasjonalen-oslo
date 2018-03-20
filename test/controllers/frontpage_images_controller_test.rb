@@ -36,8 +36,9 @@ class FrontpageImagesControllerTest < ActionDispatch::IntegrationTest
     login_valid_user
     get administrator_frontpage_images_path
     assert_response :success
+    image = create_photo('files/test.png')
     assert_difference('FrontpageImage.count') do
-      post frontpage_images_url, params: { frontpage_image: {image_url: "Someurl", fotograf: "Eirik Thommessen"}}
+      post frontpage_images_url, params: { frontpage_image: {image_url: image, fotograf: "Eirik Thommessen"}}
     end
   end
 

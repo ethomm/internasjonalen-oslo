@@ -2,7 +2,8 @@
 
 one:
   title: MyString
-  body: MyText
+  body: Her må det litt mer tekst til tror jeg
+  seo_description: En beskrivelse må til
   slug: bar-one
 two:
   title: MyString

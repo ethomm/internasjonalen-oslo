@@ -1,10 +1,7 @@
 = form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |message|
-          %li= message
+  - if @user.errors.any? 
+    - @user.errors.full_messages.each do |error|
+      = alert_generator(error) 
   .row
     .col-12.input-group.input-group-lg.mb-3.mt-4
       %span#person.input-group-addon

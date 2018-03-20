@@ -21,7 +21,7 @@ class BarsControllerTest < ActionDispatch::IntegrationTest
   test "should create bar" do
     login_valid_user
     assert_difference('Bar.count') do
-      post bars_url, params: { bar: { body: @bar.body, title: @bar.title } }
+      post bars_url, params: { bar: { body: @bar.body, title: @bar.title, seo_description: @bar.seo_description } }
     end
     assert_redirected_to bars_url
   end
@@ -39,7 +39,7 @@ class BarsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update bar" do
     login_valid_user
-    patch bar_url(@bar), params: { bar: { body: @bar.body, title: @bar.title } }
+    patch bar_url(@bar), params: { bar: { body: @bar.body, title: @bar.title, seo_description: @bar.seo_description  } }
     assert_redirected_to bars_url
   end
 

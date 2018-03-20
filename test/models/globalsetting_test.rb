@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class GlobalsettingTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "globalsetting must have slogan" do
+    @globalsetting = globalsettings(:one)
+    @globalsetting.slogan = ""
+    assert_not @globalsetting.valid?
+  end
+
 end

@@ -38,6 +38,16 @@ module ApplicationHelper
     mail[0] + '(at)' + mail[1]
   end
 
+  def alerts
+    alert = (flash[:alert] || flash[:error] || flash[:notice])
+    if alert
+      alert_generator alert
+    end
+  end
 
+  def alert_generator msg 
+    title = "Internasjonalen Oslo"
+    js add_gritter(msg, title: title , sticky: false)
+  end
   
 end

@@ -8,11 +8,9 @@ class BookingimagesController < ApplicationController
   def create
     @bookingimage = Bookingimage.new(bookingimage_params)
       if @bookingimage.save
-        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Bookingimage was successfully created.'
+        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Et bildet er blitt lastet opp og lagt til siden'
       else
-        redirect_to administrator_editbooking_path(:id => bookingimage_params[:bookings_id]), notice: 'Bilde ble ikke lagret'
-        puts "Errors: " + @bookingimage.errors.count.to_s
-        puts @bookingimage.errors.full_messages
+        redirect_to administrator_editbooking_path(:id => bookingimage_params[:bookings_id]), notice: 'Bilde ble ikke opprettet. Et bilde må ha en fil i tilleg til en beskrivelse av bildet. Fotograf er valgfritt'
       end
   end
 
@@ -20,9 +18,9 @@ class BookingimagesController < ApplicationController
   # PATCH/PUT /bookingimages/1.json
   def update
       if @bookingimage.update(bookingimage_params)
-        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Bookingimage was successfully updated.' 
+        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Bildet er blitt oppdatert' 
       else
-        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Endringene ble ikke lagret'
+        redirect_to administrator_editbooking_path(:id => @bookingimage.bookings_id), notice: 'Endringene ble ikke lagret. Husk å ha en skikkelig beskrivelse'
     end
   end
 
@@ -30,7 +28,7 @@ class BookingimagesController < ApplicationController
   # DELETE /bookingimages/1.json
   def destroy
     @bookingimage.destroy
-    redirect_to administrator_editbooking_path, notice: 'Bookingimage was successfully destroyed.' 
+    redirect_to administrator_editbooking_path, notice: 'Et bildet har blitt slettet' 
   end
 
   private

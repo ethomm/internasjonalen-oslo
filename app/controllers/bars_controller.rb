@@ -6,7 +6,7 @@ class BarsController < ApplicationController
 
   def remove_top_image
     @bar.top_image.remove!
-    redirect_to edit_bar_path(@bar)
+    redirect_to edit_bar_path(@bar), notice: "Toppbildet er fjernet"
   end
   # GET /bars
   # GET /bars.json
@@ -37,9 +37,9 @@ class BarsController < ApplicationController
   def create
     @bar = Bar.new(bar_params)
       if @bar.save
-        redirect_to bars_path, notice: 'Bar was successfully created.'
+        redirect_to bars_path, notice: 'Gratulerer med ny bar!'
       else
-        redirect_to bars_path, notice: 'Tit Fuck! Noe shit skjedde. Sorry'
+        render :new, layout: 'admin', notice: 'Husk at en bar må ha et skikkelig navn, Seo Beskrivelse og beskrivelse av etasjen...'
       end
   end
 
@@ -47,9 +47,9 @@ class BarsController < ApplicationController
   # PATCH/PUT /bars/1.json
   def update
       if @bar.update(bar_params)
-        redirect_to bars_path, notice: 'Bar was successfully updated.'
+        redirect_to bars_path, notice: 'Baren er oppdatert'
       else
-        redirect_to bars_path, notice: 'Tit Fuck! Noe shit skjedde. Sorry'
+        redirect_to edit_bar_path(@bar), notice: 'Husk at en bar må ha et skikkelig navn, Seo Beskrivelse og beskrivelse av etasjen...'
       end
   end
 
@@ -57,7 +57,7 @@ class BarsController < ApplicationController
   # DELETE /bars/1.json
   def destroy
     @bar.destroy
-     redirect_to bars_url, notice: 'Da har baren kympet med en etasje.'
+     redirect_to bars_url, notice: 'Da har baren krympet med en etasje.'
   end
 
   private
