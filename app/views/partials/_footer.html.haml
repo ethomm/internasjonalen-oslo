@@ -34,7 +34,7 @@
 							Adresse
 					.card-text
 						.row.mt-3
-							.col-4{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
+							.col-lg-4.col-12{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
 								%span{:itemprop => "streetAddress"}
 									= @setting.adresse
 								%br
@@ -43,7 +43,7 @@
 								\
 								%span{:itemprop => "addressRegion"}
 									= @setting.poststed
-							.col-8.text-right
+							.col-lg-8.col-12
 								%span{:itemprop => "email"}
 									= mail_to @setting.epost, encode: "hex", class: "contactmail" do
 										= email_robot(@setting.epost)

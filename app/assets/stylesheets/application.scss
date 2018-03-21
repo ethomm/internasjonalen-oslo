@@ -270,9 +270,49 @@ a.contactmail {
   }
 }
 
-@media (max-width: 730px) {
+
+
+@media (max-width: 1199px) {
+.jumbotron {
+  padding-top: 150px;
+  z-index: 10000;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  h1{
+    font-size: 10rem;
+  }
+}
+
+}
+
+
+@media (min-width: 1200px) {
+.jumbotron {
+  padding-top: 250px;
+  z-index: 10000;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  h1{
+    font-size: 10rem;
+  }
+}
+
+}
+
+@media (max-width: 900px) {
 .jumbotron {
   padding-top: 100px;
+  z-index: 100000;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 
   h1{
     font-family: $teko;
@@ -283,18 +323,23 @@ a.contactmail {
 
 }
 
-@media (min-width: 731px) {
+@media (max-width: 500px) {
 .jumbotron {
-  padding-top: 250px;
+  padding-top: 30px;
+  z-index: 100000;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 
   h1{
-    font-size: 10rem;
+    font-family: $teko;
+    font-weigth: 600;
+    font-size: 2rem;
   }
 }
 
 }
-
-
 
 
 

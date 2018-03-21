@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+  	@images = FrontpageImage.published
   end
 
   def about

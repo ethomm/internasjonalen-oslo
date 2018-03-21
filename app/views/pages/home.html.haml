@@ -2,17 +2,18 @@
 -provide(:title, "#{@setting.slogan}")
 -provide(:canonical, "/")
 = javascript_include_tag 'frontpage_images', 'data-turbolinks-track': 'reload', async: Rails.env.production?
-%section.container-fluid#section-main
-	.jumbotron
-		.row
-			.col-12
-				%h1.mt-3.text-center.text-white
-					= @setting.slogan.upcase
-		.row
-			.col-12.text-center
-				%a{:href => "https://www.google.com/maps/place/Internasjonalen/@59.9141892,10.7487952,419m/data=!3m1!1e3!4m13!1m7!3m6!1s0x0:0x0!2zNDXCsDI3JzUxLjAiTiA5wrAxMScyOS4wIkU!3b1!8m2!3d45.464167!4d9.191389!3m4!1s0x0:0x2f311a016cc4580a!8m2!3d59.9145319!4d10.7495843?hl=no" , :target => "_blank"}
-					%button.btn.btn-success.btn-lg.mt-2
-						%i.fa.fa-location-arrow{"aria-hidden" => "true"}
-						Finn veien for meg!
-				= link_to "Kontakt Oss", kontakt_internasjonalen_path, class:"btn btn-lg btn-light mt-2"
+
+
+- if @images.count >= 2
+	#carouselExampleSlidesOnly.carousel.slide{ 'data-ride'=> "carousel"}
+		= render 'partials/page_static_home'
+		.carousel-inner
+			- @images.each_with_index do |img, i|
+				%div.carousel-item{:class => is_active_class(i)}
+					%img.d-block.w-100{ :src => img.image_url.url, :alt => "First slide"}
+
+
+- else
+	%section.container-fluid#section-main
+		= render 'partials/page_static_home'
 
