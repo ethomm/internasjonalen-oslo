@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
 		if @user && @user.authenticate(params[:session][:password])
 			log_in @user
 			params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-			flash[:notice] = "Du er nå logget inn"
 			redirect_to administrator_path
+			flash[:notice] = "Du er nå logget inn"
 		else
 			flash[:alert] = "Feil brukernavn og passord"
 			render 'new', layout: 'admin'

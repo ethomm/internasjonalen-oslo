@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   resources :bookingimages, except: [:index, :show, :edit]
   resources :bookings, except: [:show, :index]
   resources :globalsettings, only:[:edit, :update]
-  resources :drinks, except: [:show, :index]
   resources :omosses, only:[:edit, :update]
   resources :users, except:[:show]
   
@@ -43,6 +42,6 @@ Rails.application.routes.draw do
   get     'administrator/booking'           =>   'administrator#booking'
   get     'administrator/editbooking'       =>   'administrator#edit_booking'
   get     'administrator/frontpage_images'  =>   'administrator#frontpage_images'
-
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

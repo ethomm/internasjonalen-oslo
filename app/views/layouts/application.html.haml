@@ -8,7 +8,7 @@
 		%meta{:content => yield(:description), :name => "description"}
 		%link{:rel=>"canonical", :href => canonical(yield(:canonical))}
 		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
-
+		%meta{:name => "author", :content => "Reel Media Nordic AS | www.reelmedianoric.com"}
 		%meta{"http-equiv" => "Expires", :content => "30"} 
 		= csrf_meta_tags
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'

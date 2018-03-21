@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-	has_many :bookingimages, dependent: :destroy
+	has_many :bookingimages
 	before_create :create_slug
 
   validates :title, presence: true, length: {minimum: 4}
