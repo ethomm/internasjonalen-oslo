@@ -17,14 +17,7 @@ default: &default
   password:
   socket: /tmp/mysql.sock
 
-prod: &prod
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV['DATABASE_URL'] %>
-#
+
 
 development:
   <<: *default
@@ -57,7 +50,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *prod
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: internasjonalen_production
   username: internasjonalen
   password: <%= ENV['INTERNASJONALEN_DATABASE_PASSWORD'] %>
