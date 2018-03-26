@@ -60,16 +60,6 @@ puts "=================================================="
 puts "Globals settings was created"
 
 
-Contactperson.create!(name: "Eirik", email: "Eirik@meetprod.no", telefon: "99598827")
-Contactperson.create!(name: "Laura", email: "laura@meetprod.no", telefon: "99598827")
-Contactperson.create!(name: "Thomas", email: "thomas@meetprod.no", telefon: "99598827")
-Contactperson.create!(name: "Wilima", email: "Wilima@meetprod.no", telefon: "99598827")
-Contactperson.create!(name: "Mickey", email: "Mickey@meetprod.no", telefon: "99598827")
-
-puts "=================================================="
-
-puts "5 Contactpersons was created"
-
 Role.create!(title: "Dagligleder", stilling: 1, globalsetting_id: 1)
 Role.create!(title: "Booking ansvalig", stilling: 2, globalsetting_id: 1)
 Role.create!(title: "Teknisk ansvalig", stilling: 3, globalsetting_id: 1)
