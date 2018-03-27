@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20180319135656) do
 
-  create_table "barimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+ # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "barimages", force: :cascade do |t|
     t.bigint "bar_id"
     t.text "image_url"
     t.string "fotograf"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.index ["bar_id"], name: "index_barimages_on_bar_id"
   end
 
-  create_table "bars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "bars", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.text "top_image"
   end
 
-  create_table "bookingimages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "bookingimages", force: :cascade do |t|
     t.string "image"
     t.string "description"
     t.string "fotograf"
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.index ["bookings_id"], name: "index_bookingimages_on_bookings_id"
   end
 
-  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "bookings", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.string "slug"
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.text "seodescription"
   end
 
-  create_table "contactpeople", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "contactpeople", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "telefon"
@@ -61,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.integer "stilling", default: 0
   end
 
-  create_table "frontpage_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "frontpage_images", force: :cascade do |t|
     t.text "image_url"
     t.string "fotograf"
     t.datetime "created_at", null: false
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.integer "status"
   end
 
-  create_table "globalsettings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "globalsettings", force: :cascade do |t|
     t.boolean "mandag"
     t.boolean "tirsdag"
     t.boolean "onsdag"
@@ -118,7 +121,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.index ["singleton_guard"], name: "index_globalsettings_on_singleton_guard", unique: true
   end
 
-  create_table "omosses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "omosses", force: :cascade do |t|
     t.string "title"
     t.text "ingress"
     t.text "body"
@@ -128,7 +131,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.index ["singleton_guard"], name: "index_omosses_on_singleton_guard", unique: true
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "title"
     t.bigint "contactperson_id"
     t.bigint "globalsetting_id", default: 1
@@ -139,13 +142,13 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.index ["globalsetting_id"], name: "index_roles_on_globalsetting_id"
   end
 
-  create_table "tekniskcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tekniskcategories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tekniskitems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tekniskitems", force: :cascade do |t|
     t.string "title"
     t.integer "antall"
     t.bigint "tekniskcategory_id"
@@ -155,7 +158,7 @@ ActiveRecord::Schema.define(version: 20180319135656) do
     t.index ["tekniskcategory_id"], name: "index_tekniskitems_on_tekniskcategory_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.boolean "admin", default: false
