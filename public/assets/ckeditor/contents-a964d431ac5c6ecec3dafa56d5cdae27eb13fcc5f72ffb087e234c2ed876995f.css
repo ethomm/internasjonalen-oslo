@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+/* line 5, /Users/EirikThommessen/railsprojects/internasjonalen/app/assets/javascripts/ckeditor/contents.scss */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* line 9, /Users/EirikThommessen/railsprojects/internasjonalen/app/assets/javascripts/ckeditor/contents.scss */
+#cke_omoss_body, .cke_chrome {
+  border-radius: 15px;
+}
