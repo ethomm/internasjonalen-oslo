@@ -5,8 +5,8 @@
         %h1
           Forside bilder
         %p.small
-          Skriv noe info om hvordan denne siden skal brukes
-    .row.mt-4
+          Her kan du laste opp bilder som blir brukt til en bilde karusell på forsiden. Kravet er at to bilder er lastet opp og er publisert. Når to bilder er lastet opp starter karusellen av seg selv. Prøv å holde bildestrørrelsene ned, men skalering og optimalisering vil serveren ta seg av.
+    .row
       .col-12
         = form_for(@frontpageImage) do |f|
           - if @frontpageImage.errors.any?

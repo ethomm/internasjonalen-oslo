@@ -7,7 +7,7 @@
 			%h2.pb-4.pt-4
 				= @bar.title.upcase
 			-if @bar.top_image?
-				%img{src: @bar.top_image}
+				%img{src: @bar.top_image, alt: "internasjonalen Oslo - #{@bar.title}"}
 			%p
 				= @bar.body.html_safe
 	%aside.row.justify-content-center
@@ -16,4 +16,4 @@
 				- @bar.barimages.each do |i|
 					.col-6.col-md-4.col-lg-3.mt-1
 						%a{:href => i.image_url.url, 'data-lightbox' => @bar.title, 'data-title' => i.description}
-							= image_tag i.image_url.url(:mobile)
+							= image_tag i.image_url.url(:mobile), alt: "Internasjonalen Oslo - #{i.description}"

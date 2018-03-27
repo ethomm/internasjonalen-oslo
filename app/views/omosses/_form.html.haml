@@ -10,10 +10,10 @@
   .row
     .col-12.pt-3
       %strong
-        = f.label "Ingress / SEO beskrivelse"
+        = f.label "SEO beskrivelse"
       %br
       %span.small
-        Beskrivelsen her vil gå i headeren på siden som igjen blir plukket opp av søkemotorer. For at denne skal være optimal, er det fint om teksten her holdes til 160 tegn.
+        Beskrivelsen her vil gå i headeren på siden som igjen blir plukket opp av søkemotorer. For at denne skal være optimal, er det fint om teksten her holdes til 160 tegn. Teksten her vil ikke synes i selve nettleserviduet.
         = link_to "Mer informasjon her", administrator_hjelp_path(anchor: "seoingress")
       = f.text_area :ingress, :id => 'seodescription', :class => 'form-control'
   .row

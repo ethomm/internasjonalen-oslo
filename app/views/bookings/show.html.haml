@@ -20,5 +20,5 @@
 				- @images.each do |i|
 					.col-6.col-md-4.col-lg-3.mt-1
 						%a{:href => i.image.url, 'data-lightbox' => @booking.title, 'data-title' => i.description}
-							= image_tag i.image.url(:mobile)
+							= image_tag i.image.url(:mobile), alt: "Internasjonalen Oslo - #{i.description}"
 

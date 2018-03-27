@@ -9,6 +9,8 @@
 				.col-12
 					%h6
 						Legg til bilde for baren
+					%p.small
+						Her kan du legge til flere bilder for å illustrere for gjester hvordan atmosfæren er. Når du legger til et bildet er det krav om en liteb beskrivelse. Navn på fotograf er valgfritt. Prøv å holde bildestrørrelsene ned, men skalering og optimalisering vil serveren ta seg av.
 			.row.mt-2
 				.col-12
 					%label.custom-file
@@ -40,5 +42,5 @@
 						= image.description
 				.row
 					.col-12
-						= link_to image, method: :destroy,  data: { confirm: 'Er du sikker?' }, class: "btn btn-sm btn-block btn-danger" do
+						= link_to image, method: :delete,  data: { confirm: 'Er du sikker?' }, class: "btn btn-sm btn-block btn-danger" do
 							%i.fa.fa-trash{"aria-hidden" => "true"}

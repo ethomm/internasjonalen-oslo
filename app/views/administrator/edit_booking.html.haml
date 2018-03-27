@@ -2,7 +2,7 @@
 	.col-12.col-md-10.col-lg-6.mt-4
 		%h1
 			= @booking.title
-		%small
+		%p
 			=link_to edit_booking_path(@booking) do
 				%i.fa.fa-edit{"aria-hidden" => "true"}
 				Rediger #{@booking.title.downcase}
@@ -58,6 +58,8 @@
 	.col-12.col-md-10.col-lg-6.mt-4
 		%h4
 			Legg til bilde
+		%p.small
+			Her kan du legge til flere bilder for å illustrere for gjester hvordan atmosfæren er. Når du legger til et bildet er det krav om en liteb beskrivelse. Navn på fotograf er valgfritt. Prøv å holde bildestrørrelsene ned, men skalering og optimalisering vil serveren ta seg av.
 .row.justify-content-center
 	.col-12.col-md-10.col-lg-6
 		= form_for @image do |f|
@@ -75,7 +77,7 @@
 					= f.text_field :description, :class => "form-control", :placeholder => "beskrivelse av bilde"
 			.row.mt-2
 				.col-12
-					= f.text_field :fotograf, :class => "form-control", :placeholder => "fotograf"
+					= f.text_field :fotograf, :class => "form-control", :placeholder => "Fotograf (valgfritt)"
 
 			.row.mt-2
 				.col-12

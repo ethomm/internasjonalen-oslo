@@ -1,4 +1,5 @@
 class BarimagesController < ApplicationController
+	before_action :authenticate_user
 	before_action :set_barimage, only: [:edit, :update, :destroy]
 
 	def create
@@ -10,6 +11,12 @@ class BarimagesController < ApplicationController
 				flash[:alert] = "For å legge til et bilde, må bildet både ha en fil (PNG, JPG, JPEG eller GIF), deretter må den ha en kort beskrivelse. Fotograf er valgfritt"
 				redirect_to edit_bar_path(@barimage.bar_id)
 		end
+	end
+
+	def destroy
+		@barimage.destroy
+		flash[:notice] = "Bildet er blitt slettet"
+		redirect_to edit_bar_path(@barimage.bar_id)
 	end
 
 

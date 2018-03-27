@@ -14,7 +14,7 @@
 						%p.small
 							Lurer du på flere ting vedrørende administrasjonssiden kan du finne 
 							= link_to "mer informasjon her", administrator_hjelp_path
-				.row.p-1.pt-2.pb-3.bg-light.text-dark
+				.row.p-1.pt-2.pb-3.bg-light.text-dark.justify-content-between
 					.col-1 
 						= f.check_box :mandag, {:id => "mondayopen"}, 'true' , 'false'
 					.col-3
@@ -29,7 +29,7 @@
 						= f.number_field :mandagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\ : 
 						= f.number_field :mandagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.p-1.bg-white.text-dark.pt-2.pb-3
+				.row.p-1.bg-white.text-dark.pt-2.pb-3.justify-content-between
 					.col-1
 						= f.check_box :tirsdag, {:id => "tuesdayopen"}, 'true' , 'false'
 					.col-3
@@ -44,7 +44,7 @@
 						= f.number_field :tirsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :tirsdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.p-1.bg-light.text-dark.pt-2.pb-3
+				.row.p-1.bg-light.text-dark.pt-2.pb-3.justify-content-between
 					.col-1
 						= f.check_box :onsdag, {:id => "wednesdayopen"}, 'true' , 'false'
 					.col-3
@@ -59,7 +59,7 @@
 						= f.number_field :onsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :onsdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.p-1.bg-white.text-dark.pt-2.pb-3
+				.row.p-1.bg-white.text-dark.pt-2.pb-3.justify-content-between
 					.col-1
 						= f.check_box :torsdag, {:id => "thursdayopen"}, 'true' , 'false'
 					.col-3
@@ -74,7 +74,7 @@
 						= f.number_field :torsdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :torsdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.p-1.bg-light.text-dark.pt-2.pb-3
+				.row.p-1.bg-light.text-dark.pt-2.pb-3.justify-content-between
 					.col-1
 						= f.check_box :fredag, {:id => "fridayopen"}, 'true' , 'false'
 					.col-3
@@ -89,7 +89,7 @@
 						= f.number_field :fredagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :fredagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.p-1.bg-white.text-dark.pt-2.pb-3
+				.row.p-1.bg-white.text-dark.pt-2.pb-3.justify-content-between
 					.col-1
 						= f.check_box :lørdag, {:id => "saturdayopen"}, 'true' , 'false'
 					.col-3
@@ -104,7 +104,7 @@
 						= f.number_field :lørdagclosinghour , min: 0, max: 23, :class => "apningstider"
 						\:
 						= f.number_field :lørdagclosingminute , min: 0, max: 59, :class => "apningstider"
-				.row.p-1.bg-light.text-dark.pt-2.pb-3
+				.row.p-1.bg-light.text-dark.pt-2.pb-3.justify-content-between
 					.col-1
 						= f.check_box :søndag, {:id => "sundayopen"}, 'true' , 'false'
 					.col-3

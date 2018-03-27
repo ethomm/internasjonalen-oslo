@@ -7,15 +7,15 @@
 			.col-12
 				%h2.pt-4
 					Kontakt informasjon
-		.row
-			.col-12.col-lg-5
+		.row.justify-content-center
+			.col-10.col-lg-5
 				- if @contact.leder.first
 					= render partial:'partials/kontakt_person', locals: {person: @contact.leder.first, titel: "Generelle henvendelser" } 
-			.col-12.col-lg-5.offset-lg-2{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
+			.col-10.col-lg-5.offset-lg-2{:itemprop => "address", :itemscope => true, :itemtype => "http://schema.org/PostalAddress"}
 				%h3
 					Adresse
 				.row.pt-2.pb-4
-					.col-12
+					.col-10
 						%h5
 							Internasjonalen
 						%span{:itemprop => "streetAddress"}
@@ -39,8 +39,10 @@
 							(+47)
 							%a{:href => "tel:#{@setting.telefonnr}"} 
 								= @setting.telefonnr
-		- if @contact.booking.first
-			= render partial:'partials/kontakt_person', locals: {person: @contact.booking.first, titel: "Booking" } 
-		- if @contact.teknisk.first != nil
-			= render partial:'partials/kontakt_person', locals: {person: @contact.teknisk.first, titel: "Teknisk" } 
+		.row.justify-content-center
+			.col-10.col-lg-12
+				- if @contact.booking.first
+					= render partial:'partials/kontakt_person', locals: {person: @contact.booking.first, titel: "Booking" } 
+				- if @contact.teknisk.first != nil
+					= render partial:'partials/kontakt_person', locals: {person: @contact.teknisk.first, titel: "Teknisk" } 
 			

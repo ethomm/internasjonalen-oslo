@@ -10,7 +10,7 @@
 		.carousel-inner
 			- @images.each_with_index do |img, i|
 				%div.carousel-item{:class => is_active_class(i)}
-					%img.d-block.w-100{ :src => img.image_url.url, :alt => "First slide"}
+					%img.d-block.w-100{ :src => img.image_url.url, :alt => "Internasjonalen Oslo Forside bildet #{i}"}
 
 
 - else
