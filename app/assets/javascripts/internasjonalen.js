@@ -1,4 +1,9 @@
-$( document ).on('turbolinks:load', function() {
+
+var ready;
+
+
+
+ready = function (){
   alert('loaded');
 
   lightbox.option({
@@ -14,7 +19,6 @@ $( document ).on('turbolinks:load', function() {
   });
 
 $('#newFrontpageImage').on('shown.bs.modal', function () {
-    console.log('skjer det noe?')
   $('#myInput').trigger('focus')
 })
 
@@ -104,7 +108,7 @@ $('#newFrontpageImage').on('shown.bs.modal', function () {
     $('.sundaytime').toggle();
   });
 
-});
+}
 
 
 // Function to check seodescriptions
@@ -376,3 +380,5 @@ function setMap() {
         });
 
 }
+
+$( document ).on('turbolinks:load', ready());
