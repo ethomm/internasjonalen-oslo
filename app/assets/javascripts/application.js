@@ -14,12 +14,15 @@
 //= require rails-ujs
 //= require jquery3
 //= require jquery-ui
+//= require jquery.turbolinks
 //= require popper
 //= require bootstrap-sprockets
 //= require gritter
-//= require turbolinks
 //= require lightbox
 //= require ckeditor/init
+//= require turbolinks
+//= require turbolinks-compatibility
+
 
 $( document ).on('turbolinks:load', function() {
 
