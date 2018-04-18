@@ -108,9 +108,10 @@ $('#newFrontpageImage').on('shown.bs.modal', function () {
     $('.sundaytime').toggle();
   });
 
+}
 
-
-
+//$( document ).on('turbolinks:load', ready());
+$(window).bind('turbolinks:load', ready)
 // Function to check seodescriptions
 
 function seodescription(){
@@ -380,6 +381,7 @@ function setMap() {
         });
 
 }
-}
 
-$( document ).on('turbolinks:load', ready());
+
+
+
