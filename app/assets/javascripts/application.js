@@ -17,9 +17,9 @@
 //= require jquery.turbolinks
 //= require popper
 //= require bootstrap-sprockets
-//= require internasjonalen
 //= require gritter
 //= require lightbox
 //= require ckeditor/init
+//= require internasjonalen
 //= require turbolinks
 //= require turbolinks-compatibility
