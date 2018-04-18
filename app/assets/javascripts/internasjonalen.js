@@ -108,7 +108,7 @@ $('#newFrontpageImage').on('shown.bs.modal', function () {
     $('.sundaytime').toggle();
   });
 
-}
+
 
 
 // Function to check seodescriptions
@@ -379,6 +379,7 @@ function setMap() {
 
         });
 
+}
 }
 
 $( document ).on('turbolinks:load', ready());
