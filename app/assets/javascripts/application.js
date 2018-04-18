@@ -25,6 +25,7 @@
 
 
 $( document ).on('turbolinks:load', function() {
+  alert('loaded');
 
   lightbox.option({
       'resizeDuration': 200,
