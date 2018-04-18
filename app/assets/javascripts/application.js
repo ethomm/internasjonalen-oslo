@@ -23,5 +23,3 @@
 //= require ckeditor/init
 //= require turbolinks
 //= require turbolinks-compatibility
-//= require three_
-
