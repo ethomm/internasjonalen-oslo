@@ -4,7 +4,7 @@ var ready;
 
 
 ready = function (){
-  alert('loaded');
+  console.log('All systems running...');
 
   lightbox.option({
       'resizeDuration': 200,
