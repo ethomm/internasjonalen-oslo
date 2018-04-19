@@ -13,6 +13,7 @@
 		= csrf_meta_tags
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production?
+		= javascript_include_tag 'maps', 'data-turbolinks-track': 'reload'
 		
 		:plain
 			<!--[if lt IE 9]>
@@ -31,4 +32,4 @@
 		= yield
 		= render 'partials/footer'
 		= alerts
-		%script{  :src =>"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIZWXAgJ-kotgLigFHHRJ9V7eHYnEsYRI&callback=setMap"}
+		%script{  :src =>"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIZWXAgJ-kotgLigFHHRJ9V7eHYnEsYRI&callback=initMap"}
