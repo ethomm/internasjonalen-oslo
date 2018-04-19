@@ -10,10 +10,6 @@ ready = function (){
       'resizeDuration': 200,
       'wrapAround': true
     })
-
-  if($('#map').length){
-    setMap();
-  }
   $('.icon').on('click', function() {
     $(this).toggleClass('open');
     $('#mobilemenu').slideToggle('slow');
