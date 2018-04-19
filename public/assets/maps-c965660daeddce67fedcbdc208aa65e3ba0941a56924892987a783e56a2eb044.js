@@ -93,3 +93,4 @@ function initMap(){
     window.open(url, "_blank")
     });
 }
+;
