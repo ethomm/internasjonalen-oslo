@@ -1,8 +1,8 @@
 function initMap(){
-  var grevent = {lat: 59.914539531265376, lng: 10.749528244163002};
+  var internasjonalen = {lat: 59.914539531265376, lng: 10.749528244163002};
   var myOptions = {
     zoom: 17,
-    center: grevent,
+    center: internasjonalen,
     disableDefaultUI: true, // a way to quickly hide all controls
     mapTypeControl: false,
     scaleControl: false,
@@ -79,7 +79,7 @@ function initMap(){
   var logo = $('#map').attr('image');
   map = new google.maps.Map(document.getElementById('map'), myOptions);
   var marker = new google.maps.Marker({
-  position: grevent,
+  position: internasjonalen,
   map: map,
   icon: logo,
   title: 'Internasjonalen'
